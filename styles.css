@@ -1,15 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
 * {
+    margin: 0;
+    padding: 0;
     border: dotted 1px black;
 }
 
 body {
-    font-family: Arial, sans-serif;   
+    font-family: 'Lato', sans-serif; 
+}
+
+/* Top Navbar */
+nav.navbar{
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+    z-index: 5;
 }
 
 .top-navbar-color{
     background-color: #273B22;
 }
 
+.navbar-brand {
+    margin-left: 2rem;
+}
+
+.search-bar-color{
+    background-color: #384C46;
+}
+
+/* Side Navbar */
 .sidebar {
     min-height: 100vh;
 }
@@ -18,21 +39,66 @@ body {
     background: rgba(78, 78, 29, 0.41);;
 }
 
-.logo-circle {
-    width: 50px;
-    height: 50px;
-    font-size: 18px;
+#side-nav-icons-flex{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.sidebar .nav-link {
+    color: #000;
+}
+
+.sidebar .nav-link img {
+    width: 30px;
+    height: 30px;
+}
+
+.side-nav-icons{
+    color: black;
+}
+
+/* Main content */
+.main-content .plant-tag {
+    padding-left: 1rem;
+}
+
+.main-content-color{
+    background-color: #FFFFED;
+}
+
+/* Card */
+.card-top-color{
+    background-color: #626C56
+}
+
+.topic-category-color{
+    background-color: #B8A589;
+}
+
+.plant-tag-color{
+    background-color: #CDD1B6;
 }
 
 .card img {
     object-fit: cover;
 }
 
+.card-body-color{
+    background-color: #EBEBE5
+}
+
 .card-footer span {
-    font-size: 14px;
+    font-size: 1rem;
     color: #6c757d;
 }
 
 .card-footer span i {
-    margin-right: 5px;
+    margin-right: 0.4rem;
 }
+ 
