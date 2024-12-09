@@ -1,0 +1,38 @@
+* {
+    border: dotted 1px black;
+}
+
+body {
+    font-family: Arial, sans-serif;   
+}
+
+.top-navbar-color{
+    background-color: #273B22;
+}
+
+.sidebar {
+    min-height: 100vh;
+}
+
+.side-navbar-color{
+    background: rgba(78, 78, 29, 0.41);;
+}
+
+.logo-circle {
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+}
+
+.card img {
+    object-fit: cover;
+}
+
+.card-footer span {
+    font-size: 14px;
+    color: #6c757d;
+}
+
+.card-footer span i {
+    margin-right: 5px;
+}
