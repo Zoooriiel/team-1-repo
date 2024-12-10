@@ -22,13 +22,13 @@
 
     <div class="container-lg">
         <!-- Top Navbar -->
-        <nav class="top-navbar-color px-2 py-2">
+        <nav class="top-navbar-color px-2 py-2 top-navbar-hide">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-3 align-content-center">
                         <!-- Logo -->
                         <a class="" href="#">
-                            <img class="min-logo-dimension rounded-circle" src="images/root_squad_logo.jpg" alt="Logo">
+                            <img class="min-logo-dimension rounded-circle " src="images/root_squad_logo.jpg" alt="Logo">
                         </a>
                     </div>
                     <div class="col-6 align-content-center">
@@ -40,10 +40,10 @@
                     <div class="col-3 align-content-center">
                         <!-- Top right menu -->
                         <div class="d-inline-flex float-end">
-                            <a class="top-nav-icon-post mx-3 text-white text-center align-self-center d-blockp-2" href="#">
+                            <a class="mx-3 text-white text-center align-self-center d-blockp-2" href="#">
                                 <i class="fa fa-leaf fs-3" data-bs-toggle="tooltip" data-bs-title="Ceate a Post" data-bs-placement="bottom" aria-hidden="true"></i>
                             </a>
-                            <a class="top-nav-icon-notification mx-3 align-self-center" href="#">
+                            <a class="mx-3 align-self-center" href="#">
                                 <i class="fa fa-bell text-white fs-3" data-bs-toggle="tooltip" data-bs-title="Notifications" data-bs-placement="bottom" aria-hidden="true"></i>
                             </a>
                             <a class="mx-3 align-self-center" href="#">
@@ -56,19 +56,25 @@
     
                 </div>
             </div>
-            
-            
-
-
         </nav>
+
+
+        <!-- Start of mobile top navbar -->
+        <div class="">            
+                <a class="" href="#">
+                    <i class="fa-regular fa-bell mobile-bell" style="color: #000000;" data-bs-toggle="tooltip" data-bs-title="Notifications" data-bs-placement="bottom" aria-hidden="true"></i>
+                </a>           
+        </div>
         <!-- End of Top Navbar -->
 
         <div class="container-fluid">
             <div class="row">
+
                 <!-- Sidenavbar -->
-                <div class="col-md-3 min-vh-100 sidebar side-navbar-color">
+                <div class="col-md-3 min-vh-100 sidebar side-navbar-color side-navbar-hide">
                     
-                    <div class="d-flex flex-column">        
+                    <div class="d-flex flex-column">  
+
                         <!-- Desktop menu --> 
                         <ul class="nav flex-column">
                                 <li class="nav-item">
@@ -135,13 +141,66 @@
                 </div>
                 <!-- End of Sidenavbar -->
 
+                <!-- Start of Bottomnavbar (Mobile) -->
+                <ul id="bottom_navbar" class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">
+                            <i class="fa fa-home text-light fs-5" aria-hidden="true"></i>
+                            <span class="icon-text-color">Home</span>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fa fa-search text-light fs-5" aria-hidden="true"></i>
+                            <span class="icon-text-color">Explore</span>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fa fa-leaf text-light fs-5" aria-hidden="true"></i>
+                            <span class="icon-text-color">Post</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fa fa-bookmark text-light fs-5" aria-hidden="true"></i>
+                            <span class="icon-text-color">Saved</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fa fa-user text-light fs-5" aria-hidden="true"></i>
+                            <span class="icon-text-color">Profile</span>
+                        </a>
+                    </li>                   
+                  
+            </ul>    
+
+
                 <!-- Main Content -->
+
+                <!-- Breadcrumbs (Desktop) -->
                 <div class="col-md-9 main-content p-4 main-content-color">
                     
                     <!-- Main Content Header -->
-                    <div class="d-flex justify-content-start align-items-center mb-4">
+                <div class="breadcrumbs-container" >
+                    <div class="d-flex justify-content-start align-items-center mb-4"> 
                         <h4>Explore &gt; Search</h4>                  
-                        <div class="plant-tag d-flex pl-">
+                        <div class="plant-tag d-flex">
+                            <span class="badge  text-dark me-2 rounded-pill topic-category-color">aphids</span>
+                            <span class="badge text-dark rounded-pill topic-category-color">Plant Category</span>
+                        </div>
+                    </div>
+                </div>
+
+                    <!-- Breadcrumbs (Mobile)-->
+                    <div class="breadcrumbs-mobile mb-4"> 
+                        <h4>Explore &gt; Search</h4>                  
+                        <div class="d-flex">
                             <span class="badge  text-dark me-2 rounded-pill topic-category-color">aphids</span>
                             <span class="badge text-dark rounded-pill topic-category-color">Plant Category</span>
                         </div>
@@ -150,16 +209,16 @@
                     <!-- Post Card -->
                     <div class="d-flex justify-content-center ">
                         <div class="card mb-3 col-md-9 shadow card-body-color">
-                            <div class="card-header text-white card-top-color">
+                            <div class="card-header text-white card-top-color card-top-color-mobile">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div>
                                         <img src="https://via.placeholder.com/40" class="rounded-circle me-2" alt="User">
-                                        <strong>@PlantLove123</strong>
-                                        <span>8 hours ago</span>
+                                        <span class="card-top-font-color-mobile"><strong>@PlantLove123</strong></span>
+                                        <span class="card-top-font-color-mobile">8 hours ago</span>
                                     </div>
-                                    <img src="icons/ellipsis_icon.svg" alt="" width="8">
+                                    <i class="fa-solid fa-ellipsis-vertical" style="color: #ffffff;"></i>
                                 </div>
-                                <h5 class="card-title">My plants today!</h5>
+                                <h5 class="card-title card-top-font-color-mobile">My plants today!</h5>
                             </div>
                             <div class="card-body">
                                 <p class="card-text">
