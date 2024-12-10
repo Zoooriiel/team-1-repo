@@ -127,7 +127,7 @@ a {
   }
 
   /* Hide desktop top nav bar elements */
-  .top-navbar-hide {
+  .nav-top-icon-profile, .nav-top-icon-post {
     display: none;
   }
 
@@ -167,7 +167,7 @@ a {
     justify-content: space-evenly;
     align-content: center;
     background-color: #273b22;
-    height: 9vh;
+    height: 4rem;
   }
 
   .icon-text-color {
