@@ -194,6 +194,24 @@ a {
     align-items: center;
     gap: 3px;
   }
+
+  /* moving the photo in create a post under the upload and submit buttons */
+  .card-body .row {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .card-body .image-upload {
+    display: flex;
+    width: 50%
+  }
+
+  .card-body .btn{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+  }
 }
 
 /* End Mobile Section */
