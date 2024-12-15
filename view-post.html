@@ -194,91 +194,143 @@
                         <h4>View Post</h4>                  
                     </div>
 
-                    <!-- Post Card -->
+                    <!-- View Post Card -->
                     <div class="d-flex justify-content-center view-post-container">
                         <div class="card mb-3 col-md-12 shadow card-body-color">
                             <div class="card-body">
                                 <div class="row h-100">
+
+                                    <!-- Column for image -->
                                     <div class="col-md-7 d-flex">
                                         <div class="post-image-container align-content-center">
                                             <img src="images/plant_placeholder.jpg" class="img-fluid rounded" alt="">
                                         </div> 
                                     </div>
+
+                                    <!-- Column for post and comments -->
                                     <div class="col-md-5 d-flex flex-column view-post-column">
-                                        
-                                            <div class="d-flex align-items-center mb-2">
-                                                <img src="https://via.placeholder.com/40" class="rounded-circle me-2" alt="User">
-                                                <span class="card-top-font-color-mobile"><strong>@PlantLove123</strong></span>
-                                                <span class="card-top-font-color-mobile ms-1">8 hours ago</span>
-                                            </div>
-                                            <div class="d-flex mb-2">
-                                                <span class="badge text-dark me-2 rounded-pill topic-category-color"><a href="#">Topic Category</a></span>
-                                                <span class="badge text-dark rounded-pill plant-tag-color"><a href="#">Plant Category</a></span>
-                                            </div>
-                                            <h5 class="card-title card-top-font-color-mobile">My plants today!</h5>
-                                            <p class="card-text">
-                                                i love my plants i love my plants i love my plants i love my plants i love my plants.
-                                            </p>
-                                            <div class="border-top-0 d-flex justify-content-start mb-1">
-                                                <span class="me-3"><img src="icons/like_icon.svg" alt="Like Icon"> 1 Like</span>
-                                                <span><img src="icons/comment_icon.svg" alt="Comments Icon"> 11 Comments</span>
-                                            </div>
-                                            <div class="view-comments">
-                                                <div class="comments-container">
-                                                    <div class="comment card mb-2">                                                        
-                                                        <div class="comment-info d-flex align-items-center pt-1 ps-1">
-                                                            <img src="https://via.placeholder.com/40" class="rounded-circle me-2" alt="User">
-                                                            <span class="card-top-font-color-mobile"><strong>@PlantLove123</strong></span>
-                                                            <span class="card-top-font-color-mobile ms-1">8 hours ago</span>
-                                                        </div>                                                           
-                                                        <div class="card-body">
-                                                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, esse. Excepturi quia magni at nam, reprehenderit magnam laudantium nostrum harum?
-                                                        </div>
-                                                    </div>
-                                                    <div class="comment card mb-2">                                                        
-                                                        <div class="comment-info d-flex align-items-center pt-1 ps-1">
-                                                            <img src="https://via.placeholder.com/40" class="rounded-circle me-2" alt="User">
-                                                            <span class="card-top-font-color-mobile"><strong>@PlantLove123</strong></span>
-                                                            <span class="card-top-font-color-mobile ms-1">8 hours ago</span>
-                                                        </div>                                                           
-                                                        <div class="card-body">
-                                                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, esse. Excepturi quia magni at nam, reprehenderit magnam laudantium nostrum harum?
-                                                        </div>
-                                                    </div>
-                                                    <div class="comment card mb-2">                                                        
-                                                        <div class="comment-info d-flex align-items-center pt-1 ps-1">
-                                                            <img src="https://via.placeholder.com/40" class="rounded-circle me-2" alt="User">
-                                                            <span class="card-top-font-color-mobile"><strong>@PlantLove123</strong></span>
-                                                            <span class="card-top-font-color-mobile ms-1">8 hours ago</span>
-                                                        </div>                                                           
-                                                        <div class="card-body">
-                                                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, esse. Excepturi quia magni at nam, reprehenderit magnam laudantium nostrum harum?
-                                                        </div>
-                                                    </div>
-                                                    <div class="comment card mb-2">                                                        
-                                                        <div class="comment-info d-flex align-items-center pt-1 ps-1">
-                                                            <img src="https://via.placeholder.com/40" class="rounded-circle me-2" alt="User">
-                                                            <span class="card-top-font-color-mobile"><strong>@PlantLove123</strong></span>
-                                                            <span class="card-top-font-color-mobile ms-1">8 hours ago</span>
-                                                        </div>                                                           
-                                                        <div class="card-body">
-                                                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, esse. Excepturi quia magni at nam, reprehenderit magnam laudantium nostrum harum?
-                                                        </div>
+
+                                        <!-- Post -->
+                                        <div class="d-flex align-items-center mb-2">
+                                            <img src="https://via.placeholder.com/40" class="rounded-circle me-2" alt="User">
+                                            <span class="card-top-font-color-mobile"><strong>@PlantLove123</strong></span>
+                                            <span class="card-top-font-color-mobile ms-1">8 hours ago</span>
+                                        </div>
+                                        <div class="d-flex mb-2">
+                                            <span class="badge text-dark me-2 rounded-pill topic-category-color"><a href="#">Topic Category</a></span>
+                                            <span class="badge text-dark rounded-pill plant-tag-color"><a href="#">Plant Category</a></span>
+                                        </div>
+                                        <h5 class="card-title card-top-font-color-mobile">My plants today!</h5>
+                                        <p class="card-text">
+                                            i love my plants i love my plants i love my plants i love my plants i love my plants.
+                                        </p>
+                                        <div class="border-top-0 d-flex justify-content-start mb-1">
+                                            <span class="me-3"><img src="icons/like_icon.svg" alt="Like Icon"> 1 Like</span>
+                                            <span><img src="icons/comment_icon.svg" alt="Comments Icon"> 11 Comments</span>
+                                        </div>
+
+                                        <!-- Scrollable comments -->
+                                        <div class="view-comments">
+                                            <div class="comments-container">
+                                                <div class="comment card mb-2">                                                        
+                                                    <div class="comment-info d-flex align-items-center pt-1 ps-1">
+                                                        <img src="https://via.placeholder.com/40" class="rounded-circle me-2" alt="User">
+                                                        <span class="card-top-font-color-mobile"><strong>@PlantLove123</strong></span>
+                                                        <span class="card-top-font-color-mobile ms-1">8 hours ago</span>
+                                                    </div>                                                           
+                                                    <div class="card-body">
+                                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, esse. Excepturi quia magni at nam, reprehenderit magnam laudantium nostrum harum?
                                                     </div>
                                                 </div>
-                                                
-                                                <div class="comment-form input-group mb-3 align-self-end mt-auto">
-                                                    <textarea class="form-control comment-area" rows="1" placeholder="Comment">
-
-                                                    </textarea>                                                    
-                                                    <button class="btn btn-outline-secondary p-1" type="button" id="comment-button">Comment</button>
+                                                <div class="comment card mb-2">                                                        
+                                                    <div class="comment-info d-flex align-items-center pt-1 ps-1">
+                                                        <img src="https://via.placeholder.com/40" class="rounded-circle me-2" alt="User">
+                                                        <span class="card-top-font-color-mobile"><strong>@PlantLove123</strong></span>
+                                                        <span class="card-top-font-color-mobile ms-1">8 hours ago</span>
+                                                    </div>                                                           
+                                                    <div class="card-body">
+                                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, esse. Excepturi quia magni at nam, reprehenderit magnam laudantium nostrum harum?
+                                                    </div>
                                                 </div>
-
+                                                <div class="comment card mb-2">                                                        
+                                                    <div class="comment-info d-flex align-items-center pt-1 ps-1">
+                                                        <img src="https://via.placeholder.com/40" class="rounded-circle me-2" alt="User">
+                                                        <span class="card-top-font-color-mobile"><strong>@PlantLove123</strong></span>
+                                                        <span class="card-top-font-color-mobile ms-1">8 hours ago</span>
+                                                    </div>                                                           
+                                                    <div class="card-body">
+                                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, esse. Excepturi quia magni at nam, reprehenderit magnam laudantium nostrum harum?
+                                                    </div>
+                                                </div>
+                                                <div class="comment card mb-2">                                                        
+                                                    <div class="comment-info d-flex align-items-center pt-1 ps-1">
+                                                        <img src="https://via.placeholder.com/40" class="rounded-circle me-2" alt="User">
+                                                        <span class="card-top-font-color-mobile"><strong>@PlantLove123</strong></span>
+                                                        <span class="card-top-font-color-mobile ms-1">8 hours ago</span>
+                                                    </div>                                                           
+                                                    <div class="card-body">
+                                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, esse. Excepturi quia magni at nam, reprehenderit magnam laudantium nostrum harum?
+                                                    </div>
+                                                </div>
+                                                <div class="comment card mb-2">                                                        
+                                                    <div class="comment-info d-flex align-items-center pt-1 ps-1">
+                                                        <img src="https://via.placeholder.com/40" class="rounded-circle me-2" alt="User">
+                                                        <span class="card-top-font-color-mobile"><strong>@PlantLove123</strong></span>
+                                                        <span class="card-top-font-color-mobile ms-1">8 hours ago</span>
+                                                    </div>                                                           
+                                                    <div class="card-body">
+                                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, esse. Excepturi quia magni at nam, reprehenderit magnam laudantium nostrum harum?
+                                                    </div>
+                                                </div>
+                                                <div class="comment card mb-2">                                                        
+                                                    <div class="comment-info d-flex align-items-center pt-1 ps-1">
+                                                        <img src="https://via.placeholder.com/40" class="rounded-circle me-2" alt="User">
+                                                        <span class="card-top-font-color-mobile"><strong>@PlantLove123</strong></span>
+                                                        <span class="card-top-font-color-mobile ms-1">8 hours ago</span>
+                                                    </div>                                                           
+                                                    <div class="card-body">
+                                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, esse. Excepturi quia magni at nam, reprehenderit magnam laudantium nostrum harum?
+                                                    </div>
+                                                </div>
+                                                <div class="comment card mb-2">                                                        
+                                                    <div class="comment-info d-flex align-items-center pt-1 ps-1">
+                                                        <img src="https://via.placeholder.com/40" class="rounded-circle me-2" alt="User">
+                                                        <span class="card-top-font-color-mobile"><strong>@PlantLove123</strong></span>
+                                                        <span class="card-top-font-color-mobile ms-1">8 hours ago</span>
+                                                    </div>                                                           
+                                                    <div class="card-body">
+                                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, esse. Excepturi quia magni at nam, reprehenderit magnam laudantium nostrum harum?
+                                                    </div>
+                                                </div>
+                                                <div class="comment card mb-2">                                                        
+                                                    <div class="comment-info d-flex align-items-center pt-1 ps-1">
+                                                        <img src="https://via.placeholder.com/40" class="rounded-circle me-2" alt="User">
+                                                        <span class="card-top-font-color-mobile"><strong>@PlantLove123</strong></span>
+                                                        <span class="card-top-font-color-mobile ms-1">8 hours ago</span>
+                                                    </div>                                                           
+                                                    <div class="card-body">
+                                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, esse. Excepturi quia magni at nam, reprehenderit magnam laudantium nostrum harum?
+                                                    </div>
+                                                </div>
+                                                <div class="comment card mb-2">                                                        
+                                                    <div class="comment-info d-flex align-items-center pt-1 ps-1">
+                                                        <img src="https://via.placeholder.com/40" class="rounded-circle me-2" alt="User">
+                                                        <span class="card-top-font-color-mobile"><strong>@PlantLove123</strong></span>
+                                                        <span class="card-top-font-color-mobile ms-1">8 hours ago</span>
+                                                    </div>                                                           
+                                                    <div class="card-body">
+                                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, esse. Excepturi quia magni at nam, reprehenderit magnam laudantium nostrum harum?
+                                                    </div>
+                                                </div>
                                             </div>
-                                            
+                                            <!-- Comments input -->
+                                            <div class="comment-form input-group mb-3 align-self-end mt-auto">
+                                                <textarea class="form-control comment-area" rows="1" placeholder="Comment">
 
-
-                                       
+                                                </textarea>                                                    
+                                                <button class="btn btn-outline-secondary p-1" type="button" id="comment-button">Comment</button>
+                                            </div>
+                                        </div>                                     
                                     </div>
                                 </div>
                             </div>

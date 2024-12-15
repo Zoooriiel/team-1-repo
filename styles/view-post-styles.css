@@ -106,20 +106,15 @@ a {
   display: none;
 }
 /* Styling view post container */
-
-
-
-
-
-/* Styling view post and comments section */
 .view-post-container {
   height: fit-content
 }
 
+/* Styling view post and comments section */
 .view-comments {
   display: flex;
   flex-direction: column;
-  height: 30rem;
+  height: 50dvh;
   
 }
 
@@ -131,7 +126,6 @@ a {
 
 .comment-form {
   position: sticky; 
-  bottom: 0;
   background: white; 
   z-index: 1; 
 }
