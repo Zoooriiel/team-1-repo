@@ -1,0 +1,30 @@
+body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+}
+
+.custom-card {
+    max-width: 400px;
+    width: 100%;
+    background-color: #ffffff;
+    border: none;
+}
+
+.card .form-control {
+    height: 50px;
+    border-radius: 0.5rem;
+}
+
+.card .btn {
+    background-color: #0e1e13;
+    color: #ffffff;
+}
+
+.card .btn:hover {
+    background-color: #07120b;
+}
+
+.card p,
+.card ul {
+    font-size: 0.9rem;
+}

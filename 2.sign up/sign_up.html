@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up Form</title>
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Sign Up</h2>
+      <!-- Sign Up Form -->
+      <form>
+        <div class="mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Full Name"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Username"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Password"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Re-enter Password"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <input
+            type="email"
+            class="form-control"
+            placeholder="Email"
+            required
+          />
+        </div>
+        <div class="d-grid">
+          <button type="submit" class="btn btn-custom">Sign Up</button>
+        </div>
+      </form>
+
+      <!-- Divider -->
+      <div class="divider">
+        <span>OR</span>
+      </div>
+
+      <!-- Social Sign Up -->
+      <div class="social-buttons">
+        <button class="btn btn-light btn-social w-100">
+          <img
+            src="https://img.icons8.com/color/20/google-logo.png"
+            alt="Google"
+          />
+          Continue with Google
+        </button>
+        <button
+          class="btn btn-primary d-flex align-items-center justify-content-center"
+        >
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Facebook_Logo_2023.png"
+            alt="Facebook"
+            width="20"
+            class="me-2"
+          />
+          Continue with Facebook
+        </button>
+        <button
+          class="btn btn-dark d-flex align-items-center justify-content-center"
+        >
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
+            alt="Apple"
+            width="20"
+            class="me-2"
+          />
+          Continue with Apple
+        </button>
+        <div class="text-center mt-2">
+          <small>Forgot password? <a href="#">Click here</a></small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap 5 JS (optional for interactivity) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

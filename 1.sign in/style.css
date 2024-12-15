@@ -1,0 +1,57 @@
+
+body {
+    background-color: #eaeaea;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.signin-container {
+    background: #f5f5f5;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+.signin-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.btn-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.divider {
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+}
+.divider::before,
+.divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background-color: #ccc;
+}
+.divider::before {
+    left: 0;
+}
+.divider::after {
+    right: 0;
+}
+.divider span {
+    background-color: #f5f5f5;
+    padding: 0 10px;
+    color: #666;
+}
+.text-link {
+    color: #007bff;
+    text-decoration: none;
+}
+.text-link:hover {
+    text-decoration: underline;
+}

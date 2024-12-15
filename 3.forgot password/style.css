@@ -1,0 +1,38 @@
+body {
+    background-color: #f3f3f3;
+    font-family: Arial, sans-serif;
+}
+
+.forgot-password-card {
+    max-width: 400px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
+.btn-dark {
+    background-color: #0f1b0e;
+    color: #ffffff;
+}
+
+.btn-dark:hover {
+    background-color: #253d29;
+}
+
+.d-grid {
+    display: grid;
+    gap: 10px;
+}
+
+.text-muted {
+    font-size: 0.9rem;
+}
+
+img {
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.card p {
+    font-size: 14px;
+}
