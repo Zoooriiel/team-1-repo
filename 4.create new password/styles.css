@@ -1,6 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* border: dotted 1px black; */
+  }
+
 body {
     background-color: #f5f5f5;
-    font-family: Arial, sans-serif;
+    font-family: 'Lato', sans-serif;
 }
 
 .custom-card {
