@@ -3,7 +3,7 @@
 * {
     margin: 0;
     padding: 0;
-    border: dotted 1px black;
+    /* border: dotted 1px black; */
 }
 
 body {
@@ -63,27 +63,17 @@ a {
     color: black;
 }
 
-/* Main content */
-.main-content .plant-tag {
-    padding-left: 1rem;
+/* About Us Content */
+
+.about-heading{
+    text-align: center;
 }
 
 .main-content-color{
-    background-color: #FFFFED;
+    background-color: #fff4ed;
 }
 
 /* Card */
-.card-top-color{
-    background-color: #626C56
-}
-
-.topic-category-color{
-    background-color: #B8A589;
-}
-
-.plant-tag-color{
-    background-color: #CDD1B6;
-}
 
 .card img {
     object-fit: cover;
@@ -93,12 +83,9 @@ a {
     background-color: #EBEBE5
 }
 
-.card-footer span {
-    font-size: 1rem;
-    color: #6c757d;
-}
+ .about-link{
+    color: #0d805e;
+ } 
 
-.card-footer span i {
-    margin-right: 0.4rem;
-}
- 
+ /* Social Media Section */
+
