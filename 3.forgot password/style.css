@@ -5,15 +5,21 @@
 }
 
 body {
-    background-color: #f3f3f3;
+    background-image: url('/images/katie-burkhart-REk6cxrceoQ-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     font-family: 'Lato', sans-serif;
+    height: 100vh;
 }
 
 .forgot-password-card {
+    background-color: rgba(255, 255, 255, 0.8); 
+    backdrop-filter: blur(10px); 
     max-width: 400px;
     width: 100%;
     border-radius: 10px;
-    background-color: #ffffff;
+    
 }
 
 .btn-dark {
@@ -29,7 +35,30 @@ body {
     display: grid;
     gap: 10px;
 }
-
+.divider {
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+}
+.divider::before,
+.divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background-color: #ccc;
+}
+.divider::before {
+    left: 0;
+}
+.divider::after {
+    right: 0;
+}
+.divider span {
+    padding: 0 10px;
+    color: #666;
+}
 .text-muted {
     font-size: 0.9rem;
 }
@@ -46,7 +75,7 @@ img {
  * When in Desktop Version and hiding Mobile elements 
 */
 
-.hide-mobile {
+.small-mobile-logos {
     display: none; /* hide on desktop */
 }
 
@@ -64,14 +93,9 @@ img {
 
   /* Unhide  in mobile view */
   .small-mobile-logos {
+    display: block;
     width: 50px;
     height: 50px;
   }
- 
-  /*  .mobile-socials */ {
-    display: block;
-   
-  }
-
   
 }

@@ -5,12 +5,18 @@
 }
 
 body {
-  background-color: #e0e0e0;
-  font-family: 'Lato', sans-serif; 
+  background-image: url('/images/katie-burkhart-REk6cxrceoQ-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'Lato', sans-serif;
+  height: 100vh;
 }
 .form-container {
+  background-color: rgba(255, 255, 255, 0.8); 
+  backdrop-filter: blur(10px); 
   max-width: 400px;
-  background-color: #f5f5f5;
+  
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
@@ -54,7 +60,6 @@ body {
   right: 0;
 }
 .divider span {
-  background-color: #f5f5f5;
   padding: 0 10px;
   color: #888;
 }
@@ -65,11 +70,17 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+.desktop-socials-icon {
+  width: 11px;
+  height: 11px;
+}
+
 /*
  * When in Desktop Version and hiding Mobile elements 
 */
 
-.hide-mobile {
+.small-mobile-logos {
   display: none; /* hide on desktop */
 }
 
@@ -81,20 +92,15 @@ a:hover {
 
 @media only screen and (max-width: 640px) {
 /* Hide desktop elements */
-  .desktop-socials {
-    display: none;
-  }
+.desktop-socials {
+  display: none;
+}
 
-  /* Unhide  in mobile view */
-  .small-mobile-logos {
-    width: 50px;
-    height: 50px;
-  }
-
-  /*  .mobile-socials */ {
-    display: block;
-  
-  }
-
+/* Unhide  in mobile view */
+.small-mobile-logos {
+  display: block;
+  width: 50px;
+  height: 50px;
+}
 
 }
