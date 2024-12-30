@@ -1,0 +1,214 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  
+}
+
+body {
+  background: #e0e1de;
+  font-family: "Lato", sans-serif;
+}
+
+/* Top Navbar */
+nav.navbar {
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.top-navbar-color {
+  background-color: #273b22;
+}
+
+.min-profile-dimension,
+.min-logo-dimension {
+  max-width: 3rem;
+  height: auto;
+}
+
+/* Side Navbar */
+
+.side-navbar-color {
+  background: #bbbbab;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.sidebar .nav-link {
+  color: #000;
+}
+
+.side-nav-icons {
+  color: black;
+}
+
+/* Main content */
+.main-content .topic-tag {
+  padding-left: 1rem;
+}
+
+.main-content-color {
+  background-color: #ffffed;
+}
+
+
+/* Card */
+
+.card-top-color {
+  background-color: #626c56;
+}
+
+.topic-category-color {
+  background-color: #c8ddef;
+}
+
+.card img {
+  object-fit: cover;
+}
+
+.card-body-color {
+  background-color: #ebebe5;
+}
+
+.card-footer span {
+  font-size: 1rem;
+  color: #4d535a;
+}
+
+.card-footer span i {
+  margin-right: 0.4rem;
+
+}
+
+/* Square image on the left */
+.post-thumbnail-container {
+  width: 150px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.post-thumbnail {
+  width: 100%;        
+  height: 100%;       
+  object-fit: cover; 
+}
+
+/* Right-hand side three dots */
+.settings-menu .dots {
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  padding-right: 15px;
+}
+
+
+/*
+ * When in Desktop Version and hiding Mobile elements 
+ */
+
+/* Hide mobile notification bell in desktop */
+
+.mobile-bell {
+  display: none;
+}
+
+/* Hide Bottom Navbar in desktop */
+#bottom_navbar {
+  display: none;
+}
+
+.breadcrumbs-mobile {
+  display: none;
+}
+
+/* 
+*Mobile Section
+*/
+
+@media only screen and (max-width: 640px) {
+  /* Remove container in mobile */
+
+
+  div.container-lg {
+    width: 100%;
+    padding: 0;
+  }
+
+  #push-contents-up{
+    padding-bottom: 3.125rem;
+  }
+
+  /* Breadcrumbs mobile */
+  .breadcrumbs-container {
+    display: none;
+  }
+
+  .breadcrumbs-mobile {
+    display: block;
+    
+  }
+
+  /* Hide desktop top nav bar elements */
+  .top-navbar-hide {
+    display: none;
+  }
+
+  /* Unhide notification bell in mobile view */
+  .mobile-bell {
+    display: block;
+    background-color: #ffffed;
+    padding-bottom: 0;
+    font-size: 24px;
+    display: flex;
+    justify-content: end;
+    padding: 1px 20px 0px 0px;
+  }
+
+  /* Hide side navbar */
+  .side-navbar-hide {
+    display: none;
+  }
+
+  /* 
+  * Mobile card 
+  */
+
+  /* Card top color change in mobile view*/
+  .card-top-color-mobile {
+    padding-bottom: 0;
+  }
+
+  /* Bottom-navbar */
+  #bottom_navbar {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 5;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    background-color: #273b22;
+    height: 9vh;
+  }
+
+  .icon-text-color {
+    color: white;
+    font-size: 14px;
+  }
+
+  a.nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+  }
+}
+
+/* End Mobile Section */
