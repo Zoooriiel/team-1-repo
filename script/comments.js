@@ -1,6 +1,10 @@
-async function fetchComments() {
+async function fetchComments(postID = null) {
 
     try {
+        console.log("ID retrieved " + postID);
+        // TODO fetch from fetchcomments(post_id)
+        // TODO api call for comments here (springboot)
+        // const response = await fetch (`http://localhost:8080/fetchcomments/${postID}`)
         const response = await fetch('https://dummyjson.com/comments');
         const result = await response.json();
 
@@ -63,4 +67,7 @@ function addComment(comment) {
 
 }
 
-fetchComments();
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const postID = urlParams.get('post_id');
+fetchComments(postID);
