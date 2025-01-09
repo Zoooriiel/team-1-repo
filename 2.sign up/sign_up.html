@@ -14,12 +14,13 @@
   </head>
   <body>
     <div class="form-container">
-      <h2>Sign Up</h2>
+      <h2 class="text-center mb-4 fw-bold">Sign Up</h2>
       <!-- Sign Up Form -->
-      <form>
+      <form id="signup-form">
         <div class="mb-3">
           <input
             type="text"
+            id="fullname"
             class="form-control"
             placeholder="Full Name"
             required
@@ -28,6 +29,7 @@
         <div class="mb-3">
           <input
             type="text"
+            id="username"
             class="form-control"
             placeholder="Username"
             required
@@ -36,6 +38,7 @@
         <div class="mb-3">
           <input
             type="password"
+            id="password"
             class="form-control"
             placeholder="Password"
             required
@@ -44,6 +47,7 @@
         <div class="mb-3">
           <input
             type="password"
+            id="password-confirmation"
             class="form-control"
             placeholder="Re-enter Password"
             required
@@ -52,6 +56,7 @@
         <div class="mb-3">
           <input
             type="email"
+            id="email"
             class="form-control"
             placeholder="Email"
             required
@@ -102,7 +107,9 @@
         </button>
       </div>
       <!-- Social Media Buttons Mobile -->
-      <div class="hide-mobile mobile-socials d-flex justify-content-center gap-2 " >
+      <div
+        class="hide-mobile mobile-socials d-flex justify-content-center gap-2"
+      >
         <img
           src="https://img.icons8.com/?size=100&id=17949&format=png&color=000000"
           alt="Google"
@@ -119,13 +126,129 @@
           class="small-mobile-logos"
         />
       </div>
-      
-      </div>
     </div>
-    
-    
+
     <!-- Bootstrap 5 JS (optional for interactivity) -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const signupForm = document.getElementById("signup-form");
+        const fullNameInput = document.getElementById("fullname");
+        const usernameInput = document.getElementById("username");
+        const emailInput = document.getElementById("email");
+        const phoneInput = document.getElementById("phone");
+        const passwordInput = document.getElementById("password");
+        const passwordConfirmationInput = document.getElementById(
+          "password-confirmation"
+        );
+        const formMessage = document.getElementById("form-message"); //
+
+        signupForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // Reset error messages
+          resetErrorMessages();
+
+          // Client-side validation (simple example) NEED TO REVISIT
+          let isValid = true;
+
+          if (!fullnameInput.value.trim()) {
+            displayErrorMessage("fullname", "Full Name is required.");
+            isValid = false;
+          }
+          if (!usernameInput.value.trim()) {
+            displayErrorMessage("username", "Username is required.");
+            isValid = false;
+          }
+          if (!emailInput.value.trim()) {
+            displayErrorMessage("email", "Email is required.");
+            isValid = false;
+          } else if (!isValidEmail(emailInput.value.trim())) {
+            displayErrorMessage("email", "Invalid email format.");
+            isValid = false;
+          }
+          if (!phoneInput.value.trim()) {
+            displayErrorMessage("phone", "Phone is required.");
+            isValid = false;
+          }
+          if (!passwordInput.value.trim()) {
+            displayErrorMessage("password", "Password is required.");
+            isValid = false;
+          }
+          if (
+            passwordConfirmationInput.value.trim() !==
+            passwordInput.value.trim()
+          ) {
+            displayErrorMessage(
+              "password-confirmation",
+              "Passwords do not match."
+            );
+            isValid = false;
+          }
+
+          if (isValid) {
+            const formData = {
+              username: usernameInput.value,
+              email: emailInput.value,
+              phone: phoneInput.value,
+              password: passwordInput.value,
+            };
+
+            // Send to back-end
+            fetch("/api/signup", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(formData),
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                if (data.success) {
+                  formMessage.textContent = "Signup successful!";
+                  formMessage.style.backgroundColor = "lightgreen";
+                  formMessage.style.display = "block";
+                  setTimeout(() => {
+                    window.location.href = "/login";
+                  }, 1000);
+                } else {
+                  formMessage.textContent = "Signup failed: " + data.message;
+                  formMessage.style.backgroundColor = "lightcoral";
+                  formMessage.style.display = "block";
+                }
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+                formMessage.textContent =
+                  "An error occurred. Please try again later.";
+                formMessage.style.backgroundColor = "lightcoral";
+                formMessage.style.display = "block";
+              });
+          }
+        });
+
+        function displayErrorMessage(fieldId, message) {
+          const errorSpan = document.getElementById(fieldId + "-error");
+          errorSpan.textContent = message;
+          errorSpan.style.display = "block";
+        }
+
+        function resetErrorMessages() {
+          const errorSpans = document.querySelectorAll(".error-message");
+          errorSpans.forEach((span) => {
+            span.textContent = "";
+            span.style.display = "none";
+          });
+        }
+
+        // Checks if the given email is valid by using a regex pattern.
+        function isValidEmail(email) {
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          return emailRegex.test(email);
+        }
+      });
+    </script>
   </body>
 </html>

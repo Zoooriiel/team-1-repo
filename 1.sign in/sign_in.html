@@ -13,32 +13,45 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
+    <!-- Container -->
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-6 col-lg-4">
           <div class="signin-container">
-            <div class="signin-header">
+            <div class="text-center mb-4">
               <h3>Sign in</h3>
             </div>
 
-            <!-- Email and Password -->
-            <form>
+            <!-- Email -->
+            <form id="login-form">
               <div class="mb-3">
                 <input
                   type="email"
+                  id="email"
                   class="form-control"
                   id="email"
                   placeholder="Enter your email"
+                  required
                 />
+                <div class="invalid-feedback text-danger">
+                  Please enter a valid email.
+                </div>
               </div>
+              <!--Password -->
               <div class="mb-3">
                 <input
                   type="password"
+                  id="password"
                   class="form-control"
                   id="password"
                   placeholder="Enter your password"
+                  required
                 />
+                <div class="invalid-feedback text-white">
+                  Please enter a password.
+                </div>
               </div>
+              <!-- Submit button -->
               <button type="submit" class="btn btn-dark w-100 mb-2">
                 Sign In
               </button>
@@ -110,5 +123,111 @@
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- External Custom Script -->
+
+    <!-- Internal Custom Script -->
+    <script>
+      //This makes sure the script only runs after the HTML is loaded.
+      document.addEventListener("DOMContentLoaded", function () {
+        const loginForm = document.getElementById("login-form");
+        const formMessages = document.getElementById("form-messages");
+
+        // listens for the form submission
+        loginForm.addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent default form submission
+
+          //(TODO revisit this) Clear previous messages
+          formMessages.innerHTML = "";
+
+          // 1. Client-Side Validation
+          const emailInput = document.getElementById("email");
+          const passwordInput = document.getElementById("password");
+          const email = emailInput.value.trim(); //trim() to remove whitespaces
+          const password = passwordInput.value.trim();
+
+          let isValid = true;
+          let errors = [];
+
+          if (!email) {
+            errors.push("Email is required");
+            isValid = false;
+          } else if (!isValidEmail(email)) {
+            errors.push("Invalid email format");
+            isValid = false;
+          }
+          if (!password) {
+            errors.push("Password is required");
+            isValid = false;
+          }
+
+          if (!isValid) {
+            // Display validation errors
+            errors.forEach((error) => {
+              const errorDiv = document.createElement("div");
+              errorDiv.classList.add("error-message");
+              errorDiv.textContent = error;
+              formMessages.appendChild(errorDiv);
+            });
+            return; // Stop if validation failed
+          }
+
+          // 2. Prepare Form Data
+          const formData = new URLSearchParams();
+          formData.append("email", email);
+          formData.append("password", password);
+
+          // 3. Send Data to Backend (Using fetch - modern way)
+          fetch("/login", {
+            // Replace '/login' with your actual API endpoint
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded", // Important for form data
+            },
+            body: formData,
+          })
+            .then((response) => {
+              if (!response.ok) {
+                // Handle non-200 status codes
+                return response.text().then((text) => {
+                  throw new Error(`Server error: ${response.status} - ${text}`);
+                });
+              }
+              return response.json(); // Assuming server returns JSON
+            })
+            .then((data) => {
+              // 4. Handle Response
+              console.log("Login success:", data);
+              // Display success message
+              const successDiv = document.createElement("div");
+              successDiv.classList.add("success-message");
+              successDiv.textContent = "Login successful!";
+              formMessages.appendChild(successDiv);
+
+              // 5. Redirect to Dashboard (Replace with your actual redirect)
+              window.location.href = "/dashboard";
+
+              // 6. Store Session Info (Example using localStorage - use HttpOnly cookies for production)
+              // localStorage.setItem('token', data.token);
+              //localStorage.setItem('user', JSON.stringify(data.user)); // Assuming your API sends user information
+            })
+            .catch((error) => {
+              // Handle errors (Network, API, etc.)
+              console.error("Login failed:", error);
+              // Display error message to the user
+              const errorDiv = document.createElement("div");
+              errorDiv.classList.add("error-message");
+              errorDiv.textContent = `Login failed: ${error.message}`;
+              formMessages.appendChild(errorDiv);
+            });
+        });
+
+        function isValidEmail(email) {
+          // Basic email validation regex
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          return emailRegex.test(email);
+        }
+      });
+    </script>
   </body>
 </html>

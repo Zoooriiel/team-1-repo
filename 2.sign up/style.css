@@ -16,17 +16,12 @@ body {
   background-color: rgba(255, 255, 255, 0.8); 
   backdrop-filter: blur(10px); 
   max-width: 400px;
-  
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
   margin: 40px auto;
 }
-.form-container h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  font-weight: bold;
-}
+
 .btn-custom {
   background-color: #0c2b15;
   color: #fff;
@@ -83,8 +78,6 @@ a:hover {
 .small-mobile-logos {
   display: none; /* hide on desktop */
 }
-
-
 
 /* 
 *Mobile Section
