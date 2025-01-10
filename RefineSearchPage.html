@@ -225,24 +225,50 @@
 
               <div class="refine-search-container-desktop">
                 <h5 class="fw-bold">Refine your search:</h5>
+                <!-- Search By Topic -->
                 <div class="d-flex align-items-center mb-2 gap-2">
                   <input
-                    class="form-control rounded-pill black-border"
+                    class="form-control black-border"
                     type="search"
                     placeholder="Search"
                     aria-label="Search"
+                    id="searchInputTopic"
                   />
-                  <span class="badge text-dark w-25 black-border rounded-pill fs-6 bytag-tag">By Tags</span>
+                  <div class="dropdown" id="topicDropdown">
+                    <button class="btn btn-secondary dropdown-toggle fixed-width-btn bg-light text-dark" type="button" id="dropdownMenuButtonTopic" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Topic
+                    </button>
+                    <div class="dropdown-menu dropdown-menuTopic" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item dropdown-itemTopic" href="#">Tips</a>
+                      <a class="dropdown-item dropdown-itemTopic" href="#">Plant Exchange</a>
+                      <a class="dropdown-item dropdown-itemTopic" href="#">Giveaway</a>
+                    </div>
+                  </div>
+
+                  <span class="badge text-dark w-25 black-border  fs-6 bytopic-tag" id="byTopicSearchBtn">By Topic</span>
                 </div>
 
+                <!-- Search By Category -->
                 <div class="d-flex align-items-center gap-2">
                   <input
-                    class="form-control rounded-pill black-border"
+                    class="form-control black-border"
                     type="search"
                     placeholder="Search"
                     aria-label="Search"
+                    id="searchInputCategory"
                   />
-                  <span class="badge text-dark w-25 black-border rounded-pill fs-6 bycategory-tag">By Category</span>
+                  <div class="dropdown" id="categoryDropdown">
+                    <button class="btn btn-secondary dropdown-toggle fixed-width-btn bg-light text-dark" type="button" id="dropdownMenuButtonCategory" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Category
+                    </button>
+                    <div class="dropdown-menu dropdown-menuCategory" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item dropdown-itemCategory" href="#">Succulent</a>
+                      <a class="dropdown-item dropdown-itemCategory" href="#">Leafy Plants</a>
+                      <a class="dropdown-item dropdown-itemCategory" href="#">Creepers</a>
+                    </div>
+                  </div>
+
+                  <span class="badge text-dark w-25 black-border fs-6 bycategory-tag" id="byCategorySearchBtn">By Category</span>
                 </div>
               </div>
             </div>
@@ -260,6 +286,7 @@
                   type="search"
                   placeholder="Search"
                   aria-label="Search"
+                  id="searchInput"
                 />
                 <span class="badge text-dark w-25 black-border rounded-pill bytag-tag">By Tags</span>
               </div>
@@ -282,5 +309,7 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script/toolitp.js"></script>
+    <script src="RefineSearchPage.js"></script>
+
   </body>
 </html>

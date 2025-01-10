@@ -62,7 +62,7 @@ a {
 
 /* Refine search body */
 
-.bytag-tag {
+.bytopic-tag {
   background-color: #b8a589;
   padding: 12px 0;
 }
@@ -76,8 +76,29 @@ a {
     border: 1px solid rgba(0, 0, 0, 0.337);
   }
 
+  #searchInputTopic, #searchInputCategory{
+    width: 65%;
+  }
 
-
+  .fixed-width-btn {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-right: 30px;
+  }
+  
+  .fixed-width-btn::after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 5px solid transparent;
+    border-top-color: #000000;
+    pointer-events: none;
+  }
 /*
  * When in Desktop Version and hiding Mobile elements 
  */
