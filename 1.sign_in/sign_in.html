@@ -55,8 +55,13 @@
               <button type="submit" class="btn btn-dark w-100 mb-2">
                 Sign In
               </button>
+              <!-- Link to Forgot Password Page -->
               <div class="text-center">
-                <a href="#" class="text-link">Forgot password? Click here</a>
+                <a
+                  href="../3.forgot_password/forgot_password.html"
+                  class="text-link"
+                  >Forgot password? Click here</a
+                >
               </div>
             </form>
 
@@ -113,7 +118,9 @@
             <div class="text-center mt-3">
               <p>
                 Don't have an account?
-                <a href="#" class="text-link">Sign up now!</a>
+                <a href="../2.sign_up/sign_up.html" class="text-link"
+                  >Sign up now!</a
+                >
               </p>
             </div>
           </div>
@@ -128,14 +135,15 @@
 
     <!-- Internal Custom Script -->
     <script>
-      //This makes sure the script only runs after the HTML is loaded.
+      //makes sure script only runs after the HTML is loaded.
       document.addEventListener("DOMContentLoaded", function () {
         const loginForm = document.getElementById("login-form");
         const formMessages = document.getElementById("form-messages");
 
         // listens for the form submission
         loginForm.addEventListener("submit", function (event) {
-          event.preventDefault(); // Prevent default form submission
+          // Prevent default form submission
+          event.preventDefault();
 
           //(TODO revisit this) Clear previous messages
           formMessages.innerHTML = "";
@@ -149,6 +157,7 @@
           let isValid = true;
           let errors = [];
 
+          //
           if (!email) {
             errors.push("Email is required");
             isValid = false;
@@ -222,8 +231,8 @@
             });
         });
 
+        // client side Basic email validation regex
         function isValidEmail(email) {
-          // Basic email validation regex
           const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
           return emailRegex.test(email);
         }
