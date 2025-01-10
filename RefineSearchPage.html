@@ -234,16 +234,15 @@
                     aria-label="Search"
                     id="searchInputTopic"
                   />
-                  <div class="dropdown" id="topicDropdown">
-                    <button class="btn btn-secondary dropdown-toggle fixed-width-btn bg-light text-dark" type="button" id="dropdownMenuButtonTopic" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Topic
-                    </button>
-                    <div class="dropdown-menu dropdown-menuTopic" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item dropdown-itemTopic" href="#">Tips</a>
-                      <a class="dropdown-item dropdown-itemTopic" href="#">Plant Exchange</a>
-                      <a class="dropdown-item dropdown-itemTopic" href="#">Giveaway</a>
-                    </div>
-                  </div>
+
+                  <!-- Using HTML select topicDropdown -->
+                  <select class="form-select" id="topicDropdown" aria-label="Disabled select example">
+                    <!-- TODO Change this to a dynamic dropdown -->
+                    <option selected>Topics</option>
+                    <option value="1">Tips</option>
+                    <option value="2">Plant Exchange</option>
+                    <option value="3">Giveaway</option>
+                  </select>
 
                   <span class="badge text-dark w-25 black-border  fs-6 bytopic-tag" id="byTopicSearchBtn">By Topic</span>
                 </div>
@@ -257,16 +256,15 @@
                     aria-label="Search"
                     id="searchInputCategory"
                   />
-                  <div class="dropdown" id="categoryDropdown">
-                    <button class="btn btn-secondary dropdown-toggle fixed-width-btn bg-light text-dark" type="button" id="dropdownMenuButtonCategory" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Category
-                    </button>
-                    <div class="dropdown-menu dropdown-menuCategory" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item dropdown-itemCategory" href="#">Succulent</a>
-                      <a class="dropdown-item dropdown-itemCategory" href="#">Leafy Plants</a>
-                      <a class="dropdown-item dropdown-itemCategory" href="#">Creepers</a>
-                    </div>
-                  </div>
+
+                  <!-- Using HTML select for categoryDropdown -->
+                  <select class="form-select" id="categoryDropdown" aria-label="Disabled select example">
+                    <!-- TODO Change this to a dynamic dropdown -->
+                    <option selected>Category</option>
+                    <option value="1">Succulent</option>
+                    <option value="2">Leafy Plants</option>
+                    <option value="3">Creepers</option>
+                  </select>
 
                   <span class="badge text-dark w-25 black-border fs-6 bycategory-tag" id="byCategorySearchBtn">By Category</span>
                 </div>
