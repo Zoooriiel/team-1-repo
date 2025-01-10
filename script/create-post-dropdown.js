@@ -11,8 +11,8 @@ function plantCategory() {
 const topicArr = topicCategory();
 const plantArr = plantCategory();
 
-const topicList = document.querySelector(".topic-dropdown");
-const plantList = document.querySelector(".plant-dropdown");
+const topicList = document.getElementById("topic-dropdown");
+const plantList = document.getElementById("plant-dropdown");
 
 for (let index = 0; index < topicArr.length; index++) {
     topicList.options[index + 1] = new Option(topicArr[index], topicArr[index]);

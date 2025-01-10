@@ -205,15 +205,17 @@
                             </div>
                             <div class="card-body">
                                 <!-- TODO add label/tag for topic and plant category dropdowns -->
-                                <select class="form-select topic-dropdown mb-3" aria-label="Default select">
+                                <label for="topic-dropdown" class="form-label m-0">Topic Category</label>
+                                <select id="topic-dropdown" class="form-select mb-3" aria-label="Default select">
                                     <option selected>Topic Category</option>
                                 </select>
-
-                                <select class="form-select plant-dropdown mb-3" aria-label="Default select">
+                                
+                                <label for="plant-dropdown" class="form-label m-0">Plant Category</label>
+                                <select id="plant-dropdown" class="form-select mb-3" aria-label="Default select">
                                     <option selected>Plant Category</option>
                                 </select>
 
-                                <div class="mb-1">
+                                <!-- <div class="mb-1">
                                     <input type="email" class="form-control" id="plant-tag-input" placeholder="Enter your own plant tag">
                                 </div>
 
@@ -221,12 +223,14 @@
                                     <span class="badge text-dark rounded-pill plant-tag-color"><a href="#">Cactus</a></span>
                                     <span class="badge text-dark rounded-pill plant-tag-color"><a href="#">Fungi</a></span>
                                     <span class="badge text-dark rounded-pill plant-tag-color"><a href="#">Tag</a></span>
-                                </div>
+                                </div> -->
 
                                 <div class="mb-3">
+                                    <label for="post-title-input" class="form-label m-0">Post Title</label>
                                     <input class="form-control" id="post-title-input" placeholder="Title">
                                 </div>
                                 <div class="mb-3">
+                                    <label for="description-input" class="form-label m-0">Post description</label>
                                     <textarea class="form-control" id="description-input" placeholder="Description" rows="3"></textarea>
                                 </div>
                                 <div class="row">
