@@ -6,104 +6,189 @@
     <title>About Root Squad</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Import fonts awesome stylesheet -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Top Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light top-navbar-color">
-        <a class="navbar-brand ml-3" href="#">
-          <img class="rounded-circle" src="images/root_squad_logo.jpg" alt="Logo" width="50" height="50">
-        </a>
-        <form class="form-inline mx-auto d-flex w-50 ">
-          <input class="form-control rounded-pill search-bar-color " type="search" placeholder="Search" aria-label="Search">
-        </form>
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item d-flex align-items-center">
-                <a class="btn btn-outline-light nav-link text-light border rounded-pill" id="create-post-button-icon" href="#">
-                    <img src="icons/create_post_button_icon.svg" alt="Create Post Icon"> Create a Post
-                </a>
-            </li>
-          <li class="nav-item d-flex align-items-center">
-            <a class="nav-link" href="#">
-                <img src="icons/Bell_icon.svg" alt="Notification Icon">
-              </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <img src="images/profile_photo_placeholder.jpg" alt="Profile Photo" width="50" height="50" class="rounded-circle">
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <!-- End of Top Navbar -->
+    <div class="container-lg">
+        <!-- Top Navbar -->
+        <nav class="top-navbar-color px-2 py-2">
+            <div class="container-fluid">
+                <div class="d-flex align-self-center justify-content-evenly">
+                    
+                        <!-- Logo -->
+                        <a class="float-start" href="#">
+                            <img class="min-logo-dimension rounded-circle " src="images/root_squad_logo.jpg" alt="Logo">
+                        </a>                 
+                    
+                        <!-- Search bar -->
+                        <form class="form-inline pt-1 w-50">
+                        <input class="form-control rounded-pill" type="search" placeholder="Search" aria-label="Search">
+                        </form>
+                                 
+                        <!-- Top right menu -->
+                        <div class="d-inline-flex float-end">
+                            <a class="nav-top-icon-post mx-3 text-white text-center align-self-center d-blockp-2" href="#">
+                                <i class="fa fa-leaf fs-3" data-bs-toggle="tooltip" data-bs-title="Ceate a Post" data-bs-placement="bottom" aria-hidden="true"></i>
+                            </a>
+                            <a class="mx-3 align-self-center" href="#">
+                                <i class="fa fa-bell text-white fs-3" data-bs-toggle="tooltip" data-bs-title="Notifications" data-bs-placement="bottom" aria-hidden="true"></i>
+                            </a>
+                            <a class="nav-top-icon-profile mx-3 align-self-center" href="#">
+                            <img src="images/profile_photo_placeholder.jpg" alt="Profile Photo" 
+                                class="min-profile-dimension rounded-circle border border-white border-1" 
+                                data-bs-toggle="tooltip" data-bs-title="View Profile" data-bs-placement="bottom">
+                            </a>
+                        
+                    </div>
+    
+                </div>
+            </div>
+        </nav>
+
+
+        <!-- Start of mobile top navbar -->
+<!--         <div class="">            
+                <a class="" href="#">
+                    <i class="fa-regular fa-bell mobile-bell" style="color: #000000;" data-bs-toggle="tooltip" data-bs-title="Notifications" data-bs-placement="bottom" aria-hidden="true"></i>
+                </a>           
+        </div> -->
+        <!-- End of Top Navbar -->
 
     <div class="container-fluid">
         <div class="row">
+
             <!-- Sidenavbar -->
-            <div class="col-md-2 sidebar side-navbar-color">
-                <div class="d-flex flex-column p-3">        
-                    <div id="side-nav-icons-flex">        
-                    <nav class="nav flex-column">
-                        <a class="nav-link" href="#">
-                            <img class="side-nav-icons" src="icons/home_24dp_BLACK_FILL0_wght400_GRAD0_opsz24.svg" alt="Home Icon"> Home
-                          </a>
-                        <a class="nav-link" href="#">
-                            <img src="icons/add_circle_24dp_BLACK_FILL0_wght400_GRAD0_opsz24.svg" alt="Create Post Icon"> Create a Post
-                          </a>
-                        <a class="nav-link" href="#">
-                            <img class="side-nav-icons" src="icons/person_24dp_BLACK_FILL0_wght400_GRAD0_opsz24.svg" alt="Profile Icon"> Profile
-                          </a>
-                        <a class="nav-link" href="#">
-                            <img class="side-nav-icons" src="icons/search_24dp_BLACK_FILL0_wght400_GRAD0_opsz24.svg" alt="Explore Icon" width="25" height="25"> Explore
-                          </a>
-                        <a class="nav-link" href="#">
-                            <img class="side-nav-icons" src="icons/bookmark_24dp_BLACK_FILL0_wght400_GRAD0_opsz24.svg" alt="Saved Icon"> Saved
-                          </a>
-                    </nav>
+            <div class="col-md-3 min-vh-100 sidebar side-navbar-color side-navbar-hide">
+                    
+                <div class="d-flex flex-column">  
+
+                    <!-- Desktop menu --> 
+                    <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">
+                                    <i class="fa fa-home text" aria-hidden="true"></i> Home
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fa fa-leaf" aria-hidden="true"></i> Create a Post
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fa fa-user" aria-hidden="true"></i> Profile
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fa fa-search" aria-hidden="true"></i> Explore
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fa fa-bookmark" aria-hidden="true"></i> Saved
+                                </a>
+                            </li>
+                    </ul>    
                 </div>  
 
-                    <!-- Topic category tag -->
-                    <div class="mt-4">
-                        <h6 class="text-muted">TOPIC CATEGORIES</h6>
-                        <ul class="list-unstyled">
-                            <li><a href="#">Cactus bug</a></li>
-                            <li><a href="#">Cactus bug</a></li>
-                            <li><a href="#">Cactus bug</a></li>
-                            <li><a href="#">Cactus bug</a></li>
-                        </ul>
-                    </div>
-                    <!-- Plant category tag -->
-                    <div class="mt-4">
-                        <h6 class="text-muted">PLANT CATEGORIES</h6>
-                        <ul class="list-unstyled">
-                            <li><a href="#">Cactus bug</a></li>
-                            <li><a href="#">Cactus bug</a></li>
-                            <li><a href="#">Cactus bug</a></li>
-                            <li><a href="#">Cactus bug</a></li>
-                        </ul>
-                    </div>
-                    <div class="mt-auto">
-                        <a href="#" class="btn btn-outline-danger w-100">Logout</a>
-                    </div>
+                <!-- Topic category tag -->
+                <div class="mt-4">
+                    <h6 class="text-muted">TOPIC CATEGORIES</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Cactus bug</a></li>
+                        <li><a href="#">Cactus bug</a></li>
+                        <li><a href="#">Cactus bug</a></li>
+                        <li><a href="#">Cactus bug</a></li>
+                    </ul>
                 </div>
-                <footer>
+                
+                <!-- Plant category tag -->
+                <div class="mt-4">
+                    <h6 class="text-muted">PLANT CATEGORIES</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Cactus bug</a></li>
+                        <li><a href="#">Cactus bug</a></li>
+                        <li><a href="#">Cactus bug</a></li>
+                        <li><a href="#">Cactus bug</a></li>
+                    </ul>
+                </div>
+                
+                <div class="mt-auto">
+                    <a href="#" class="btn btn-outline-danger w-100">Logout</a>
+                </div>
+                
+                <footer class="py-2 small">
                     <p>Root Squad &copy; 2024</p>
                 </footer>
             </div>
             <!-- End of Sidenavbar -->
 
+            <!-- Start of Bottomnavbar (Mobile) -->
+            <ul id="bottom_navbar" class="nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">
+                        <i class="fa fa-home text-light fs-5" aria-hidden="true"></i>
+                        <span class="icon-text-color">Home</span>
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-search text-light fs-5" aria-hidden="true"></i>
+                        <span class="icon-text-color">Explore</span>
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-leaf text-light fs-5" aria-hidden="true"></i>
+                        <span class="icon-text-color">Post</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-bookmark text-light fs-5" aria-hidden="true"></i>
+                        <span class="icon-text-color">Saved</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-user text-light fs-5" aria-hidden="true"></i>
+                        <span class="icon-text-color">Profile</span>
+                    </a>
+                </li>                   
+              
+        </ul>    
+
             <!-- About Us Content -->
-            <div class="col-md-10 main-content p-5 main-content-color">
+            <div class="col-md-9 main-content pt-3 main-content-color">
                 <div class="d-flex justify-content-center align-items-center mb-4">
-                        <div class="card p-1 col-md-12 shadow card-body-color">
+                        <!-- parent card -->
+                        <div class="card p-1 col-md-12 shadow card-body-color about-us-cards-mobile"> 
                             <div class="about-heading d-flex flex-column justify-content-center align-items-center">
                                 <h4 class="pt-3 mt-2" style="font-weight: bold">About Root Squad</h4>
                                 <p class="p-1 m-1">Welcome to Root Squad, the cozy corner for house plant lovers! Whether you're a seasoned plant parent or just starting your green journey, Root Squad is the perfect place to connect with fellow plant enthusiasts. Our app brings together people who share a passion for house plants, allowing you to swap tips, share your plant stories, and discover new leafy friends. With features like plant care advice and a lively community forum, Root Squat is all about growing together. Join us and be part of a warm, welcoming community that celebrates the joy of house plants!</p>
                             </div>
 
-                            <div class="container mt-4">
-                                <div class="row"> <!-- Bootstrap row to hold the cards -->
+                            <div class="container mt-4 ">
+                            <!-- section outside cards -->
+                                <div class="row row row-cols-2"> 
+                                <!-- cards section -->
                                     
                                     <!-- Card 1 -->
                                     <div class="col-md-3 mb-4">
@@ -176,7 +261,7 @@
                         </div>
                 </div>
 
-                <div class="container d-flex justify-content-center align-items-center mb-4 w-75 gap-5">
+                <div class="container d-flex justify-content-center align-items-center mb-4 w-75 gap-5 social-contact">
         
                     <!-- Social Media Section -->
                     <div class="socials mb-3 text-center">
