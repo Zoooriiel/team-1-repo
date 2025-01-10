@@ -8,6 +8,7 @@ const byGenericSearch = document.getElementById("searchGeneric")
 
 // Search by topic button
 byTopicSearchBtn.addEventListener("click", (event) => {
+    event.preventDefault();
     return performSearch(event.target.id);
 })
 
@@ -17,6 +18,7 @@ byTopicSearchBtn.addEventListener("click", (event) => {
 
 // Search by category button
 byCategorySearchBtn.addEventListener("click", (event) => {
+    event.preventDefault();
     return performSearch(event.target.id);
 })
 
@@ -26,6 +28,7 @@ byCategorySearchBtn.addEventListener("click", (event) => {
 
 // Search by pressing enter in generic search bar
 byGenericSearch.addEventListener("submit", (event) => {
+    event.preventDefault();
     return performSearch(event.target.id);
 })
 
@@ -80,15 +83,14 @@ function performSearch(inputTypeId = null){
 
         if(searchMethod === 1 && selectedDropdownId) {
             // specific Search refers to topic and category search
-            window.location.href = `${pageURL}?search=${searchMethod}&query=${(searchTerm)}&${typeOfId}=${(selectedDropdownId)}`;
+            window.location.href = `${pageURL}?search=${searchMethod}&query=${searchTerm}&${typeOfId}=${selectedDropdownId}`;
         }
         else {
             // otherwise it is a generic search 
             // TODO alert prints out the correct url but does not replace browser url
-            window.location.href = `${pageURL}?search=${searchMethod}&query=${(searchTerm)}`; 
-            
+            console.log(`${pageURL}?search=${searchMethod}&query=${searchTerm}`);
+            window.location.href = `${pageURL}?search=${searchMethod}&query=${searchTerm}`; 
         }
-
     }
 
     else{
