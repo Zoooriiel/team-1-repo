@@ -15,10 +15,11 @@ async function fetchComments(postID = null) {
         }
 
     } catch(error) {
+        const commentsContainer = document.querySelector(".comments-container")
         const errorHeader = document.createElement("h3");
         errorHeader.className = "fs-2 text-center text-danger";
         errorHeader.innerText = "There was an error. Try reloading."
-        commentsCointainers.append(errorHeader);
+        commentsContainer.append(errorHeader);
     }
 }
 
@@ -26,12 +27,12 @@ async function fetchComments(postID = null) {
 
 function addComment(comment) {
 
-    const commentsCointainer = document.querySelector(".comments-container");
+    const commentsContainer = document.querySelector(".comments-container");
 
     // comment card
     const commentCard = document.createElement("div");
     commentCard.className = "comment card mb-2";
-    commentsCointainer.append(commentCard);
+    commentsContainer.append(commentCard);
 
     // comment info
     const commentInfo = document.createElement("div");
@@ -67,7 +68,11 @@ function addComment(comment) {
 
 }
 
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-const postID = urlParams.get('post_id');
-fetchComments(postID);
+const commentsQueryString = window.location.search;
+const commentsUrlParams = new URLSearchParams(commentsQueryString);
+
+
+
+let commentsPostID = parseInt(commentsUrlParams.get('post_id'));
+
+fetchComments(commentsPostID);
