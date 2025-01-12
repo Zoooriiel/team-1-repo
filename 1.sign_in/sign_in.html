@@ -13,6 +13,34 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
+
+    <!-- toast -->
+    <!-- https://getbootstrap.com/docs/5.3/components/toasts/ -->
+    <div class="toast-container p-3 top-0 start-50 translate-middle-x">
+      <!-- Put toasts within -->
+      <div
+        id="msg-toast"
+        class="toast align-items-center mt-2"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+        data-bs-autohide="true"
+        data-bs-delay="4000"
+      >
+        <div class="d-flex">
+          <div id="msg-toast-body" class="toast-body">
+            <!-- Message to be added here -->
+          </div>
+          <button
+            type="button"
+            class="btn-close me-2 m-auto"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+      </div>
+    </div>
+
     <!-- Container -->
     <div class="container">
       <div class="row justify-content-center">
@@ -23,11 +51,11 @@
             </div>
 
             <!-- Email -->
-            <form id="login-form">
+            <form id="formLogin">
               <div class="mb-3">
                 <input
                   type="email"
-                  id="email"
+                  id="txtEmail"
                   class="form-control"
                   id="email"
                   placeholder="Enter your email"
@@ -41,18 +69,18 @@
               <div class="mb-3">
                 <input
                   type="password"
-                  id="password"
+                  id="txtPassword"
                   class="form-control"
                   id="password"
                   placeholder="Enter your password"
                   required
                 />
-                <div class="invalid-feedback text-white">
+                <div class="invalid-feedback text-danger">
                   Please enter a password.
                 </div>
               </div>
               <!-- Submit button -->
-              <button type="submit" class="btn btn-dark w-100 mb-2">
+              <button type="submit" class="btn btn-dark w-100 mb-2 btnLogin">
                 Sign In
               </button>
               <!-- Link to Forgot Password Page -->
@@ -133,109 +161,113 @@
 
     <!-- External Custom Script -->
 
+    <script src="script/components/Spinner.js"></script>
+
+    <script src="../script/boostrap-ftns.js"></script>
+    <script src="../script/form-validate.js"></script>
+
     <!-- Internal Custom Script -->
     <script>
       //makes sure script only runs after the HTML is loaded.
       document.addEventListener("DOMContentLoaded", function () {
-        const loginForm = document.getElementById("login-form");
-        const formMessages = document.getElementById("form-messages");
+        // Custom JS statements and function
+        document
+          .getElementById("formLogin")
+          .addEventListener("submit", async (event) => {
+            event.preventDefault(); // Prevent default browser events from happening
 
-        // listens for the form submission
-        loginForm.addEventListener("submit", function (event) {
-          // Prevent default form submission
-          event.preventDefault();
+            const email = document.getElementById("txtEmail"); // Create constant variables to capture form inputs - txtEmail
+            const pwd = document.getElementById("txtPassword"); // Create constant variables to capture form inputs - txtPassword
 
-          //(TODO revisit this) Clear previous messages
-          formMessages.innerHTML = "";
+            // pop up to show error messages
+            const toastElement = document.getElementById("msg-toast"); // Get the toast element - msg-toast
+            const toastBodyElement = document.getElementById("msg-toast-body"); // Get the toast element - msg-toast-body
 
-          // 1. Client-Side Validation
-          const emailInput = document.getElementById("email");
-          const passwordInput = document.getElementById("password");
-          const email = emailInput.value.trim(); //trim() to remove whitespaces
-          const password = passwordInput.value.trim();
+            // Start of client server front end validations------------
+            // Trap empty inputs for txtEmail and txtPassword - isEmpty()
+            if (isEmpty(email.value) || isEmpty(pwd.value)) {              
+              showToast({
+                toastElement,
+                toastBodyElement,
+                bgColor: "danger",
+                msg: "All inputs must not be empty.",
+              });
+              return;
+            }
 
-          let isValid = true;
-          let errors = [];
+            // Trap invalid email for txtEmail - isEmail()
+            if (!isEmail(email.value)) {
+              showToast({
+                toastElement,
+                toastBodyElement,
+                bgColor: "danger",
+                msg: "Email is invalid.",
+              });
+              return;
+            }
 
-          //
-          if (!email) {
-            errors.push("Email is required");
-            isValid = false;
-          } else if (!isValidEmail(email)) {
-            errors.push("Invalid email format");
-            isValid = false;
-          }
-          if (!password) {
-            errors.push("Password is required");
-            isValid = false;
-          }
+            spinner.createSpinner("btnLogin"); // Create the spinner, apply it to btnLogin
+            spinner.displaySpinner(true);
 
-          if (!isValid) {
-            // Display validation errors
-            errors.forEach((error) => {
-              const errorDiv = document.createElement("div");
-              errorDiv.classList.add("error-message");
-              errorDiv.textContent = error;
-              formMessages.appendChild(errorDiv);
-            });
-            return; // Stop if validation failed
-          }
+            // JavaScript Object formData stores the form's input values
+            const formData = { email: email.value, password: pwd.value }; 
 
-          // 2. Prepare Form Data
-          const formData = new URLSearchParams();
-          formData.append("email", email);
-          formData.append("password", password);
+            // End of client server front end validations------------ 
 
-          // 3. Send Data to Backend (Using fetch - modern way)
-          fetch("/login", {
-            // Replace '/login' with your actual API endpoint
-            method: "POST",
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded", // Important for form data
-            },
-            body: formData,
-          })
-            .then((response) => {
-              if (!response.ok) {
-                // Handle non-200 status codes
-                return response.text().then((text) => {
-                  throw new Error(`Server error: ${response.status} - ${text}`);
-                });
+            // TODO SIGN IN W SOCIALS
+
+            // TODO Send the form data (username/email and password) to the back-end API endpoint using a fetch request (typically a POST request).
+            //Handle the response from the back-end.
+            //Display appropriate messages (success, error, validation failures) to the user.
+            //Redirect to the logged-in page upon successful login.
+            //(Optional) Store user session information (e.g., token in local storage/cookies).
+            
+            // TODO this one is for mock.js. NEED TO CHANGE TO REAL ONE?
+            //This code snippet sends a POST request to the /login endpoint with the user's email and password. It then checks if the response was successful (200-299 status code). If so, it logs a success message and redirects the user to the dashboard. If not, it displays an error message. If an unexpected error occurs during the request, it logs and displays a generic error message.
+            try {
+              // Send a POST request to the login endpoint with email and password
+              const response = await fetch('/login', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password })
+              });
+
+              // Parse the JSON response
+              const data = await response.json();
+
+              if (response.ok) {
+                // Handle successful login (e.g., redirect, store token)
+                console.log('Login successful', data);
+                window.location.href = "/dashboard"; // Redirect to dashboard. TODO change dashboard
+              } else {
+                // Display error message if login failed
+                errorMsg.textContent = data.message || 'Login failed';
               }
-              return response.json(); // Assuming server returns JSON
-            })
-            .then((data) => {
-              // 4. Handle Response
-              console.log("Login success:", data);
-              // Display success message
-              const successDiv = document.createElement("div");
-              successDiv.classList.add("success-message");
-              successDiv.textContent = "Login successful!";
-              formMessages.appendChild(successDiv);
+            } catch (error) {
+              // Log and display error if an unexpected error occurred
+              errorMsg.textContent = 'An error occurred';
+              console.error('Error', error);
+            }
 
-              // 5. Redirect to Dashboard (Replace with your actual redirect)
-              window.location.href = "/dashboard";
 
-              // 6. Store Session Info (Example using localStorage - use HttpOnly cookies for production)
-              // localStorage.setItem('token', data.token);
-              //localStorage.setItem('user', JSON.stringify(data.user)); // Assuming your API sends user information
-            })
-            .catch((error) => {
-              // Handle errors (Network, API, etc.)
-              console.error("Login failed:", error);
-              // Display error message to the user
-              const errorDiv = document.createElement("div");
-              errorDiv.classList.add("error-message");
-              errorDiv.textContent = `Login failed: ${error.message}`;
-              formMessages.appendChild(errorDiv);
-            });
-        });
+            // Invoke login() function, and end (return)
+            const loginSuccess = await login(formData); 
 
-        // client side Basic email validation regex
-        function isValidEmail(email) {
-          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          return emailRegex.test(email);
-        }
+            if (!loginSuccess) {
+              spinner.displaySpinner(false); // If login unsuccessful, hide spinner
+              showToast({
+                toastElement,
+                toastBodyElement,
+                bgColor: "danger",
+                msg: "Unable to log in. Try again.",
+              }); // If login unsuccessful, provide pop up feedback
+            }
+
+            
+
+          });
       });
     </script>
   </body>

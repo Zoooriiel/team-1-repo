@@ -139,6 +139,14 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
+    <!-- External Custom Script -->
+
+    <script src="script/components/Spinner.js"></script>
+
+    <script src="../script/boostrap-ftns.js"></script>
+    <script src="../script/form-validate.js"></script>
+
+    <!-- Internal Custom Script -->
     <script>
       // DOMContentLoaded: Makes sure the script runs after the HTML is loaded.
       document.addEventListener("DOMContentLoaded", function () {
@@ -161,7 +169,7 @@
           //Prevents the default form submission.
           event.preventDefault();
 
-          // TODO Reset error messages
+          // TODO Reset error messages. change to martin style toast
           //
           resetErrorMessages();
 
@@ -178,11 +186,11 @@
             displayErrorMessage("username", "Username is required.");
             isValid = false;
           }
-          // Checks for a basic email format using regex function isValidEmail
+          // Checks for a basic email format using regex function isEmail
           if (!emailInput.value.trim()) {
             displayErrorMessage("email", "Email is required.");
             isValid = false;
-          } else if (!isValidEmail(emailInput.value.trim())) {
+          } else if (!isEmail(emailInput.value.trim())) {
             displayErrorMessage("email", "Invalid email format.");
             isValid = false;
           }
@@ -202,6 +210,12 @@
             );
             isValid = false;
           }
+
+          // End of client server front end validations------------ 
+
+          /* TODO SIGN IN W SOCIALS */
+
+          /* TODO LINK TO BACK END TO AND FRO */
 
           // if user entry is valid
           if (isValid) {
@@ -258,12 +272,6 @@
             span.textContent = "";
             span.style.display = "none";
           });
-        }
-
-        // function Checks if the given email is valid by using a regex pattern.
-        function isValidEmail(email) {
-          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          return emailRegex.test(email);
         }
       });
     </script>
