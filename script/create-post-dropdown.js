@@ -1,25 +1,25 @@
-function topicCategory() {
+function topicOptions() {
     // TODO add in similar try catch from comments
     return new Array("Showcase", "Help", "Q&A", "Tips", "Exchange", "Giveaway");
 };
 
-function plantCategory() {
+function categoryOptions() {
     // TODO add in similar try catch from comments
     return new Array("Succulents", "Leafy plants", "Creepers", "Moss");
 };
 
-const topicArr = topicCategory();
-const plantArr = plantCategory();
+const topicArr = topicOptions();
+const categoryArr = categoryOptions();
 
 const topicList = document.getElementById("topic-dropdown");
-const plantList = document.getElementById("plant-dropdown");
+const plantList = document.getElementById("category-dropdown");
 
 for (let index = 0; index < topicArr.length; index++) {
-    topicList.options[index + 1] = new Option(topicArr[index], topicArr[index]);
+    topicList.options[index + 1] = new Option(topicArr[index], index + 1);
 }
 
-for (let index = 0; index < plantArr.length; index++) {
-    plantList.options[index + 1] = new Option(plantArr[index], plantArr[index]);
+for (let index = 0; index < categoryArr.length; index++) {
+    plantList.options[index + 1] = new Option(categoryArr[index], index + 1);
 }
 
 /* async function fetchComments(postID = null) {
