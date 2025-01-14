@@ -13,7 +13,6 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
-
     <!-- toast -->
     <!-- https://getbootstrap.com/docs/5.3/components/toasts/ -->
     <div class="toast-container p-3 top-0 start-50 translate-middle-x">
@@ -160,8 +159,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- External Custom Script -->
+    <script src="script/Mock.js"></script>
+    <!-- TODO: to remove in production env. -->
+    <script src="script/const.js"></script>
 
+    <script src="script/auth.js"></script>
+    <script src="script/components/NavController.js"></script>
     <script src="script/components/Spinner.js"></script>
+    <script src="script/loader.js"></script>
 
     <script src="../script/boostrap-ftns.js"></script>
     <script src="../script/form-validate.js"></script>
@@ -170,7 +175,7 @@
     <script>
       //makes sure script only runs after the HTML is loaded.
       document.addEventListener("DOMContentLoaded", function () {
-        // Custom JS statements and function
+        // when user submits
         document
           .getElementById("formLogin")
           .addEventListener("submit", async (event) => {
@@ -184,8 +189,8 @@
             const toastBodyElement = document.getElementById("msg-toast-body"); // Get the toast element - msg-toast-body
 
             // Start of client server front end validations------------
-            // Trap empty inputs for txtEmail and txtPassword - isEmpty()
-            if (isEmpty(email.value) || isEmpty(pwd.value)) {              
+            // Trap empty inputs for txtEmail and txtPassword - isEmpty() (from form-validate.js)
+            if (isEmpty(email.value) || isEmpty(pwd.value)) {
               showToast({
                 toastElement,
                 toastBodyElement,
@@ -195,7 +200,7 @@
               return;
             }
 
-            // Trap invalid email for txtEmail - isEmail()
+            // Trap invalid email for txtEmail - isEmail()  (from form-validate.js)
             if (!isEmail(email.value)) {
               showToast({
                 toastElement,
@@ -206,54 +211,16 @@
               return;
             }
 
+            // End of client server front end validations------------
+
             spinner.createSpinner("btnLogin"); // Create the spinner, apply it to btnLogin
             spinner.displaySpinner(true);
 
             // JavaScript Object formData stores the form's input values
-            const formData = { email: email.value, password: pwd.value }; 
+            const formData = { email: email.value, password: pwd.value };
 
-            // End of client server front end validations------------ 
-
-            // TODO SIGN IN W SOCIALS
-
-            // TODO Send the form data (username/email and password) to the back-end API endpoint using a fetch request (typically a POST request).
-            //Handle the response from the back-end.
-            //Display appropriate messages (success, error, validation failures) to the user.
-            //Redirect to the logged-in page upon successful login.
-            //(Optional) Store user session information (e.g., token in local storage/cookies).
-            
-            // TODO this one is for mock.js. NEED TO CHANGE TO REAL ONE?
-            //This code snippet sends a POST request to the /login endpoint with the user's email and password. It then checks if the response was successful (200-299 status code). If so, it logs a success message and redirects the user to the dashboard. If not, it displays an error message. If an unexpected error occurs during the request, it logs and displays a generic error message.
-            try {
-              // Send a POST request to the login endpoint with email and password
-              const response = await fetch('/login', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ email, password })
-              });
-
-              // Parse the JSON response
-              const data = await response.json();
-
-              if (response.ok) {
-                // Handle successful login (e.g., redirect, store token)
-                console.log('Login successful', data);
-                window.location.href = "/dashboard"; // Redirect to dashboard. TODO change dashboard
-              } else {
-                // Display error message if login failed
-                errorMsg.textContent = data.message || 'Login failed';
-              }
-            } catch (error) {
-              // Log and display error if an unexpected error occurred
-              errorMsg.textContent = 'An error occurred';
-              console.error('Error', error);
-            }
-
-
-            // Invoke login() function, and end (return)
-            const loginSuccess = await login(formData); 
+            // Invoke login() function, and end (return).  ( login() function from auth.js ), , await waits for login(formdata to finish then execute)
+            const loginSuccess = await login(formData);
 
             if (!loginSuccess) {
               spinner.displaySpinner(false); // If login unsuccessful, hide spinner
@@ -265,8 +232,7 @@
               }); // If login unsuccessful, provide pop up feedback
             }
 
-            
-
+            // TODO SIGN IN W SOCIALS
           });
       });
     </script>
