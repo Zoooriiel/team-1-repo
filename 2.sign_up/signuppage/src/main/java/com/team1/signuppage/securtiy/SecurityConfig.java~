@@ -1,4 +1,0 @@
-package com.team1.signuppage.securtiy;
-
-public class SecurityConfig {
-}

@@ -66,7 +66,7 @@
         <div class="mb-3">
           <input
             type="email"
-            id="email"
+            id="txtEmail"
             class="form-control"
             placeholder="Email"
             required
@@ -75,7 +75,7 @@
         <div class="mb-3">
           <input
             type="password"
-            id="password"
+            id="txtPassword"
             class="form-control"
             placeholder="Password"
             required
@@ -195,9 +195,9 @@
 
             const fullNameInput = document.getElementById("fullname");
             const usernameInput = document.getElementById("username");
-            const emailInput = document.getElementById("email");
-            const passwordInput = document.getElementById("password");
-            const passwordConfirmationInput = document.getElementById(
+            const email = document.getElementById("txtEmail");
+            const pwd = document.getElementById("txtPassword");
+            const pwd2 = document.getElementById(
               "password-confirmation"
             );
 
@@ -205,65 +205,73 @@
             const toastElement = document.getElementById("msg-toast"); // Get the toast element - msg-toast
             const toastBodyElement = document.getElementById("msg-toast-body"); // Get the toast element - msg-toast-body
 
-            //TODO to remove n change to toast
-            //
-            const formMessage = document.getElementById("form-message");
+            // TODO CHECK IF USERNAME IS ALREADY IN DATABASE
 
-            // TODO Reset error messages. change to martin style toast
-            //
-            resetErrorMessages();
+            // Trap empty inputs for all if empty
+            if (isEmpty(fullnameInput.value.trim()) || isEmpty(usernameInput.value.trim()) || isEmpty(email.value) || isEmpty(pwd.value || isEmpty(pwd2.value)) {
+              showToast({
+                toastElement,
+                toastBodyElement,
+                bgColor: "danger",
+                msg: "All inputs must not be empty.",
+              });
+              return;
+            }
 
-            // Client-side validation (simple example) NEED TO REVISIT
-            let isValid = true;
+            //checks if username is valid. If yes, displays error message
+            if (isValidUsername(usernameInput.value.trim())) {
+              showToast({
+                toastElement,
+                toastBodyElement,
+                bgColor: "danger",
+                msg: "The username must be between 3 and 15 characters long. Only letters, numbers and underscores are allowed",
+              });
+              return;
+            }
 
-            //checks if fullname is empty. If yes, displays error message
-            if (!fullnameInput.value.trim()) {
-              displayErrorMessage("fullname", "Full Name is required.");
-              isValid = false;
+            // Trap invalid email for txtEmail - isEmail()  (from form-validate.js)
+            if (!isEmail(email.value)) {
+              showToast({
+                toastElement,
+                toastBodyElement,
+                bgColor: "danger",
+                msg: "Email is invalid.",
+              });
+              return;
             }
-            //checks if the username input field is empty. If it is, it displays an error message
-            if (!usernameInput.value.trim()) {
-              displayErrorMessage("username", "Username is required.");
-              isValid = false;
-            }
-            // Checks for a basic email format using regex function isEmail
-            if (!emailInput.value.trim()) {
-              displayErrorMessage("email", "Email is required.");
-              isValid = false;
-            } else if (!isEmail(emailInput.value.trim())) {
-              displayErrorMessage("email", "Invalid email format.");
-              isValid = false;
-            }
+
             // TODO Password: Checks length, uppercase, and digit presence.
             //
-            if (!passwordInput.value.trim()) {
-              displayErrorMessage("password", "Password is required.");
-              isValid = false;
-            }
-            if (
-              passwordConfirmationInput.value.trim() !==
-              passwordInput.value.trim()
-            ) {
-              displayErrorMessage(
-                "password-confirmation",
-                "Passwords do not match."
-              );
-              isValid = false;
+            if (isValidPassword(pwd.value.trim())) {
+              showToast({
+                toastElement,
+                toastBodyElement,
+                bgColor: "danger",
+                msg: "Passwords do not match. Please try again.",
+              });
+              return;
             }
 
-            // End of client server front end validations------------
+            // if password and confirm password don't match
+            if (
+              pwd2.value.trim() !==
+              pwd.value.trim()
+            ) {
+              showToast({
+                toastElement,
+                toastBodyElement,
+                bgColor: "danger",
+                msg: "Passwords do not match. Please try again.",
+              });
+              return;
+            }
+
+            // End of client server front end validations
 
             /* TODO SIGN IN W SOCIALS */
 
-            /* TODO LINK TO BACK END TO AND FRO */
-
-            // if user entry is valid
-            if (isValid) {
-              const formData = {
-                username: usernameInput.value,
-                email: emailInput.value,
-                password: passwordInput.value,
-              };
+            // JavaScript Object formData stores the form's input values
+            const formData = {fullname: fullnameInput.value, username: usernameInput.value, email: email.value, password: pwd.value };
 
               // Send to back-end
               fetch("/api/signup", {
@@ -295,24 +303,8 @@
                   formMessage.style.backgroundColor = "lightcoral";
                   formMessage.style.display = "block";
                 });
-            }
-          });
-
-        // function to desplay error message
-        function displayErrorMessage(fieldId, message) {
-          const errorSpan = document.getElementById(fieldId + "-error");
-          errorSpan.textContent = message;
-          errorSpan.style.display = "block";
-        }
-
-        // function to reset error message
-        function resetErrorMessages() {
-          const errorSpans = document.querySelectorAll(".error-message");
-          errorSpans.forEach((span) => {
-            span.textContent = "";
-            span.style.display = "none";
-          });
-        }
+            
+        });
       });
     </script>
   </body>
