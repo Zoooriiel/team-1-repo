@@ -216,11 +216,11 @@
             spinner.createSpinner("btnLogin"); // Create the spinner, apply it to btnLogin
             spinner.displaySpinner(true);
 
-            // JavaScript Object formData stores the form's input values
-            const formData = { email: email.value, password: pwd.value };
+            // JavaScript Object loginData stores the form's input values
+            const loginData = { email: email.value, password: pwd.value };
 
-            // Invoke login() function, and end (return).  ( login() function from auth.js ), , await waits for login(formdata to finish then execute)
-            const loginSuccess = await login(formData);
+            // Invoke login() function, and end (return).  ( login() function from auth.js ), , await waits for login(logindata to finish then execute)
+            const loginSuccess = await login(loginData);
 
             if (!loginSuccess) {
               spinner.displaySpinner(false); // If login unsuccessful, hide spinner

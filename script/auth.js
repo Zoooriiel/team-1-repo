@@ -65,9 +65,9 @@ function decodeUser(token){
 
 // Funtion to login
 // login() used in login.html
-/* This is a JavaScript function named login that simulates a login process. It takes a formData object as an argument, which is expected to contain user credentials.
+/* This is a JavaScript function named login that simulates a login process. It takes a login object as an argument, which is expected to contain user credentials.
 
-1. If formData is empty, the function returns immediately.
+1. If login is empty, the function returns immediately.
 2. It attempts to send a mock successful response (instead of a real API request) using Mock.getMockSuccess().
 3. It waits for 2 seconds using a promise-based sleep function.
 4. If the mock response is successful, it:
@@ -77,9 +77,9 @@ function decodeUser(token){
 5. If any errors occur during this process, it logs the error message to the console and returns.
 
 Note that this function is currently using mock data and is intended to be refactored to use real API endpoints and token retrieval in a production environment. */
-async function login(formData = {}){
+async function login(login = {}){
     
-    if(Object.entries(formData).length === 0)                                               // Return if the object is empty
+    if(Object.entries(login).length === 0)                                               // Return if the object is empty
         return;
 
     // !! Try/catch block (exception handling) to send data to login enpoint
@@ -89,7 +89,7 @@ async function login(formData = {}){
             const response = await fetch(_ENDPOINT_LOGIN, {                                 // Perform an async POST request to process the form data
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(formData)
+                body: JSON.stringify(login)
             });
         */
 
@@ -109,7 +109,7 @@ async function login(formData = {}){
         return;                                                                             // Else return false
 
     } catch (error) {
-        console.log("Exception error gotten is: ", error.message);
+        /* console.log("Exception error gotten is: ", error.message); */
         return;
     }
     

@@ -10,7 +10,7 @@ function isEmail(value){
 // Function to validate empty values
 // function is used in contact.html n login.html
 function isEmpty(value){
-    var regex = new RegExp(/^(?=\s*$)/g);
+    let regex = new RegExp(/^(?=\s*$)/g);
     return (!value || regex.test(value));
 }
 
