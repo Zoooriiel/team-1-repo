@@ -270,39 +270,60 @@
 
             /* TODO SIGN IN W SOCIALS */
 
-            // JavaScript Object formData stores the form's input values
-            const formData = {fullname: fullnameInput.value, username: usernameInput.value, email: email.value, password: pwd.value };
+            // JavaScript Object signUpData stores the form's input values
+            const signUpData = {fullname: fullnameInput.value, username: usernameInput.value, email: email.value, password: pwd.value };
 
-              // Send to back-end
-              fetch("/api/signup", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formData),
+              
+            // Fetch to the /api/auth/signup endpoint with the signUpData object in the request body
+            // The response should be a JSON object with a success property and a message property.
+            // If the request is successful, remove the form and show the message.
+            // If there is an error, log the error message to the console.
+            fetch('/api/auth/signup', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                signUpData
               })
-                .then((response) => response.json())
-                .then((data) => {
-                  if (data.success) {
-                    formMessage.textContent = "Signup successful!";
-                    formMessage.style.backgroundColor = "lightgreen";
-                    formMessage.style.display = "block";
-                    setTimeout(() => {
-                      window.location.href = "/login";
-                    }, 1000);
-                  } else {
-                    formMessage.textContent = "Signup failed: " + data.message;
-                    formMessage.style.backgroundColor = "lightcoral";
-                    formMessage.style.display = "block";
-                  }
-                })
-                .catch((error) => {
-                  console.error("Error:", error);
-                  formMessage.textContent =
-                    "An error occurred. Please try again later.";
-                  formMessage.style.backgroundColor = "lightcoral";
-                  formMessage.style.display = "block";
-                });
+            })
+            .then(response => {
+                if (response.ok) {
+                    // if the request was successful, return the response text
+                    return response.text();
+                } else {
+                    // if the request was not successful, return the response as JSON and throw an error
+                    return response.json().then(errorData => {
+                        throw new Error(JSON.stringify(errorData));
+                    });
+                }
+            })
+            .then(data => {
+                // if the request was successful, show the message and reset the form
+                messageDiv.textContent = data;
+                messageDiv.classList.add('alert', 'alert-success');
+                document.getElementById('signupForm').reset();
+            })
+            .catch(error => {
+                try {
+                    // if the request was not successful, parse the error message and show it
+                    const errorData = JSON.parse(error.message);
+                    if (errorData.username) {
+                        usernameErrorDiv.textContent = errorData.username;
+                    }
+                    if (errorData.email) {
+                        emailErrorDiv.textContent = errorData.email;
+                    }
+                    if (errorData.password) {
+                        passwordErrorDiv.textContent = errorData.password;
+                    }
+                } catch (e) {
+                    // if there was an error parsing the error message, show a generic error message
+                    messageDiv.textContent = 'An error occurred. Please try again.';
+                    messageDiv.classList.add('alert', 'alert-danger');
+                }
+            });
+      
             
         });
       });

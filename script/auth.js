@@ -44,7 +44,7 @@ function isTokenExpired(token) {
     return expirationTime < currentTime;                            // Return true ONLY when currentTime is LESS THAN token's expirationTime
 }
 
-// Function to decode the user's email from the parameter
+// function decodeUser takes a token as input, decodes it, and extracts the user's email, username, and role from it. The token is assumed to be a JSON Web Token (JWT) in a Base64-encoded format. The function returns an object with the extracted user information.
 // decodeUser() is used in this file , loader.js and navcontroller.js
 // decodeUser that takes a token as input. It splits the token into an array using the dot (.) as the separator. It then decodes the second part of the array using the atob function, which decodes a Base64-encoded string. The decoded string is parsed as JSON using JSON.parse. The function extracts the email, username, and role properties from the decoded token and returns them as an object.
 function decodeUser(token){                                         
