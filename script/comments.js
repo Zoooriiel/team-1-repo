@@ -1,5 +1,20 @@
-async function fetchComments(postID = null) {
+const commentsSpinnerContainerName = "commentsSpinnerContainer";
+const commentsContainerName = ".comments-container";
+const commentsContainer = document.querySelector(commentsContainerName);
 
+const commentsSpinnerContainer = document.createElement("div");                                                         
+commentsSpinnerContainer.setAttribute("id", commentsSpinnerContainerName);                                                     
+commentsSpinnerContainer.className = "text-center fw-light mx-auto w-25 pt-4";                               
+commentsSpinnerContainer.innerText = " Loading...";    
+
+async function fetchComments(postID = null) {
+    
+    commentsContainer.prepend(commentsSpinnerContainer);
+
+    const commentsSpinner = new Spinner();
+    commentsSpinner.createSpinner(commentsSpinnerContainerName);
+    commentsSpinner.displaySpinner(true);
+    
     try {
         console.log("ID retrieved " + postID);
         // TODO fetch from fetchcomments(post_id)
@@ -9,25 +24,24 @@ async function fetchComments(postID = null) {
         const result = await response.json();
 
         const commentsList = result.comments;
-
+        
         for (let index = 0; index < commentsList.length; index++) {
             addComment(commentsList[index]);
         }
-
+        
     } catch(error) {
-        const commentsContainer = document.querySelector(".comments-container")
         const errorHeader = document.createElement("h3");
         errorHeader.className = "fs-2 text-center text-danger";
         errorHeader.innerText = "There was an error. Try reloading."
         commentsContainer.append(errorHeader);
     }
+
+    commentsSpinner.displaySpinner(false);
+    commentsContainer.removeChild(commentsSpinnerContainer);
 }
 
 
-
 function addComment(comment) {
-
-    const commentsContainer = document.querySelector(".comments-container");
 
     // comment card
     const commentCard = document.createElement("div");
@@ -42,9 +56,11 @@ function addComment(comment) {
     // profile pic
     const profilePic = document.createElement("img");
     profilePic.className = "rounded-circle me-2";
-    profilePic.src = "https://via.placeholder.com/40";
+    profilePic.src = "images/profile_photo_placeholder.jpg";
     profilePic.alt = "User profile picture";
     commentInfo.append(profilePic);
+    profilePic.style.maxHeight = "2rem"
+    profilePic.style.maxWidth = "2rem"
 
     // username
     const username = document.createElement("span");
@@ -75,4 +91,9 @@ const commentsUrlParams = new URLSearchParams(commentsQueryString);
 
 let commentsPostID = parseInt(commentsUrlParams.get('post_id'));
 
-fetchComments(commentsPostID);
+
+document.addEventListener("DOMContentLoaded", (event) => {                                                     
+    event.preventDefault();
+    fetchComments(commentsPostID);                                                                                    
+});
+

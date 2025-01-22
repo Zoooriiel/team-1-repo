@@ -1,6 +1,22 @@
-const postContainer = document.querySelector(".view-post-container")
+const postContainer = document.querySelector(".view-post-container");
+const postColumn = document.querySelector(".view-post-column");
+const postDetailsContainer = document.getElementById("post-details-container");
+const topicCategoryContainer = document.getElementById("topic-category-container");
+const postSpinnerContainerName = "postSpinnerContainer";
+
+const postSpinnerContainer = document.createElement("div");                                                         
+postSpinnerContainer.setAttribute("id", postSpinnerContainerName); 
+postSpinnerContainer.className = "text-center fw-light mx-auto w-25 pt-4";
+postSpinnerContainer.innerText = " Loading..."
 
 async function fetchPost(postID) {
+
+    postColumn.prepend(postSpinnerContainer);
+
+    const postSpinner = new Spinner();
+    postSpinner.createSpinner(postSpinnerContainerName);
+    postSpinner.displaySpinner(true);
+
     try {
         console.log("Post ID retrieved: " + postID);
         const response = await fetch('https://dummyjson.com/posts');
@@ -21,31 +37,54 @@ async function fetchPost(postID) {
         errorHeader.innerText = "There was an error. Try reloading.";
         postContainer.append(errorHeader);
     }
+
+    postSpinner.displaySpinner(false);
+    postColumn.removeChild(postSpinnerContainer);
 }
 
 function addPost(post) {
     // adding in user profile pic
-    const userPic = document.getElementById("post-user-pic");
-    userPic.src = "https://via.placeholder.com/40";
+    const userPic = document.createElement("img");
+    userPic.setAttribute("id", "post-user-pic");
+    userPic.className = "rounded-circle me-2";
+    userPic.src = "images/profile_photo_placeholder.jpg";
     userPic.alt = "profile picture";
+    postDetailsContainer.append(userPic);
+    userPic.style.maxWidth = "3rem";
+    userPic.style.maxHeight = "3rem";
+
 
     // adding in username
-    const username = document.getElementById("post-username");
+    const username = document.createElement("span");
+    username.className = "card-top-font-color-mobile";
     const strongUsername = document.createElement("strong");
     strongUsername.innerText = post.userId;
+    postDetailsContainer.append(username)
     username.append(strongUsername);
 
     // adding in timestamp
-    const postDateTime = document.getElementById("post-datetime");
+    const postDateTime = document.createElement("span");
+    postDateTime.className = "card-top-font-color-mobile ms-1";
     postDateTime.innerText = "8 Hours Ago";
+    postDetailsContainer.append(postDateTime);
 
     // adding post topic
-    const postTopic = document.getElementById("post-topic");
+    const postTopic = document.createElement("span");
+    postTopic.className = ("badge text-dark me-2 rounded-pill topic-category-color")
+    const postTopicLink = document.createElement("a")
+    postTopicLink.setAttribute("href", "#");
     postTopic.innerText = post.tags[0];
+    topicCategoryContainer.append(postTopic);
+    postTopic.append(postTopicLink);
     
     // adding post category
-    const postCategory = document.getElementById("post-category");
+    const postCategory = document.createElement("span");
+    postCategory.className = "badge text-dark rounded-pill plant-tag-color";
+    const postCategoryLink = document.createElement("a");
+    postCategoryLink.setAttribute("href", "#");
     postCategory.innerText = post.tags[1];
+    topicCategoryContainer.append(postCategory);
+    postCategory.append(postCategoryLink);
 
     // adding post title
     const postTitle = document.getElementById("post-title");

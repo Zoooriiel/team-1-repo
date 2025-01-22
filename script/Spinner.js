@@ -9,7 +9,7 @@ class Spinner {
     createSpinner(element) {
         this.element = document.getElementById(element);
         this.spinner = document.createElement("div");
-        this.spinner.className = "spinner-border spinner-border-sm top-navbar-color d-none"
+        this.spinner.className = "spinner-border spinner-border-sm d-none"
         this.spinner.setAttribute("role", "status");
         this.element.prepend(this.spinner);
         
