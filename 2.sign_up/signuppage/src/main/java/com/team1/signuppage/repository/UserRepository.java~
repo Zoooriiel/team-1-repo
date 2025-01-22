@@ -1,4 +1,0 @@
-package com.team1.signuppage.repository;
-
-public interface UserRepository {
-}

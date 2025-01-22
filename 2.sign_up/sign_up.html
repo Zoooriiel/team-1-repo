@@ -45,7 +45,7 @@
       <h2 class="text-center mb-4 fw-bold">Sign Up</h2>
       <!-- Sign Up Form -->
       <form id="signup-form">
-        <div class="mb-3">
+        <!-- <div class="mb-3">
           <input
             type="text"
             id="fullname"
@@ -53,7 +53,7 @@
             placeholder="Full Name"
             required
           />
-        </div>
+        </div> -->
         <div class="mb-3">
           <input
             type="text"
@@ -194,7 +194,7 @@
 
             // Gets references to form and input fields.
 
-            const fullNameInput = document.getElementById("fullname");
+            /* const fullNameInput = document.getElementById("fullname"); */
             const usernameInput = document.getElementById("username");
             const email = document.getElementById("txtEmail");
             const pwd = document.getElementById("txtPassword");
@@ -289,6 +289,8 @@
                 msg: "Unable to sign up. Try again.",
               }); // If sign up unsuccessful, provide pop up feedback
             } 
+
+            // TODO redirect to home page?
             
         });
       });
