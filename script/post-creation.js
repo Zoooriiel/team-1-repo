@@ -2,17 +2,18 @@ document.getElementById("create-post-form").addEventListener("submit", async (ev
 
     event.preventDefault();
 
-    const topic = document.getElementById("topic-dropdown");
-    const category = document.getElementById("category-dropdown");
+    const topic = document.getElementById("topic-dropdown").value;
+    const category = document.getElementById("category-dropdown").value;
     const title = document.getElementById("post-title-input");
     const description = document.getElementById("description-input");
     const image = document.getElementById("hidden-upload-btn");
 
     const postData = {
-        topicId: topic.value,
-        categoryId: category.value,
         title: title.value,
-        description: description.value
+        description: description.value,
+        categoryId: Number(category),
+        topicId: Number(topic),
+        userId: 1                                         // TODO change after auth completed
     }
 
     const formData = new FormData();
