@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* border: dotted 1px black; */
+  }
+
+body {
+    background-image: url('/images/katie-burkhart-REk6cxrceoQ-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    font-family: 'Lato', sans-serif;
+}
+
+.custom-card {
+    background-color: rgba(255, 255, 255, 0.8); 
+    backdrop-filter: blur(10px); 
+    max-width: 400px;
+    width: 100%;
+    border: none;
+}
+
+.card .form-control {
+    height: 50px;
+    border-radius: 0.5rem;
+}
+
+.card .btn {
+    background-color: #0e1e13;
+    color: #ffffff;
+}
+
+.card .btn:hover {
+    background-color: #07120b;
+}
+
+.card p,
+.card ul {
+    font-size: 0.9rem;
+}
