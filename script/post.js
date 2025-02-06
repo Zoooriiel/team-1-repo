@@ -19,11 +19,11 @@ async function fetchPost(postID) {
 
     try {
         console.log("Post ID retrieved: " + postID);
-        const response = await fetch('https://dummyjson.com/posts');
-        const result = await response.json();
+        const postResponse = await fetch('http://localhost:8080/public/api/post');
+        const postResult = await postResponse.json();
 
         function findPostByID (postID) {
-            return result.posts.find((post) => post.id === postID);
+            return postResult.find((post) => post.id === postID);
         };
 
         const post = findPostByID(postID);
@@ -34,8 +34,8 @@ async function fetchPost(postID) {
     } catch(error) {
         const errorHeader = document.createElement("h3");
         errorHeader.className = "fs-2 text-center text-danger";
-        errorHeader.innerText = "There was an error. Try reloading.";
-        postContainer.append(errorHeader);
+        errorHeader.innerText = "Error: " + error.message;
+        postColumn.append(errorHeader);
     }
 
     postSpinner.displaySpinner(false);
@@ -58,14 +58,20 @@ function addPost(post) {
     const username = document.createElement("span");
     username.className = "card-top-font-color-mobile";
     const strongUsername = document.createElement("strong");
-    strongUsername.innerText = post.userId;
+    strongUsername.innerText = post.user.userName;
     postDetailsContainer.append(username)
     username.append(strongUsername);
 
     // adding in timestamp
     const postDateTime = document.createElement("span");
     postDateTime.className = "card-top-font-color-mobile ms-1";
-    postDateTime.innerText = "8 Hours Ago";
+    const resultDateTime = post.dateTimeCreation;
+    console.log(resultDateTime)
+    const dateTimeArray = resultDateTime.split("T")
+    const dateTimeArray2 = dateTimeArray[1].split(".")
+    const date = dateTimeArray[0];
+    const time = dateTimeArray2[0];
+    postDateTime.innerText = `${date}  ${time}`;
     postDetailsContainer.append(postDateTime);
 
     // adding post topic
@@ -73,7 +79,7 @@ function addPost(post) {
     postTopic.className = ("badge text-dark me-2 rounded-pill topic-category-color")
     const postTopicLink = document.createElement("a")
     postTopicLink.setAttribute("href", "#");
-    postTopic.innerText = post.tags[0];
+    postTopic.innerText = post.topic.name;
     topicCategoryContainer.append(postTopic);
     postTopic.append(postTopicLink);
     
@@ -82,7 +88,7 @@ function addPost(post) {
     postCategory.className = "badge text-dark rounded-pill plant-tag-color";
     const postCategoryLink = document.createElement("a");
     postCategoryLink.setAttribute("href", "#");
-    postCategory.innerText = post.tags[1];
+    postCategory.innerText = post.category.name;
     topicCategoryContainer.append(postCategory);
     postCategory.append(postCategoryLink);
 
@@ -92,7 +98,7 @@ function addPost(post) {
 
     // adding post desc
     const postDesc = document.getElementById("post-desc");
-    postDesc.innerText = post.body;
+    postDesc.innerText = post.description;
 
     // targeting container for likes and comments counter
     const counterContainer = document.getElementById("counter-container");
@@ -104,7 +110,7 @@ function addPost(post) {
     likesIcon.src = "icons/like_icon.svg";
     likesIcon.alt = "Like Icon";
     likesCounter.append(likesIcon);
-    likesCounter.innerText = post.reactions.likes + " Likes";
+    likesCounter.innerText = post.likes + " Likes";
 
     // creating comments counter
     const commentsCounter = document.createElement("span");
@@ -112,12 +118,10 @@ function addPost(post) {
     commentsIcon.src = "icons/comment_icon.svg";
     commentsIcon.alt = "Comments Icon";
     commentsCounter.append(commentsIcon);
-    commentsCounter.innerText = post.views + " Comments";
+    commentsCounter.innerText = post.commentList.length + " Comments";
 
     counterContainer.append(likesCounter);
     counterContainer.append(commentsCounter);
-
-
 }
 
 const postQueryString = window.location.search;
@@ -126,8 +130,7 @@ const postUrlParams = new URLSearchParams(postQueryString);
 // have to use parseInt as .get returns a string
 let postPostID = parseInt(postUrlParams.get('post_id'));
 
-
-// dummy code to return post 1 if no param found
+// TODO REMOVE WHEN DONE dummy code to return post 1 if no param found
 if (postPostID)
     fetchPost(postPostID)
 else 
