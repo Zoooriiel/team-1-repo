@@ -51,7 +51,6 @@ function performSearch(inputTypeId = null){
         dropdownType = "categoryDropdown";
         typeOfId = "category_id";
     }else{
-        // TODO Generic Search implementation
         searchType = "searchInputGeneric";
         searchMethod = 2;
     }
@@ -60,20 +59,6 @@ function performSearch(inputTypeId = null){
     const dropDown = document.getElementById(dropdownType);
     const selectedDropdownId = dropDown ? dropDown.options[dropDown.selectedIndex].value : null;
 
-    /* if(searchTerm && selectedDropdownId){
-
-        let fullURL = `${window.location.origin}/${resultsPage}`;
-
-        const pageURL = new URL(fullURL);
-
-        if(searchMethod === 1)
-            // specific Search refers to topic and category search
-            window.location.href = `${pageURL}?search=${searchMethod}&query=${(searchTerm)}&${typeOfId}=${(selectedDropdownId)}`;
-        else
-            // otherwise it is a generic search 
-            window.location.href = `${pageURL}?search=${searchMethod}&query=${(searchTerm)}`;
-
-    } */
 
     if(searchTerm){
 

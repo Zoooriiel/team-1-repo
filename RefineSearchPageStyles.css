@@ -70,6 +70,13 @@ i{
 
 /* Refine search body */
 
+#byTopicSearchBtn, #byCategorySearchBtn{
+  width: 150px; 
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+}
+
 .bytopic-tag {
   background-color: #b8a589;
   padding: 12px 0;
@@ -222,6 +229,7 @@ i{
     align-items: center;
     gap: 3px;
   }
+
 }
 
 /* End Mobile Section */
