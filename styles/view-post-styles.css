@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  
+}
+
+body {
+  background: #e0e1de;
+  font-family: "Lato", sans-serif;
+}
+
+/* Top Navbar */
+nav.navbar {
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.top-navbar-color {
+  background-color: #273b22;
+}
+
+.min-profile-dimension,
+.min-logo-dimension {
+  max-width: 3rem;
+  height: auto;
+}
+
+/* Side Navbar */
+
+.side-navbar-color {
+  background: #bbbbab;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.sidebar .nav-link {
+  color: #000;
+}
+
+.side-nav-icons {
+  color: black;
+}
+
+/* Main content */
+.main-content .plant-tag {
+  padding-left: 1rem;
+}
+
+.main-content-color {
+  background-color: #ffffed;
+}
+
+/* Card */
+.card-top-color {
+  background-color: #626c56;
+}
+
+.topic-category-color {
+  background-color: #b8a589;
+}
+
+.plant-tag-color {
+  background-color: #cdd1b6;
+}
+
+.card img {
+  object-fit: cover;
+}
+
+.card-body-color {
+  background-color: #ebebe5;
+}
+
+.card-footer span {
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+.card-footer span i {
+  margin-right: 0.4rem;
+}
+
+/*
+ * When in Desktop Version and hiding Mobile elements 
+ */
+
+/* Hide mobile notification bell in desktop */
+
+.mobile-bell {
+  display: none;
+}
+
+/* Hide Bottom Navbar in desktop */
+#bottom_navbar {
+  display: none;
+}
+
+.breadcrumbs-mobile {
+  display: none;
+}
+/* Styling view post container */
+.view-post-container {
+  height: fit-content
+}
+
+/* Styling view post and comments section */
+.view-comments {
+  display: flex;
+  flex-direction: column;
+  height: 50dvh;
+  
+}
+
+.comments-container {
+  flex-grow: 1;
+  overflow-y: scroll;
+  
+}
+
+.comment-form {
+  position: sticky; 
+  background: white; 
+  z-index: 1; 
+}
+
+/*
+*Mobile Section
+*/
+
+@media only screen and (max-width: 640px) {
+  /* Remove container in mobile */
+  div.container-lg {
+    width: 100%;
+    padding: 0 0 4rem 0;
+  }
+
+  /* Breadcrumbs mobile */
+  .breadcrumbs-container {
+    display: none;
+  }
+
+  .breadcrumbs-mobile {
+    display: block;
+  }
+
+  /* Hide desktop top nav bar elements */
+  .nav-top-icon-profile, .nav-top-icon-post {
+    display: none;
+  }
+
+  /* Unhide notification bell in mobile view */
+  .mobile-bell {
+    display: block;
+    background-color: #ffffed;
+    padding-bottom: 0;
+    font-size: 24px;
+    display: flex;
+    justify-content: end;
+    padding: 15px 20px 0px 0px;
+  }
+
+  /* Hide side navbar */
+  .side-navbar-hide {
+    display: none;
+  }
+
+  /* 
+  * Mobile card 
+  */
+
+  /* Bottom-navbar */
+  #bottom_navbar {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 5;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    background-color: #273b22;
+    height: 4.5rem;
+  }
+
+  .icon-text-color {
+    color: white;
+    font-size: 14px;
+  }
+
+  a.nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+  }
+
+  /* view post */
+  .post-image-container{
+    margin-bottom: 1rem;
+  }
+}
+
+/* End Mobile Section */
