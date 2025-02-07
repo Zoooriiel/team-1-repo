@@ -32,7 +32,7 @@ byGenericSearch.addEventListener("submit", (event) => {
     return performSearch(event.target.id);
 })
 
-
+// http://127.0.0.1:5500/plantposts.html?search=1&query=Bird%20Next%20Fern&category_id=1
 
 function performSearch(inputTypeId = null){
 
@@ -40,7 +40,14 @@ function performSearch(inputTypeId = null){
     let dropdownType = "";
     let typeOfId = "";
     let searchMethod = 1;
-    let resultsPage = "SearchByTags.html";
+    let resultsPage = "";
+
+    if(inputTypeId === "byCategorySearchBtn")
+        resultsPage = "plantposts.html"
+    else
+        resultsPage = "topicposts.html"
+
+    console.log("I will navigate to" + resultsPage);
 
     if(inputTypeId === "byTopicSearchBtn"){
         searchType = "searchInputTopic";

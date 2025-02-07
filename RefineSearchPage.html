@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Plant Post</title>
+    <title>Refine Search</title>
 
     <!-- Bootstrap CSS -->
     <link
@@ -21,6 +21,7 @@
     />
 
     <link rel="stylesheet" href="styles/refinesearchpagestyles.css" />
+    <link rel="stylesheet" href="styles/mobilestyles.css">
   </head>
   <body>
     <div class="container-lg">
@@ -39,19 +40,18 @@
               </a>
             </div>
 
-            <div class="col-6 align-content-center">
-              <!-- Drop-down Search bar -->
-              <form id ="searchGeneric" class="form-inline">
-                <input
-                  id="searchInputGeneric"
-                  class="form-control rounded-pill"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-                <button class="btn btn-primary d-none" type="submit">Submit</button>
-              </form>
-            </div>
+            <!-- Search bar -->
+            <form id ="searchGeneric" 
+              class="form-inline pt-1 w-50">
+              <input
+                id="searchInputGeneric"
+                class="form-control rounded-pill"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-primary d-none" type="submit">Submit</button>
+            </form>
 
             <div class="col-3 align-content-center">
               <!-- Top right menu -->
@@ -92,21 +92,6 @@
           </div>
         </div>
       </nav>
-
-      <!-- Start of mobile top navbar -->
-      <div class="">
-        <a class="" href="#">
-          <i
-            class="fa-regular fa-bell mobile-bell"
-            style="color: #000000"
-            data-bs-toggle="tooltip"
-            data-bs-title="Notifications"
-            data-bs-placement="bottom"
-            aria-hidden="true"
-          ></i>
-        </a>
-      </div>
-      <!-- End of Top Navbar -->
 
       <div class="container-fluid">
         <div class="row" id="push-contents-up">

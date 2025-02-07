@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plant Post</title>
+    <title>View Post</title>
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -17,6 +17,8 @@
     />
     
     <link rel="stylesheet" href="styles/viewpost.css">
+    <link rel="stylesheet" href="styles/refinesearchpagestyles.css">
+    <link rel="stylesheet" href="styles/mobilestyles.css">
 </head>
 <body>
 
@@ -58,75 +60,38 @@
 
 
         <div class="container-fluid">
-            <div class="row">
+            <div class="row" id="push-contents-up">
 
                 <!-- Sidenavbar -->
                 <div class="col-md-3 min-vh-100 sidebar side-navbar-color side-navbar-hide">
+                    <!-- Desktop menu -->
+                    <div class="d-flex" id="navbarNav">
+                    <!-- dynamic menu here -->
                     
-                    <div class="d-flex flex-column">  
-
-                        <!-- Desktop menu --> 
-                        <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#">
-                                        <i class="fa fa-home text" aria-hidden="true"></i> Home
-                                    </a>
-                                </li>
-                                
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                        <i class="fa fa-leaf" aria-hidden="true"></i> Create a Post
-                                    </a>
-                                </li>
-                                
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                        <i class="fa fa-user" aria-hidden="true"></i> Profile
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                        <i class="fa fa-search" aria-hidden="true"></i> Explore
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                        <i class="fa fa-bookmark" aria-hidden="true"></i> Saved
-                                    </a>
-                                </li>
-                        </ul>    
-                    </div>  
+                    </div>
 
                     <!-- Topic category tag -->
                     <div class="mt-4">
-                        <h6 class="text-muted">TOPIC CATEGORIES</h6>
-                        <ul class="list-unstyled">
-                            <li><a href="#">Cactus bug</a></li>
-                            <li><a href="#">Cactus bug</a></li>
-                            <li><a href="#">Cactus bug</a></li>
-                            <li><a href="#">Cactus bug</a></li>
-                        </ul>
+                    <h6 class="text-muted">TOPIC CATEGORIES</h6>
+                    <ul class="list-unstyled" id="topicCategoryUL">
+
+                    </ul>
                     </div>
-                    
-                    <!-- Plant category tag -->
+
+                    <!-- Botany tag -->
                     <div class="mt-4">
-                        <h6 class="text-muted">PLANT CATEGORIES</h6>
-                        <ul class="list-unstyled">
-                            <li><a href="#">Cactus bug</a></li>
-                            <li><a href="#">Cactus bug</a></li>
-                            <li><a href="#">Cactus bug</a></li>
-                            <li><a href="#">Cactus bug</a></li>
-                        </ul>
+                    <h6 class="text-muted">PLANT CATEGORIES</h6>
+                    <ul class="list-unstyled" id="plantCategoryUL">
+
+                    </ul>
                     </div>
-                    
+
                     <div class="mt-auto">
-                        <a href="#" class="btn btn-outline-danger w-100">Logout</a>
+                    <a href="#" class="btn btn-outline-danger w-100">Logout</a>
                     </div>
-                    
+
                     <footer class="py-2 small">
-                        <p>Root Squad &copy; 2024</p>
+                    <p>Root Squad &copy; 2024</p>
                     </footer>
                 </div>
                 <!-- End of Sidenavbar -->
@@ -134,40 +99,40 @@
                 <!-- Start of Bottomnavbar (Mobile) -->
                 <ul id="bottom_navbar" class="nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">
-                            <i class="fa fa-home text-light fs-5" aria-hidden="true"></i>
-                            <span class="icon-text-color">Home</span>
-                        </a>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="fa fa-search text-light fs-5" aria-hidden="true"></i>
-                            <span class="icon-text-color">Explore</span>
-                        </a>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="fa fa-leaf text-light fs-5" aria-hidden="true"></i>
-                            <span class="icon-text-color">Post</span>
-                        </a>
+                    <a class="nav-link active" aria-current="page" href="#">
+                        <i class="fa fa-home text-light fs-5" aria-hidden="true"></i>
+                        <span class="icon-text-color">Home</span>
+                    </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="fa fa-bookmark text-light fs-5" aria-hidden="true"></i>
-                            <span class="icon-text-color">Saved</span>
-                        </a>
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-search text-light fs-5" aria-hidden="true"></i>
+                        <span class="icon-text-color">Explore</span>
+                    </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="fa fa-user text-light fs-5" aria-hidden="true"></i>
-                            <span class="icon-text-color">Profile</span>
-                        </a>
-                    </li>                   
-                </ul>    
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-leaf text-light fs-5" aria-hidden="true"></i>
+                        <span class="icon-text-color">Post</span>
+                    </a>
+                    </li>
+
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-bookmark text-light fs-5" aria-hidden="true"></i>
+                        <span class="icon-text-color">Saved</span>
+                    </a>
+                    </li>
+
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-user text-light fs-5" aria-hidden="true"></i>
+                        <span class="icon-text-color">Profile</span>
+                    </a>
+                    </li>
+                </ul>
 
                 <!-- Main Content -->
 
@@ -190,7 +155,7 @@
                     <div class="d-flex justify-content-center view-post-container">
                         <div class="card mb-3 col-md-12 shadow card-body-color">
                             <div class="card-body">
-                                <div class="row h-100">
+                                <div class="row h-auto">
 
                                     <!-- Column for image -->
                                     <div class="col-md-7 d-flex">
@@ -244,6 +209,14 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script/toolitp.js"></script>
+    <script src="script/const.js"></script>
+
+    <script src="script/auth.js"></script>
+    <script src="script/loader.js"></script>
+    <script src="script/Components/NavController.js"></script>
+    <script src="script/refinesearchpage.js"></script>
+    <script src="script/Components/Spinner.js"></script>
+
     <script src="script/Spinner.js"></script>
     <script src="script/comments.js"></script>
     <script src="script/post.js"></script>
