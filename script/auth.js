@@ -53,9 +53,9 @@ function decodeUser(token){
     const arrToken = token.split(".");                              
     const decodedToken = JSON.parse(window.atob(arrToken[1]));
     const email = decodedToken.email;
-    const username = decodedToken.username;
-    const role = decodedToken.role;
-    return {email: email, username: username, role: role};
+    const name = decodedToken.name;
+    const roles = decodedToken.roles;
+    return {email: email, name: name, roles: roles};
 
 }
 
@@ -84,25 +84,29 @@ async function login(login = {}){
 
     // !! Try/catch block (exception handling) to send data to login enpoint
     try {
-        // FETCH requests - send data or retrive data by calling an API endpoint            // TODO: refactor when end-point is available
-        /* 
-            const response = await fetch(_ENDPOINT_LOGIN, {                                 // Perform an async POST request to process the form data
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(login)
-            });
-        */
 
-        const response = Mock.getMockSuccess();                                             // TODO: remove when endpoint request is available (remove in production env.)  
-
-        const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));      // TODO: remove delay when endpoint is instated
-        await sleep(2000);
+        const response = await fetch(_PUBLIC_ENDPOINT_LOGIN, {                                 // Perform an async POST request to process the form data
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(login)
+        });
         
         if(response.ok){                                                                    // If response is ok
+
+            const result = await response.json();
+            const token = result.token;                                                   
+            const user = decodeUser(token);                                                 // decode the token for the role 
             
-            const token = Mock.getToken(true);                                              // TODO: refactor when token is retrieved from response, (remove in production env.) 
             window.localStorage.setItem(_USERTOKEN, token);                                 // Store the string in localStorage with the key 'usertoken'
-            window.location = _HOME_URL;                                                    // Redirect the user to homepage
+            
+            console.log(user);
+
+            const adminStatus = user.roles.some(role => role.authority === 'ADMIN');        // !! Find "ADMIN" authority from token's roles
+            
+            if(adminStatus)                                                                 // !! This example only look for "ADMIN" authority
+                window.location = _ADMIN_URL;                                               // Redirect the user to adminpage
+            else                                                                            // !! Other authority will be deemed as user
+                window.location = _HOME_URL;                                               // Redirect the user to homepage
 
         }
         
@@ -120,4 +124,35 @@ async function login(login = {}){
 function logout(){
     window.localStorage.removeItem(_USERTOKEN);                                             // Store the string in localStorage with the key 'token'
     window.location = _HOME_URL;                                                            // Redirect the user to homepage
+}
+
+// Function to register
+async function signUp(formData = {}){
+
+    if(Object.entries(formData).length == 0)
+        return;
+
+    try {
+
+        let data = new FormData();
+        data.append("userData", JSON.stringify(formData));
+        
+        const request = {
+            method: "POST", 
+            body: data
+        }; 
+        
+        const response = await fetch(_PUBLIC_ENDPOINT_SIGNUP, request);
+
+        const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));      // TODO: remove delay when endpoint is instated
+        await sleep(2000);
+
+        if(response.ok){
+            window.location = _LOGIN_URL;
+        }
+
+    } catch (error) {
+        console.log("Exception error gotten is:", error.message);
+    }
+
 }

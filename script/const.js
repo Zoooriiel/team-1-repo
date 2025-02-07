@@ -17,7 +17,7 @@ const _CREATEAPOST_URL = "#";
 const _PROFILE_URL = "profile.html";
 const _EXPLORE_URL = "refinesearchpage.html";
 const _SAVED_URL = "saved.html";
-const _LOGIN_URL = "login.html";
+const _LOGIN_URL = "signin.html";
 const _LOGOUT_URL = "logout.html";
 
 // site pages' icon (FONT AWESOME CLASS)
@@ -35,11 +35,9 @@ const _USERTOKEN = "usertoken";
 
 /* const used in auth.js   */
 // endponts
-
-const _ENDPOINT_LOGIN = "TBC";
-// endpoints
-
 const _ENDPOINT_POST = 'http://localhost:8080/public/api/post'        // TODO change back after auth complete
 const _PUBLIC_ENDPOINT_TOPIC = 'http://localhost:8080/public/api/topic'
 const _PUBLIC_ENDPOINT_CATEGORY = 'http://localhost:8080/public/api/category'
+const _PUBLIC_ENDPOINT_SIGNUP = 'http://localhost:8080/public/api/user/signup';
+const _PUBLIC_ENDPOINT_LOGIN = "http://localhost:8080/public/api/user/signin";
 const _ENDPOINT_CREATE_COMMENT = "http://localhost:8080/public/api/comment/post/"

@@ -179,7 +179,6 @@
 
     <script src="../script/boostrap-ftns.js"></script>
     <script src="../script/form-validate.js"></script>
-    <script src="../script/signup.js"></script>
 
     <!-- Internal Custom Script -->
     <script>
@@ -188,7 +187,7 @@
         // when user submits
         document
           .getElementById("signup-form")
-          .addEventListener("submit", function (event) {
+          .addEventListener("submit", async function (event) {
             //Prevents the default form submission.
             event.preventDefault();
 
@@ -209,7 +208,7 @@
             // TODO CHECK IF USERNAME IS ALREADY IN DATABASE
 
             // Trap empty inputs for all if empty
-            if (isEmpty(fullnameInput.value.trim()) || isEmpty(usernameInput.value.trim()) || isEmpty(email.value) || isEmpty(pwd.value || isEmpty(pwd2.value))) {
+            if (isEmpty(usernameInput.value.trim()) || isEmpty(email.value) || isEmpty(pwd.value || isEmpty(pwd2.value))) {
               showToast({
                 toastElement,
                 toastBodyElement,
@@ -220,7 +219,7 @@
             }
 
             //checks if username is valid. If yes, displays error message
-            if (isValidUsername(usernameInput.value.trim())) {
+            if (!isValidUsername(usernameInput.value.trim())) {
               showToast({
                 toastElement,
                 toastBodyElement,
@@ -243,7 +242,7 @@
 
             // TODO Password: Checks length, uppercase, and digit presence.
             //
-            if (isValidPassword(pwd.value.trim())) {
+            if (!isValidPassword(pwd.value.trim())) {
               showToast({
                 toastElement,
                 toastBodyElement,
@@ -275,7 +274,12 @@
             spinner.displaySpinner(true);
 
             // JavaScript Object signUpData stores the form's input values
-            const signUpData = {fullname: fullnameInput.value, username: usernameInput.value, email: email.value, password: pwd.value };
+            const signUpData = {
+                name: usernameInput.value, 
+                email: email.value, 
+                password: pwd.value,
+                role: "USER"
+              };
 
             // Invoke login() function, and end (return).  ( login() function from auth.js ), , await waits for login(logindata to finish then execute)
             const signUpSuccess = await signUp(signUpData);

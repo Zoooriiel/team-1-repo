@@ -3,7 +3,7 @@ async function signUp(signUp = {}){
     try {
                     
         // perform a POST fetch request to process our sign up data
-        const response = await fetch("/api/auth/signup'", {
+        const response = await fetch(_PUBLIC_ENDPOINT_SIGNUP, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(signUpData)
