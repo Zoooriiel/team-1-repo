@@ -95,38 +95,39 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const topicList = document.getElementById("topicDropdown")
     const categoryList = document.getElementById("categoryDropdown")
 
-    // Topic dropdown menu
-    const dropDownTopicItems = [
-        {id: 1, name: "Showcase"},
-        {id: 2, name: "Help"},
-        {id: 3, name: "Q&A"},
-        {id: 4, name: "Tips"},
-        {id: 5, name: "Exchange"},
-        {id: 6, name: "Giveaway"}
-    ];
-
-    // Category dropdown menu
-    const dropDownCategoryItems = [
-        {id: 1, name: "Succulents"},
-        {id: 2, name: "Leafy Plants"},
-        {id: 3, name: "Creepers"},
-        {id: 4, name: "Moss"}
-    ];
-  
-    // Topic Dropdown
-    dropDownTopicItems.forEach(item => {
-       // target: topicDropdown
-       for (let index = 0; index < dropDownTopicItems.length; index++) {
-            topicList.options[index + 1] = new Option(dropDownTopicItems[index].name, dropDownTopicItems[index].id);
-       };
-    });
-
-    // Category dropdown
-    dropDownCategoryItems.forEach(item => {
-        // target: categoryDropdown
-        for (let index = 0; index < dropDownCategoryItems.length; index++) {
-            categoryList.options[index + 1] = new Option(dropDownCategoryItems[index].name, dropDownTopicItems[index].id);
+    async function fetchCategories() {
+    
+        try {
+            const response = await fetch(_PUBLIC_ENDPOINT_CATEGORY);
+            const result = await response.json();
+    
+            for (let index = 0; index < result.length; index++) {
+                categoryList.options[index + 1] = new Option(result[index].name, result[index].id);
+            }
+            
+        } catch (error) {
+            alert ("Error: " + error)
+            
         }
-    });
+    }
+    
+    async function fetchTopics() {
+        
+        try {
+            const response = await fetch(_PUBLIC_ENDPOINT_TOPIC);
+            const result = await response.json();
+    
+            for (let index = 0; index < result.length; index++) {
+                topicList.options[index + 1] = new Option(result[index].name, result[index].id);
+            }
+    
+        } catch (error) {
+            alert ("Error: " + error)
+            
+        }
+    }
+    
+    fetchCategories();
+    fetchTopics();
 
 });
