@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plant Post</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Import fonts awesome stylesheet -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="styles/refinesearchpagestyles.css" />
+  </head>
+  <body>
+    <div class="container-lg">
+      <!-- Top Navbar -->
+      <nav class="top-navbar-color px-2 py-2 top-navbar-hide">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-3 align-content-center">
+              <!-- Logo -->
+              <a class="" href="#">
+                <img
+                  class="min-logo-dimension rounded-circle"
+                  src="images/root_squad_logo.jpg"
+                  alt="Logo"
+                />
+              </a>
+            </div>
+
+            <div class="col-6 align-content-center">
+              <!-- Drop-down Search bar -->
+              <form id ="searchGeneric" class="form-inline">
+                <input
+                  id="searchInputGeneric"
+                  class="form-control rounded-pill"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <button class="btn btn-primary d-none" type="submit">Submit</button>
+              </form>
+            </div>
+
+            <div class="col-3 align-content-center">
+              <!-- Top right menu -->
+              <div class="d-inline-flex float-end">
+                <a
+                  class="mx-3 text-white text-center align-self-center d-blockp-2"
+                  href="#"
+                >
+                  <i
+                    class="fa fa-leaf fs-3"
+                    data-bs-toggle="tooltip"
+                    data-bs-title="Ceate a Post"
+                    data-bs-placement="bottom"
+                    aria-hidden="true"
+                  ></i>
+                </a>
+                <a class="mx-3 align-self-center" href="#">
+                  <i
+                    class="fa fa-bell text-white fs-3"
+                    data-bs-toggle="tooltip"
+                    data-bs-title="Notifications"
+                    data-bs-placement="bottom"
+                    aria-hidden="true"
+                  ></i>
+                </a>
+                <a class="mx-3 align-self-center" href="#">
+                  <img
+                    src="images/profile_photo_placeholder.jpg"
+                    alt="Profile Photo"
+                    class="min-profile-dimension rounded-circle border border-white border-1"
+                    data-bs-toggle="tooltip"
+                    data-bs-title="View Profile"
+                    data-bs-placement="bottom"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Start of mobile top navbar -->
+      <div class="">
+        <a class="" href="#">
+          <i
+            class="fa-regular fa-bell mobile-bell"
+            style="color: #000000"
+            data-bs-toggle="tooltip"
+            data-bs-title="Notifications"
+            data-bs-placement="bottom"
+            aria-hidden="true"
+          ></i>
+        </a>
+      </div>
+      <!-- End of Top Navbar -->
+
+      <div class="container-fluid">
+        <div class="row" id="push-contents-up">
+          <!-- Sidenavbar -->
+          <div class="col-md-3 min-vh-100 sidebar side-navbar-color side-navbar-hide">
+            <!-- Desktop menu -->
+            <div class="d-flex" id="navbarNav">
+              <!-- dynamic menu here -->
+              
+            </div>
+
+            <!-- Topic category tag -->
+            <div class="mt-4">
+              <h6 class="text-muted">TOPIC CATEGORIES</h6>
+              <ul class="list-unstyled" id="topicCategoryUL">
+
+              </ul>
+            </div>
+
+            <!-- Botany tag -->
+            <div class="mt-4">
+              <h6 class="text-muted">PLANT CATEGORIES</h6>
+              <ul class="list-unstyled" id="plantCategoryUL">
+
+              </ul>
+            </div>
+
+            <div class="mt-auto">
+              <a href="#" class="btn btn-outline-danger w-100">Logout</a>
+            </div>
+
+            <footer class="py-2 small">
+              <p>Root Squad &copy; 2024</p>
+            </footer>
+          </div>
+          <!-- End of Sidenavbar -->
+
+          <!-- Start of Bottomnavbar (Mobile) -->
+          <ul id="bottom_navbar" class="nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">
+                <i class="fa fa-home text-light fs-5" aria-hidden="true"></i>
+                <span class="icon-text-color">Home</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="fa fa-search text-light fs-5" aria-hidden="true"></i>
+                <span class="icon-text-color">Explore</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="fa fa-leaf text-light fs-5" aria-hidden="true"></i>
+                <span class="icon-text-color">Post</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="fa fa-bookmark text-light fs-5" aria-hidden="true"></i>
+                <span class="icon-text-color">Saved</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="fa fa-user text-light fs-5" aria-hidden="true"></i>
+                <span class="icon-text-color">Profile</span>
+              </a>
+            </li>
+          </ul>
+
+          <!-- Main Content -->
+          <div class="col-md-9 main-content p-4 main-content-color">
+            <!-- Breadcrumbs (Desktop) -->
+            <div class="breadcrumbs-container d-none d-md-block">
+              <div class="d-flex justify-content-start align-items-center mb-4">
+                <h4>Explore</h4>
+              </div>
+
+              <div class="refine-search-container-desktop">
+                <h5 class="fw-bold">Refine your search:</h5>
+                <!-- Search By Topic -->
+                <div class="d-flex align-items-center mb-2 gap-2">
+                  <input
+                    class="form-control black-border"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                    id="searchInputTopic"
+                  />
+
+                  <!-- Using HTML select topicDropdown -->
+                  <select class="form-select" id="topicDropdown" aria-label="Disabled select example">
+                    <!-- TODO Change this to a dynamic dropdown -->
+                    <option selected>Topics</option>
+                    <!-- <option value="1">Tips</option>
+                    <option value="2">Plant Exchange</option>
+                    <option value="3">Giveaway</option> -->
+                  </select>
+
+                  <span class="badge text-dark w-25 black-border  fs-6 bytopic-tag" id="byTopicSearchBtn">By Topic</span>
+                </div>
+
+                <!-- Search By Category -->
+                <div class="d-flex align-items-center gap-2">
+                  <input
+                    class="form-control black-border"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                    id="searchInputCategory"
+                  />
+
+                  <!-- Using HTML select for categoryDropdown -->
+                  <select class="form-select" id="categoryDropdown" aria-label="Disabled select example">
+                    <!-- TODO Change this to a dynamic dropdown -->
+                    <option selected>Category</option>
+                    <!-- <option value="1">Succulent</option>
+                    <option value="2">Leafy Plants</option>
+                    <option value="3">Creepers</option> -->
+                  </select>
+
+                  <span class="badge text-dark w-25 black-border fs-6 bycategory-tag" id="byCategorySearchBtn">By Category</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Breadcrumbs (Mobile)-->
+            <div class="breadcrumbs-mobile mb-4 d-block d-md-none">
+              <h4>Explore</h4>
+            </div>
+
+            <div class="refine-search-container-mobile">
+              <h5 class="fw-bold">Refine your search:</h5>
+              <div class="d-flex align-items-center mb-2 gap-2">
+                <input
+                  class="form-control rounded-pill black-border"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                  id="searchInput"
+                />
+                <span class="badge text-dark w-25 black-border rounded-pill bytag-tag">By Tags</span>
+              </div>
+              
+              <div class="d-flex align-items-center gap-2">
+                <input
+                  class="form-control rounded-pill black-border"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <span class="badge text-dark w-25 black-border rounded-pill bycategory-tag">By Category</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script/toolitp.js"></script>
+    <script src="script/refinesearchpage.js"></script>
+    <script src="script/Components/NavController.js"></script>
+    <script src="script/Components/Spinner.js"></script>
+    <script src="script/loader.js"></script>
+    <script src="script/const.js"></script>
+    <script src="script/auth.js"></script>
+
+  </body>
+</html>

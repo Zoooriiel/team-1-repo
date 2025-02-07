@@ -57,7 +57,9 @@ a {
   background-color: #ffffed;
 }
 
+
 /* Card */
+
 .card-top-color {
   background-color: #626c56;
 }
@@ -80,12 +82,35 @@ a {
 
 .card-footer span {
   font-size: 1rem;
-  color: #6c757d;
+  color: #4d535a;
 }
 
 .card-footer span i {
   margin-right: 0.4rem;
+
 }
+
+/* Square image on the left */
+.post-thumbnail-container {
+  width: 150px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.post-thumbnail {
+  width: 100%;        
+  height: 100%;       
+  object-fit: cover; 
+}
+
+/* Right-hand side three dots */
+.settings-menu .dots {
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  padding-right: 15px;
+}
+
 
 /*
  * When in Desktop Version and hiding Mobile elements 
@@ -112,9 +137,15 @@ a {
 
 @media only screen and (max-width: 640px) {
   /* Remove container in mobile */
+
+
   div.container-lg {
     width: 100%;
     padding: 0 0 4rem 0;
+  }
+
+  #push-contents-up{
+    padding-bottom: 3.125rem;
   }
 
   /* Breadcrumbs mobile */
@@ -124,6 +155,7 @@ a {
 
   .breadcrumbs-mobile {
     display: block;
+    
   }
 
   /* Hide desktop top nav bar elements */
@@ -139,7 +171,7 @@ a {
     font-size: 24px;
     display: flex;
     justify-content: end;
-    padding: 15px 20px 0px 0px;
+    padding: 1px 20px 0px 0px;
   }
 
   /* Hide side navbar */
