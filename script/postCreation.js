@@ -1,6 +1,14 @@
 document.getElementById("create-post-form").addEventListener("submit", async (event) => {
 
     event.preventDefault();
+    const token = isAuthenticated();
+    const userToken = decodeUser(token);
+    const userEmail = userToken.email;
+
+    const response = await fetch("http://localhost:8080/public/api/user/email?email=" + userEmail);
+    const user = await response.json();
+
+    const userId = user.id;
 
     const topic = document.getElementById("topic-dropdown").value;
     const category = document.getElementById("category-dropdown").value;
@@ -13,8 +21,8 @@ document.getElementById("create-post-form").addEventListener("submit", async (ev
         description: description.value,
         categoryId: Number(category),
         topicId: Number(topic),
-        userId: 1                                         // TODO change after auth completed
-    }
+        userId: userId                                         // TODO change after auth completed
+    };
 
     const formData = new FormData();
     formData.append("postData", JSON.stringify(postData));
