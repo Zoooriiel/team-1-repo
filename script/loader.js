@@ -18,15 +18,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
         window.location = _LOGIN_URL;
 
     const user = decodeUser(token);
-    const profileEmail = document.getElementById("txtEmail");
-    const profileUsername = document.getElementById("txtUsername");
-    const profileRole = document.getElementById("txtUserrole");
-    profileUsername.classList.add("fw-bold");
-    profileEmail.innerText = user.email;
-    profileUsername.innerText = user.username;
-    
-    if(user.role === "ADMIN")
+    const userEmail = user.email;
+
+    const profileLink = document.getElementById("profile-link");
+
+    // TODO remove when done
+    profileLink.setAttribute("href", userEmail);
+
+    /* if(user.role === "ADMIN")
         profileRole.innerText = user.role.charAt(0).toUpperCase() 
-                                + user.role.slice(1).toLowerCase();
+                                + user.role.slice(1).toLowerCase(); */
 
 });
