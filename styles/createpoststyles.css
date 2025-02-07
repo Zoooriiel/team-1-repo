@@ -146,10 +146,14 @@ a {
     width: 50%
   }
 
-  .card-body .btn{
+  .card-body .btn {
     display: flex;
     width: 100%;
     justify-content: center;
+  }
+
+  #create-post-card {
+    margin-bottom: 5rem;
   }
 
 }
