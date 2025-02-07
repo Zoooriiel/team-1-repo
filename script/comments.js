@@ -19,11 +19,12 @@ async function fetchComments(postID = null) {
         console.log("ID retrieved " + postID);
         // TODO fetch from fetchcomments(post_id)
         // TODO api call for comments here (springboot)
-        // const response = await fetch (`http://localhost:8080/fetchcomments/${postID}`)
-        const response = await fetch('https://dummyjson.com/comments');
-        const result = await response.json();
+        const response = await fetch (`http://localhost:8080/public/api/comment/post/${postID}`)
+        /* const response = await fetch('https://dummyjson.com/comments'); */
+        const commentsList = await response.json();
+        console.log(commentsList);
 
-        const commentsList = result.comments;
+        /* const commentsList = result.comments; */
         
         for (let index = 0; index < commentsList.length; index++) {
             addComment(commentsList[index]);
@@ -66,7 +67,7 @@ function addComment(comment) {
     const username = document.createElement("span");
     username.className = "card-top-font-color-mobile";
     const strongUsername = document.createElement("strong");
-    strongUsername.innerText = comment.user.username;
+    strongUsername.innerText = comment.user.userName;
     commentInfo.append(username);
     username.append(strongUsername);
 
@@ -78,7 +79,7 @@ function addComment(comment) {
     // comments body
     const commentBody = document.createElement("div");
     commentBody.className = "card-body";
-    commentBody.innerText = comment.body;
+    commentBody.innerText = comment.commentBody;
     commentCard.append(commentBody);
 
 
@@ -94,6 +95,10 @@ let commentsPostID = parseInt(commentsUrlParams.get('post_id'));
 
 document.addEventListener("DOMContentLoaded", (event) => {                                                     
     event.preventDefault();
-    fetchComments(commentsPostID);                                                                                    
+    fetchComments(commentsPostID);
+    /* if(commentsPostID) 
+        fetchComments(commentsPostID);
+    else
+        return;     */                                                                                
 });
 

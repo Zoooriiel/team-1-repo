@@ -130,8 +130,11 @@ const postUrlParams = new URLSearchParams(postQueryString);
 // have to use parseInt as .get returns a string
 let postPostID = parseInt(postUrlParams.get('post_id'));
 
+document.addEventListener("DOMContentLoaded", async(event) => {
+    event.preventDefault();
 // TODO REMOVE WHEN DONE dummy code to return post 1 if no param found
-if (postPostID)
-    fetchPost(postPostID)
-else 
-    fetchPost(1);
+    if (postPostID)
+        fetchPost(postPostID)
+    else 
+        fetchPost(1);
+})
