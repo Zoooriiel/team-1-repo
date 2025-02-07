@@ -46,7 +46,6 @@ function isTokenExpired(token) {
 
 // function decodeUser takes a token as input, decodes it, and extracts the user's email, username, and role from it. The token is assumed to be a JSON Web Token (JWT) in a Base64-encoded format. The function returns an object with the extracted user information.
 // decodeUser() is used in this file , loader.js and navcontroller.js
-// decodeUser that takes a token as input. It splits the token into an array using the dot (.) as the separator. It then decodes the second part of the array using the atob function, which decodes a Base64-encoded string. The decoded string is parsed as JSON using JSON.parse. The function extracts the email, username, and role properties from the decoded token and returns them as an object.
 function decodeUser(token){                                         
     
     // !! Extract authenticated user's email from the token
@@ -59,57 +58,43 @@ function decodeUser(token){
 
 }
 
-// ?? async / await
-// ?? Async functions return results wrapped in a resolved Promise; for any errors, a 'rejected' Promise is returned 
-// ?? In an async function, await pauses execution for the function until a Promise is resolved/rejected. 
+// !! DONE: async / await
+// !! DONE functions return results wrapped in a resolved Promise; for any errors, a 'rejected' Promise is returned 
+// !! DONE: In an async function, await pauses execution for the function until a Promise is resolved/rejected. 
 
 // Funtion to login
-// login() used in login.html
-/* This is a JavaScript function named login that simulates a login process. It takes a login object as an argument, which is expected to contain user credentials.
-
-1. If login is empty, the function returns immediately.
-2. It attempts to send a mock successful response (instead of a real API request) using Mock.getMockSuccess().
-3. It waits for 2 seconds using a promise-based sleep function.
-4. If the mock response is successful, it:
-    -Retrieves a mock token using Mock.getToken(true).
-    -Stores the token in local storage with the key _USERTOKEN.
-    -Redirects the user to the homepage.
-5. If any errors occur during this process, it logs the error message to the console and returns.
-
-Note that this function is currently using mock data and is intended to be refactored to use real API endpoints and token retrieval in a production environment. */
-async function login(login = {}){
+async function login(loginData = {}){
     
-    if(Object.entries(login).length === 0)                                               // Return if the object is empty
+    if(Object.entries(loginData).length === 0)                                               // Return if the object is empty
         return;
 
-    // !! Try/catch block (exception handling) to send data to login enpoint
-    try {
-        // FETCH requests - send data or retrive data by calling an API endpoint            // TODO: refactor when end-point is available
-        /* 
-            const response = await fetch(_ENDPOINT_LOGIN, {                                 // Perform an async POST request to process the form data
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(login)
-            });
-        */
-
-        const response = Mock.getMockSuccess();                                             // TODO: remove when endpoint request is available (remove in production env.)  
-
-        const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));      // TODO: remove delay when endpoint is instated
-        await sleep(2000);
-        
-        if(response.ok){                                                                    // If response is ok
+    
+    try {                                                                                   // !! Try/catch block (exception handling) to send data to login enpoint
+        const response = await fetch(_ENDPOINT_SIGNIN, {                                     // !! DONE: API call for Authentication
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(loginData)
+        });
+      
+        if(response.ok){                                                                    // If response status == 200 (ok)
+            const result = await response.json();
+            const token = result.token;                                                   
+            const user = decodeUser(token);                                                 // decode the token for the role 
             
-            const token = Mock.getToken(true);                                              // TODO: refactor when token is retrieved from response, (remove in production env.) 
             window.localStorage.setItem(_USERTOKEN, token);                                 // Store the string in localStorage with the key 'usertoken'
-            window.location = _HOME_URL;                                                    // Redirect the user to homepage
-
+            
+            const adminStatus = user.roles.some(role => role.authority === 'ADMIN');        // !! Find "ADMIN" authority from token's roles
+            
+            if(adminStatus)                                                                 // !! This example only look for "ADMIN" authority
+                window.location = _ADMIN_URL;                                               // Redirect the user to adminpage
+            else                                                                            // !! Other authority will be deemed as user
+                window.location = _HOME_URL;                                               // Redirect the user to homepage
         }
         
         return;                                                                             // Else return false
 
     } catch (error) {
-        /* console.log("Exception error gotten is: ", error.message); */
+        console.log("Exception error gotten is: ", error.message);
         return;
     }
     
@@ -120,4 +105,24 @@ async function login(login = {}){
 function logout(){
     window.localStorage.removeItem(_USERTOKEN);                                             // Store the string in localStorage with the key 'token'
     window.location = _HOME_URL;                                                            // Redirect the user to homepage
+}
+
+// funtion to sign up
+async function signUp(signUpData ={}){
+    if(Object.entries(signUpData).length == 0)
+        return;
+    // we are sending name, email, password spring boot help us take care of CSRF cros-site reference forgery
+    try{
+        const response = await fetch(_ENDPOINT_SIGNUP, {
+            method: "POST",
+            headers:{"Content-type":"application/json"},
+            body: JSON.stringify(signUpData)
+        })
+        if(response.ok){
+            window.location=_LOGIN_URL
+        }
+    } catch (error){
+        console.log("Exception error gotten is:", error.message)
+
+    }
 }

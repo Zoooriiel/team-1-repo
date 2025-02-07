@@ -10,7 +10,7 @@
       rel="stylesheet"
     />
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="signupstyle.css" />
   </head>
   <body>
     <!-- toast -->
@@ -57,7 +57,7 @@
         <div class="mb-3">
           <input
             type="text"
-            id="username"
+            id="txtName"
             class="form-control"
             placeholder="Username"
             required
@@ -84,7 +84,7 @@
         <div class="mb-3">
           <input
             type="password"
-            id="password-confirmation"
+            id="txtPassword2"
             class="form-control"
             placeholder="Re-enter Password"
             required
@@ -188,28 +188,26 @@
         // when user submits
         document
           .getElementById("signup-form")
-          .addEventListener("submit", function (event) {
+          .addEventListener("submit", async (event) => {
             //Prevents the default form submission.
             event.preventDefault();
 
             // Gets references to form and input fields.
 
             /* const fullNameInput = document.getElementById("fullname"); */
-            const usernameInput = document.getElementById("username");
+            const usernameInput = document.getElementById("txtName");
             const email = document.getElementById("txtEmail");
             const pwd = document.getElementById("txtPassword");
             const pwd2 = document.getElementById(
-              "password-confirmation"
+              "txtPassword2"
             );
 
             // pop up to show error messages
             const toastElement = document.getElementById("msg-toast"); // Get the toast element - msg-toast
             const toastBodyElement = document.getElementById("msg-toast-body"); // Get the toast element - msg-toast-body
 
-            // TODO CHECK IF USERNAME IS ALREADY IN DATABASE
-
             // Trap empty inputs for all if empty
-            if (isEmpty(fullnameInput.value.trim()) || isEmpty(usernameInput.value.trim()) || isEmpty(email.value) || isEmpty(pwd.value || isEmpty(pwd2.value))) {
+            if (isEmpty(usernameInput.value.trim()) || isEmpty(email.value.trim()) || isEmpty(pwd.value.trim()) || isEmpty(pwd2.value.trim())) {
               showToast({
                 toastElement,
                 toastBodyElement,
@@ -220,7 +218,7 @@
             }
 
             //checks if username is valid. If yes, displays error message
-            if (isValidUsername(usernameInput.value.trim())) {
+            if (!isValidUsername(usernameInput.value.trim())) {
               showToast({
                 toastElement,
                 toastBodyElement,
@@ -231,7 +229,7 @@
             }
 
             // Trap invalid email for txtEmail - isEmail()  (from form-validate.js)
-            if (!isEmail(email.value)) {
+            if (!isEmail(email.value.trim())) {
               showToast({
                 toastElement,
                 toastBodyElement,
@@ -241,14 +239,13 @@
               return;
             }
 
-            // TODO Password: Checks length, uppercase, and digit presence.
-            //
-            if (isValidPassword(pwd.value.trim())) {
+            // Password: Checks length, uppercase, and digit presence.
+            if (!isValidPassword(pwd.value.trim())) {
               showToast({
                 toastElement,
                 toastBodyElement,
                 bgColor: "danger",
-                msg: "Passwords do not match. Please try again.",
+                msg: "Password needs to have at least 8 characters, at least 1 lowercase letter, at least 1 uppercase letter, at least 1 number and at least 1 special character",
               });
               return;
             }
@@ -269,13 +266,15 @@
 
             // End of client server front end validations
 
-            /* TODO SIGN IN W SOCIALS */
-
             spinner.createSpinner("btnSignUp"); // Create the spinner, apply it to btnLogin
             spinner.displaySpinner(true);
 
             // JavaScript Object signUpData stores the form's input values
-            const signUpData = {fullname: fullnameInput.value, username: usernameInput.value, email: email.value, password: pwd.value };
+            const signUpData = {
+              username: usernameInput.value,
+              email: email.value, 
+              password: pwd.value 
+            };
 
             // Invoke login() function, and end (return).  ( login() function from auth.js ), , await waits for login(logindata to finish then execute)
             const signUpSuccess = await signUp(signUpData);

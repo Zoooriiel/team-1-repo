@@ -17,7 +17,8 @@ const _HOME_URL = "index.html";
 const _ABOUT_URL = "#";
 const _PRODUCTS_URL = "products.html";
 const _CONTACT_URL = "contact.html";
-const _LOGIN_URL = "login.html";
+const _SIGNUP_URL = "signup.html";
+const _SIGNIN_URL = "signin.html";
 const _LOGOUT_URL = "logout.html";
 const _PROFILE_URL = "profile.html";
 
@@ -25,6 +26,6 @@ const _PROFILE_URL = "profile.html";
 // token name
 const _USERTOKEN = "usertoken";
 
-/* const used in auth.js   */
 // endponts
-const _ENDPOINT_LOGIN = "TBC";
+const _ENDPOINT_SIGNUP = "http://localhost:5500/auth/api/signup";
+const _ENDPOINT_SIGNIN = "http://localhost:5500/auth/api/signin";
