@@ -45,15 +45,6 @@
       <h2 class="text-center mb-4 fw-bold">Sign Up</h2>
       <!-- Sign Up Form -->
       <form id="signup-form">
-        <!-- <div class="mb-3">
-          <input
-            type="text"
-            id="fullname"
-            class="form-control"
-            placeholder="Full Name"
-            required
-          />
-        </div> -->
         <div class="mb-3">
           <input
             type="text"
@@ -224,7 +215,7 @@
                 toastElement,
                 toastBodyElement,
                 bgColor: "danger",
-                msg: "The username must be between 3 and 15 characters long. Only letters, numbers and underscores are allowed",
+                msg: "The username must be between 3 and 15 characters long, only letters, numbers and underscores are allowed",
               });
               return;
             }
@@ -247,7 +238,7 @@
                 toastElement,
                 toastBodyElement,
                 bgColor: "danger",
-                msg: "Passwords do not match. Please try again.",
+                msg: "Password needs to have at least 8 characters, at least 1 lowercase letter, at least 1 uppercase letter, at least 1 number and at least 1 special character",
               });
               return;
             }
