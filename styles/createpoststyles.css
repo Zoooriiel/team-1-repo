@@ -100,6 +100,16 @@ a {
   color: #000
 }
 
+/* styling profile pic and name on top of post card */
+#post-profile-pic {
+  max-height: 3rem;
+  max-width: 3rem;
+}
+
+#post-username {
+  font-size: medium;
+}
+
 /*
  * When in Desktop Version and hiding Mobile elements 
  */

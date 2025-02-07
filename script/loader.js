@@ -1,7 +1,7 @@
 let spinner = null;
 
 // EventListener to instantiate the navController
-document.addEventListener("DOMContentLoaded", (event) => {
+document.addEventListener("DOMContentLoaded", async (event) => {
     
     // Instantiate an instance of the siteMenu
     const navController = new NavController("navbarNav");
@@ -17,16 +17,23 @@ document.addEventListener("DOMContentLoaded", (event) => {
     if(!token && !atLoginPageExists)                                                  // Otherwise, set up and display authenticated user in the profile page
         window.location = _LOGIN_URL;
 
-    const user = decodeUser(token);
-    const userEmail = user.email;
+    const userToken = decodeUser(token);
+    const userEmail = userToken.email;
 
     const profileLink = document.getElementById("profile-link");
 
     // TODO remove when done
     profileLink.setAttribute("href", userEmail);
 
-    /* if(user.role === "ADMIN")
-        profileRole.innerText = user.role.charAt(0).toUpperCase() 
-                                + user.role.slice(1).toLowerCase(); */
+    // section used for createpost.html
+    const response = await fetch("http://localhost:8080/public/api/user/email?email=" + userEmail);
+    const user = await response.json();
+
+    const userName = user.userName;
+
+    const postUsername = document.getElementById("post-username");
+    const strongPostUsername = document.createElement("strong");
+    strongPostUsername.innerText = userName;
+    postUsername.append(strongPostUsername);
 
 });
