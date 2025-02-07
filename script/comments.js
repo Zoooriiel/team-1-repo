@@ -21,6 +21,11 @@ async function fetchComments(postID = null) {
         // TODO api call for comments here (springboot)
         const response = await fetch (`http://localhost:8080/public/api/comment/post/${postID}`)
         /* const response = await fetch('https://dummyjson.com/comments'); */
+        if (!response.ok) {
+            commentsSpinner.displaySpinner(false);
+            commentsContainer.removeChild(commentsSpinnerContainer);
+            return;
+        }
         const commentsList = await response.json();
         console.log(commentsList);
 
