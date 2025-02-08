@@ -14,7 +14,8 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     
     const token = isAuthenticated();                                                  // Redirect the user to index.html if token does not exist
     const atLoginPageExists = window.location.pathname.includes(_LOGIN_URL);          // If _PROFILE_URL exists
-    if(!token && !atLoginPageExists)                                                  // Otherwise, set up and display authenticated user in the profile page
+    const atSignUpPageExists = window.location.pathname.includes(_SIGNUP_URL);
+    if(!token && !atLoginPageExists && ! atSignUpPageExists)                                                  // Otherwise, set up and display authenticated user in the profile page
         window.location = _LOGIN_URL;
 
     const userToken = decodeUser(token);
