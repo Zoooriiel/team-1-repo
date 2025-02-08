@@ -5,6 +5,8 @@ async function post(formData = {}) {
             body: formData
         });
 
+        return response;
+
     } catch(error) {
         console.log("Exception error gotten is: " + error.message);
 

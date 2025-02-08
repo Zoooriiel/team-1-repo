@@ -8,6 +8,7 @@ document.getElementById("create-post-form").addEventListener("submit", async (ev
     const userEmail = userToken.email;
 
     // using backend api endpoint to search for user via email
+    // TODO add to const later
     const response = await fetch("http://localhost:8080/public/api/user/email?email=" + userEmail);
     const user = await response.json();
 
@@ -24,7 +25,7 @@ document.getElementById("create-post-form").addEventListener("submit", async (ev
         description: description.value,
         categoryId: Number(category),
         topicId: Number(topic),
-        userId: userId                                         // TODO change after auth completed
+        userId: userId 
     };
 
     const formData = new FormData();
@@ -35,5 +36,9 @@ document.getElementById("create-post-form").addEventListener("submit", async (ev
     }
 
     const postSuccess = await post(formData);
-    console.log(formData);
+    if(postSuccess.ok) {
+        const savedPost = await postSuccess.json();
+        // TODO add to const later
+        window.location = "viewpost.html?post_id=" + savedPost.id;
+    } 
 })
