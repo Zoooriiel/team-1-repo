@@ -54,7 +54,7 @@ class NavController {
     const response2 = await fetch(_PUBLIC_ENDPOINT_TOPIC);
     const result2 = await response2.json();
     let resultsPage2 = "topicposts.html";
-    let typeOfId2 = "topicId";
+    let typeOfId2 = "topic_id";
 
     this.topicCategoryList = [];
 
@@ -76,7 +76,7 @@ class NavController {
     const response = await fetch(_PUBLIC_ENDPOINT_CATEGORY);
     const result = await response.json();
     let resultsPage = "plantposts.html";
-    let typeOfId = "categoryId";
+    let typeOfId = "category_id";
 
     this.plantCategoryList = [];
 

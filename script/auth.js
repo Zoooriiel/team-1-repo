@@ -109,16 +109,11 @@ async function signUp(formData = {}){
         const response = await fetch(_PUBLIC_ENDPOINT_SIGNUP, request);
 
         if(response.ok){
-            showToast({toastElement, toastBodyElement, bgColor: "success", msg: "Sign up successful. Redirecting to home."});
-
             window.location = _LOGIN_URL;
-        }else{
-
-            showToast({toastElement, toastBodyElement, bgColor: "danger", msg: "Something went wrong. Please try again."});
         }
 
     } catch (error) {
-        showToast({toastElement, toastBodyElement, bgColor: "danger", msg: "Error signing up. Please try again later."});
+        console.log("Exception error gotten is:", error.message);
     }
 
 }
