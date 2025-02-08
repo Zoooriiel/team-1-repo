@@ -29,8 +29,6 @@ async function fetchComments(postID = null) {
         const commentsList = await response.json();
         console.log(commentsList);
 
-        /* const commentsList = result.comments; */
-        
         for (let index = 0; index < commentsList.length; index++) {
             addComment(commentsList[index]);
         }

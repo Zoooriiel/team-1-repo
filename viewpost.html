@@ -189,12 +189,18 @@
 
                                             </div>
                                             <!-- Comments input -->
-                                            <div class="comment-form input-group mb-3 align-self-end mt-auto">
-                                                <textarea class="form-control comment-area" rows="1" placeholder="Comment">
+                                            <form id="create-comment-form" class="needs-validation" novalidate>
+                                                <div class="comment-form input-group mb-3 align-self-end mt-auto">
+                                                    <textarea id="comment-input" class="form-control comment-area" rows="1" placeholder="Comment" required>
 
-                                                </textarea>                                                    
-                                                <button class="btn btn-outline-secondary p-1" type="button" id="comment-button">Comment</button>
-                                            </div>
+                                                    </textarea>
+                                                    <div class="invalid-feedback">
+                                                        Please enter a comment.
+                                                    
+                                                    </div>               
+                                                    <button class="btn btn-outline-secondary p-1" type="button">Comment</button>
+                                                </div>
+                                            </form>
                                         </div>                                     
                                     </div>
                                 </div>
@@ -218,7 +224,10 @@
     <script src="script/Components/Spinner.js"></script>
 
     <script src="script/Spinner.js"></script>
-    <script src="script/comments.js"></script>
     <script src="script/post.js"></script>
+    <script src="script/comments.js"></script>
+    <!-- <script src="script/commentAuth.js"></script>
+    <script src="script/commentCreation.js"></script> -->
+    
 </body>
 </html>
