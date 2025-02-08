@@ -55,7 +55,7 @@
                         <a class="mx-3 align-self-center" href="#">
                             <i class="fa fa-bell text-white fs-3" data-bs-toggle="tooltip" data-bs-title="Notifications" data-bs-placement="bottom" aria-hidden="true"></i>
                         </a>
-                        <a class="nav-top-icon-profile mx-3 align-self-center" href="#">
+                        <a id="profile-link" class="nav-top-icon-profile mx-3 align-self-center" href="#">
                         <img src="images/profile_photo_placeholder.jpg" alt="Profile Photo" 
                             class="min-profile-dimension rounded-circle border border-white border-1" 
                             data-bs-toggle="tooltip" data-bs-title="View Profile" data-bs-placement="bottom">
@@ -157,17 +157,17 @@
                         <h4>Create a post</h4>                  
                     </div>
 
-                    <!-- Post Card -->
+                    <!-- Create Post Card -->
                     <div class="d-flex justify-content-center">
-                        <div class="card mb-2 col-11 shadow card-body-color">
+                        <div id="create-post-card" class="card col-12 shadow card-body-color">
                             <div class="card-header">
-                                <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
                                     <div>
-                                        <img src="https://via.placeholder.com/40" class="rounded-circle me-2" alt="User">
-                                        <span class="card-top-font-color-mobile"><strong>@PlantLove123</strong></span>
+                                        <img id="post-profile-pic" src="images/profile_photo_placeholder.jpg" class="rounded-circle me-2" alt="User">
+                                        <span id="post-username" class="card-top-font-color-mobile"></span>
                                     </div>
                                 </div>
-                                <p> What's on your mind?</p>
+                                <p class="mb-0"> What's on your mind?</p>
                             </div>
                             <div class="card-body">
                                 <form id="create-post-form" class="needs-validation" novalidate>
@@ -210,9 +210,9 @@
                                         <div class="col d-flex justify-content-end align-items-start gap-3 post-buttons">
                                         
                                         <input type="file" id="hidden-upload-btn" accept="image/*" class="d-none">
-                                        <label for="hidden-upload-btn" class="btn" id="upload-photo-btn">
+                                        <label for="hidden-upload-btn" class="btn d-inline-flex align-items-center justify-content-center gap-1 pe-0" id="upload-photo-btn">
                                             Upload Photo
-                                            <i class="fa-solid fa-arrow-up-from-bracket ms-1"></i>
+                                            <i class="fa-solid fa-arrow-up-from-bracket ms-2"></i>
                                         </label>
 
                                         <button type="submit" class="btn" id="submit-btn">Submit</button>
@@ -242,8 +242,8 @@
     <script src="script/create-post-dropdown.js"></script>
     <script src="script/upload-image.js"></script>
     <script src="script/bootstrap-validation.js"></script>
-    <script src="script/post-auth.js"></script>
-    <script src="script/post-creation.js"></script>
+    <script src="script/postAuth.js"></script>
+    <script src="script/postCreation.js"></script>
 
     
     

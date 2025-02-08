@@ -31,11 +31,9 @@ function decodeUser(token){
     // !! Extract authenticated user's email from the token
     const arrToken = token.split(".");                              
     const decodedToken = JSON.parse(window.atob(arrToken[1]));
-    const email = decodedToken.email;
-    const name = decodedToken.name;
+    const email = decodedToken.sub;
     const roles = decodedToken.roles;
-    return {email: email, name: name, roles: roles};
-
+    return {email: email, roles: roles};
 }
 
 // ?? async / await

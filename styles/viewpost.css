@@ -139,6 +139,11 @@ a {
   .post-image-container{
     margin-bottom: 1rem;
   }
+
+  #view-post-card{
+    margin-bottom: 5rem;
+  }
+
 }
 
 /* End Mobile Section */
