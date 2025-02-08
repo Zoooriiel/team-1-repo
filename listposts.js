@@ -1,24 +1,40 @@
 function listPosts(posts) {
-    const postContainerWrapper = document.querySelector('.post-container-wrapper');
+  const postContainerWrapper = document.querySelector(
+    ".post-container-wrapper"
+  );
 
-    posts.forEach(post => {
-        const postElement = document.createElement('div');
-        postElement.classList.add('post-container', 'shadow', 'mb-4', 'card-body-color', 'col-md-10', 'mx-auto', 'border');
+  posts.forEach((post) => {
+    const postElement = document.createElement("div");
+    postElement.classList.add(
+      "post-container",
+      "shadow",
+      "mb-4",
+      "card-body-color",
+      "col-md-10",
+      "mx-auto",
+      "border"
+    );
 
-        postElement.innerHTML = `
+    postElement.innerHTML = `
           <div class="d-flex">
             <div class="post-thumbnail-container">
-              <img src="${post.imageUrl}" alt="Post image" class="post-thumbnail">
+              <img src="${
+                post.imageUrl
+              }" alt="Post image" class="post-thumbnail">
             </div>
 
             <div class="flex-grow-1 d-flex flex-column align-content-center ps-4">
               <div class="d-flex justify-content-between align-items-center mb-1 pt-3">
                 <div>
                   <span class="me-1">
-                    <img src="path_to_user_image/${post.user.id}" alt="User logo" class="rounded-circle">
+                    <img src="path_to_user_image/${
+                      post.user.id
+                    }" alt="User logo" class="rounded-circle">
                   </span>
                   <span class="username fw-bold">${post.user.userName}</span>
-                  <span class="text-muted fs-6 ms-2">${new Date(post.dateTimeCreation).toLocaleString()}</span>
+                  <span class="text-muted fs-6 ms-2">${new Date(
+                    post.dateTimeCreation
+                  ).toLocaleString()}</span>
                 </div>
 
                 <div class="settings-menu">
@@ -36,39 +52,57 @@ function listPosts(posts) {
               </div>
 
               <div class="d-flex mb-3">
-                <span class="badge text-dark me-2 rounded-pill topic-category-color">${post.topic.name}</span>
-                <span class="badge text-dark me-2 rounded-pill category-color">${post.category.name}</span>
+                <span class="badge text-dark me-2 rounded-pill topic-category-color">${
+                  post.topic.name
+                }</span>
+                <span class="badge text-dark me-2 rounded-pill category-color">${
+                  post.category.name
+                }</span>
               </div>
               
               <div class="d-flex justify-content-start pb-3">
-                <span class="me-3"><img src="icons/like_icon.svg" alt="Like Icon"> ${post.likes} Like</span>
+                <span class="me-3"><img src="icons/like_icon.svg" alt="Like Icon"> ${
+                  post.likes
+                } Like</span>
                 <span><img src="icons/comment_icon.svg" alt="Comments"> 0 Comments</span>
               </div>
             </div>
           </div>
         `;
 
-        postContainerWrapper.appendChild(postElement);
-    });
+    postContainerWrapper.appendChild(postElement);
+  });
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
-    const postQueryString = window.location.search;
-    const postUrlParams = new URLSearchParams(postQueryString);
+  const postQueryString = window.location.search;
+  const postUrlParams = new URLSearchParams(postQueryString);
 
-    let categoryId = parseInt(postUrlParams.get('category_id'));
-    let query = postUrlParams.get('query');
+  let categoryId = parseInt(postUrlParams.get("category_id"));
+  let topicId = postUrlParams.get("topic_id");
+  let query = postUrlParams.get("query");
 
-    try {
-        const response = await fetch(`http://localhost:8080/public/api/post/search/category/${categoryId}?query=${query}`, {
-            method: "GET"
-        });
+  try {
+    let apiUrl = "";
 
-        const posts = await response.json();
-
-        listPosts(posts);
-
+    if (categoryId) {
+        apiUrl = `http://localhost:8080/public/api/post/search/category/${parseInt(categoryId)}?query=${encodeURIComponent(query)}`;
+      } else if (topicId) {
+        apiUrl = `http://localhost:8080/public/api/post/search/topic/${parseInt(topicId)}?query=${encodeURIComponent(query)}`;
+      } else {
+        return; 
+      }
+  
+      const response = await fetch(apiUrl, { method: "GET" });
+  
+      if (!response.ok) {
+        throw new Error(`Failed to fetch posts: HTTP Status ${response.status}`);
+      }
+  
+      const posts = await response.json();
+      listPosts(posts);
+  
     } catch (error) {
-        console.error("Error fetching posts:", error);
+      console.error("Error fetching posts:", error);
     }
-});
+  });
