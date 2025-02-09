@@ -47,7 +47,7 @@ function performSearch(inputTypeId = null){
     if(inputTypeId === "byTopicSearchBtn")
         resultsPage = "topicposts.html"
     else
-        resultsPage = "index.html"
+        resultsPage = "search.html"
 
     console.log("I will navigate to" + resultsPage);
 

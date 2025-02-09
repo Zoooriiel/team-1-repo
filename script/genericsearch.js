@@ -5,7 +5,7 @@ function performGenericSearch() {
     const searchTerm = document.getElementById("searchInputGeneric").value.trim();
 
     if(searchTerm) {
-        let fullURL = `${window.location.origin}/index.html`;
+        let fullURL = `${window.location.origin}/search.html`;
 
         const pageURL = new URL(fullURL);
 
