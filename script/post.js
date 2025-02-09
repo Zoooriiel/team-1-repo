@@ -18,7 +18,6 @@ async function fetchPost(postID) {
     postSpinner.displaySpinner(true);
 
     try {
-        console.log("Post ID retrieved: " + postID);
         const postResponse = await fetch('http://localhost:8080/public/api/post');
         const postResult = await postResponse.json();
 
@@ -66,7 +65,6 @@ function addPost(post) {
     const postDateTime = document.createElement("span");
     postDateTime.className = "card-top-font-color-mobile ms-1";
     const resultDateTime = post.dateTimeCreation;
-    console.log(resultDateTime)
     const dateTimeArray = resultDateTime.split("T")
     const dateTimeArray2 = dateTimeArray[1].split(".")
     const date = dateTimeArray[0];
@@ -132,9 +130,7 @@ let postPostID = parseInt(postUrlParams.get('post_id'));
 
 document.addEventListener("DOMContentLoaded", async(event) => {
     event.preventDefault();
-// TODO REMOVE WHEN DONE dummy code to return post 1 if no param found
-    if (postPostID)
-        fetchPost(postPostID)
-    else 
-        fetchPost(1);
+    
+    fetchPost(postPostID)
+    
 })
