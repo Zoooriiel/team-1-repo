@@ -1,0 +1,90 @@
+.main-content {
+    background-color: #f1f1f13b;
+    border-radius: 8px;
+    padding: 20px;
+  }
+  
+  /* Profile Header */
+  .profile-header {
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-photo {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+  }
+  
+  .profile-header h3 {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  
+  .bio {
+    color: #6c757d;
+    font-size: 14px;
+  }
+  
+  /* Tabs */
+  .nav-tabs {
+    border-bottom: 2px solid #ddd;
+  }
+  
+  .nav-tabs .nav-link {
+    color: #6c757d;
+    font-weight: 500;
+  }
+  
+  .nav-tabs .nav-link.active {
+    color: #000;
+    border-bottom: 2px solid #28a745;
+  }
+  
+  /* Post Cards */
+  .card {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: none;
+  }
+  
+  
+  .card img {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .card-body {
+    padding: 15px;
+  }
+  
+  .card-text {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .card .fa {
+    color: #6c757d;
+    font-size: 14px;
+  }
+  
+  /* Mobile */
+  @media (max-width: 768px) {
+    .profile-header {
+      text-align: center;
+      flex-direction: column;
+    }
+  
+    .profile-photo {
+      margin-bottom: 10px;
+    }
+  
+    .nav-tabs {
+      justify-content: center;
+    }
+  }
+  

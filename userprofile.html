@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Import fonts awesome stylesheet -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="styles/topicposts.css" />
+    <link rel="stylesheet" href="styles/refinesearchpagestyles.css">
+    <link rel="stylesheet" href="styles/mobilestyles.css">
+    <link rel="stylesheet" href="styles/userprofile.css">
+
+    
+  </head>
+  <body>
+    <div class="container-lg">
+      <!-- Top Navbar -->
+      <nav class="top-navbar-color px-2 py-2">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-3 align-content-center">
+              <!-- Logo -->
+              <a class="" href="#">
+                <img
+                  class="min-logo-dimension rounded-circle"
+                  src="images/root_squad_logo.jpg"
+                  alt="Logo"
+                />
+              </a>
+            </div>
+
+            <div class="col-6 align-content-center">
+              <!-- Drop-down Search bar -->
+              <form class="form-inline">
+                <input
+                  class="form-control rounded-pill"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+              </form>
+            </div>
+
+            <div class="col-3 align-content-center">
+              <!-- Top right menu -->
+              <div class="d-inline-flex float-end">
+                <a
+                  class="mx-3 text-white text-center align-self-center d-blockp-2"
+                  href="createpost.html"
+                >
+                  <i
+                    class="fa fa-leaf fs-3"
+                    data-bs-toggle="tooltip"
+                    data-bs-title="Ceate a Post"
+                    data-bs-placement="bottom"
+                    aria-hidden="true"
+                  ></i>
+                </a>
+                <a class="mx-3 align-self-center" href="#">
+                  <i
+                    class="fa fa-bell text-white fs-3"
+                    data-bs-toggle="tooltip"
+                    data-bs-title="Notifications"
+                    data-bs-placement="bottom"
+                    aria-hidden="true"
+                  ></i>
+                </a>
+                <a class="mx-3 align-self-center" href="#">
+                  <img
+                    src="images/profile_photo_placeholder.jpg"
+                    alt="Profile Photo"
+                    class="min-profile-dimension rounded-circle border border-white border-1"
+                    data-bs-toggle="tooltip"
+                    data-bs-title="View Profile"
+                    data-bs-placement="bottom"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container-fluid" >
+        <div class="row" id="push-contents-up">
+
+          <!-- Sidenavbar -->
+          <div class="col-md-3 min-vh-100 sidebar side-navbar-color side-navbar-hide">
+              <!-- Desktop menu -->
+              <div class="d-flex" id="navbarNav">
+              <!-- dynamic menu here -->
+              
+              </div>
+
+              <!-- Topic category tag -->
+              <div class="mt-4">
+              <h6 class="text-muted">TOPIC CATEGORIES</h6>
+              <ul class="list-unstyled" id="topicCategoryUL">
+
+              </ul>
+              </div>
+
+              <!-- Botany tag -->
+              <div class="mt-4">
+              <h6 class="text-muted">PLANT CATEGORIES</h6>
+              <ul class="list-unstyled" id="plantCategoryUL">
+
+              </ul>
+              </div>
+
+              <div class="mt-auto">
+              <a href="#" class="btn btn-outline-danger w-100">Logout</a>
+              </div>
+
+              <footer class="py-2 small">
+              <p>Root Squad &copy; 2024</p>
+              </footer>
+          </div>
+          <!-- End of Sidenavbar -->
+
+          <!-- Start of Bottomnavbar (Mobile) -->
+          <ul id="bottom_navbar" class="nav">
+              <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">
+                  <i class="fa fa-home text-light fs-5" aria-hidden="true"></i>
+                  <span class="icon-text-color">Home</span>
+              </a>
+              </li>
+
+              <li class="nav-item">
+              <a class="nav-link" href="#">
+                  <i class="fa fa-search text-light fs-5" aria-hidden="true"></i>
+                  <span class="icon-text-color">Explore</span>
+              </a>
+              </li>
+
+              <li class="nav-item">
+              <a class="nav-link" href="#">
+                  <i class="fa fa-leaf text-light fs-5" aria-hidden="true"></i>
+                  <span class="icon-text-color">Post</span>
+              </a>
+              </li>
+
+              <li class="nav-item">
+              <a class="nav-link" href="#">
+                  <i class="fa fa-bookmark text-light fs-5" aria-hidden="true"></i>
+                  <span class="icon-text-color">Saved</span>
+              </a>
+              </li>
+
+              <li class="nav-item">
+              <a class="nav-link" href="#">
+                  <i class="fa fa-user text-light fs-5" aria-hidden="true"></i>
+                  <span class="icon-text-color">Profile</span>
+              </a>
+              </li>
+          </ul>
+
+
+          <!-- Start of main content -->
+          <div class="col-md-9 main-content p-4 main-content-color">
+            <div class="profile-header text-center mb-4">
+                <img src="images/profile_photo_placeholder.jpg" alt="Profile Photo" class="profile-photo rounded-circle border border-white border-2 mb-3"/>
+                <h3>Jojo</h3>
+                <p class="text-muted">@JOJO</p>
+                <p class="bio">I love plants</p>
+                <button class="btn btn-outline-light btn-sm">Edit Profile</button>
+            </div>
+        
+            <div class="d-flex justify-content-center mb-4">
+                <p class="me-4"><strong>120</strong> Posts</p>
+                <p class="me-4"><strong>2.5K</strong> Followers</p>
+                <p><strong>300</strong> Following</p>
+            </div>
+        
+            <ul class="nav nav-tabs mt-4" id="profileTabs">
+                <li class="nav-item">
+                    <a class="nav-link active" id="posts-tab" data-bs-toggle="tab" href="#posts">Posts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="saved-tab" data-bs-toggle="tab" href="#saved">Saved</a>
+                </li>
+            </ul>
+        
+            <div class="tab-content mt-3">
+                <!-- User Posts -->
+                <div class="tab-pane fade show active" id="posts">
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="card card-hover">
+                                <img src="" class="card-img-top" alt="Plant Post">
+                                <div class="card-body">
+                                    <p class="card-text">My plants are NOT dead</p>
+                                </div>
+                                <div class="card-footer d-flex justify-content-between">
+                                    <span><i class="fa fa-heart"></i> 250</span>
+                                    <span><i class="fa fa-comment"></i> 45</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Saved Posts -->
+                <div class="tab-pane fade" id="saved">
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="card card-hover">
+                                <img src="" class="card-img-top" alt="Saved Post">
+                                <div class="card-body">
+                                    <p class="card-text">Jojo saved my plant!</p>
+                                </div>
+                                <div class="card-footer d-flex justify-content-between">
+                                    <span><i class="fa fa-heart"></i> 1.2K</span>
+                                    <span><i class="fa fa-comment"></i> 78</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of main content -->
+        
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script/toolitp.js"></script>
+    <script src="script/const.js"></script>
+    
+    <script src="script/auth.js"></script>
+    <script src="script/loader.js"></script>
+    <script src="script/Components/NavController.js"></script>
+    <script src="script/Components/Spinner.js"></script>
+    
+    <script src="script/listposts.js"></script>
+
+  </body>
+</html>
