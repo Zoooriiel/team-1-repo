@@ -14,17 +14,17 @@ document.getElementById("create-comment-form").addEventListener("submit", async 
 
     const userId = user.id;
 
-    const commentBody = document.getElementById("comment-input").value;
+    const commentInput = document.getElementById("comment-input").value;
 
     const commentData = {
         userId: userId,
-        commentBody: commentBody
+        commentBody: commentInput
     };
 
     const formData = new FormData();
     formData.append("commentData", JSON.stringify(commentData));
-
-    const commentSuccess = await addComment(formData);
+    const commentSuccess = await createComment(formData);
+    
+    document.getElementById("comment-input").value = "";
     location.reload();
-
 })

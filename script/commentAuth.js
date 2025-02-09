@@ -1,4 +1,4 @@
-async function addComment(formData = {}) {
+async function createComment(formData = {}) {
     try {
         const postId = parseInt(postUrlParams.get('post_id'));
 
