@@ -16,18 +16,13 @@ async function fetchComments(postID = null) {
     commentsSpinner.displaySpinner(true);
     
     try {
-        console.log("ID retrieved " + postID);
-        // TODO fetch from fetchcomments(post_id)
-        // TODO api call for comments here (springboot)
         const response = await fetch (`http://localhost:8080/public/api/comment/post/${postID}`)
-        /* const response = await fetch('https://dummyjson.com/comments'); */
         if (!response.ok) {
             commentsSpinner.displaySpinner(false);
             commentsContainer.removeChild(commentsSpinnerContainer);
             return;
         }
         const commentsList = await response.json();
-        console.log(commentsList);
 
         for (let index = 0; index < commentsList.length; index++) {
             addComment(commentsList[index]);
@@ -91,17 +86,13 @@ function addComment(comment) {
 const commentsQueryString = window.location.search;
 const commentsUrlParams = new URLSearchParams(commentsQueryString);
 
-
-
 let commentsPostID = parseInt(commentsUrlParams.get('post_id'));
-
 
 document.addEventListener("DOMContentLoaded", (event) => {                                                     
     event.preventDefault();
-    fetchComments(commentsPostID);
-    /* if(commentsPostID) 
+    if(commentsPostID) 
         fetchComments(commentsPostID);
     else
-        return;     */                                                                                
+        return;                                                                                    
 });
 
