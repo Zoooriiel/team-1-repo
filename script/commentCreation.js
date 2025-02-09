@@ -25,8 +25,6 @@ document.getElementById("create-comment-form").addEventListener("submit", async 
     formData.append("commentData", JSON.stringify(commentData));
 
     const commentSuccess = await addComment(formData);
-    if(commentSuccess.ok) {
-        location.reload();
-    }
+    location.reload();
 
 })
