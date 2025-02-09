@@ -15,12 +15,12 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     const token = isAuthenticated();                                                  // Redirect the user to index.html if token does not exist
     const atLoginPageExists = window.location.pathname.includes(_LOGIN_URL);          // If _PROFILE_URL exists
     const atSignUpPageExists = window.location.pathname.includes(_SIGNUP_URL);
-    const atViewPostPageExists = (window.location.pathname.includes("viewpost.html") && !window.location.pathname.includes("post_id"));
-    
+    const atViewPostPageExists = window.location.pathname.includes("viewpost.html");
+
     if(!token && !atLoginPageExists && !atSignUpPageExists)                                                  
         window.location = _LOGIN_URL;
 
-    if (atViewPostPageExists) {
+    if (atViewPostPageExists  && !window.location.search.includes("post_id")) {
         window.location = "index.html";
     }
     
