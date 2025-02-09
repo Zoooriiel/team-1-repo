@@ -32,13 +32,13 @@ nav.navbar {
 /* Notification bell */
 .dropdown-item:hover, 
 .dropdown-item:focus {
-  background-color:#45805819  !important;
-  color: #040404 !important;
+  background-color:#45805819;
+  color: #040404;
 }
 
 .dropdown-item:active {
-  background-color: #273b22 !important;
-  color: #ffffff !important;
+  background-color: #273b22;
+  color: #ffffff;
 }
 
 #notificationBell {
