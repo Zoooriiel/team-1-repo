@@ -28,17 +28,31 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     const userToken = decodeUser(token);
     const userEmail = userToken.email;
 
+    const response = await fetch("http://localhost:8080/public/api/user/email?email=" + userEmail);
+    const user = await response.json();
+
+    // changing profile pic on navbar according to profile pic url of user
+    const profilePic = document.getElementById("profile-pic")
+    let profilePicUrl = user.userProfileImage;
+
+    if (!profilePicUrl) {
+        profilePicUrl = "images/plantprofilepic.jpg"
+    }
+
+    profilePic.src = profilePicUrl;
+
+
     // section used for createpost.html
     if (atCreatePostPageExists) {
-        const response = await fetch("http://localhost:8080/public/api/user/email?email=" + userEmail);
-        const user = await response.json();
-
         const userName = user.userName;
 
         const postUsername = document.getElementById("post-username");
         const strongPostUsername = document.createElement("strong");
         strongPostUsername.innerText = userName;
         postUsername.append(strongPostUsername);
+
+        const postProfilePic = document.getElementById("post-profile-pic");
+        postProfilePic.src = profilePicUrl;
     }
 
 });
