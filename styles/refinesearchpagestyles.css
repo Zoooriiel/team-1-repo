@@ -29,6 +29,29 @@ nav.navbar {
   height: auto;
 }
 
+/* Notification bell */
+.dropdown-item:hover, 
+.dropdown-item:focus {
+  background-color:#45805819  !important;
+  color: #040404 !important;
+}
+
+.dropdown-item:active {
+  background-color: #273b22 !important;
+  color: #ffffff !important;
+}
+
+#notificationBell {
+  position: relative;
+  top: 10px;
+}
+
+.noti-view{
+  color: #000000dd;
+}
+
+
+
 /* Side Navbar */
 
 .side-navbar-color {

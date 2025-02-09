@@ -26,72 +26,81 @@
   <body>
     <div class="container-lg">
       <!-- Top Navbar -->
-      <nav class="top-navbar-color px-2 py-2">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-3 align-content-center">
-              <!-- Logo -->
-              <a class="" href="#">
-                <img
-                  class="min-logo-dimension rounded-circle"
-                  src="images/root_squad_logo.jpg"
-                  alt="Logo"
-                />
-              </a>
-            </div>
+<nav class="top-navbar-color px-2 py-2">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-3 align-content-center">
+        <!-- Logo -->
+        <a class="" href="#">
+          <img
+            class="min-logo-dimension rounded-circle"
+            src="images/root_squad_logo.jpg"
+            alt="Logo"
+          />
+        </a>
+      </div>
 
-            <!-- Search bar -->
-            <form id ="searchGeneric" 
-              class="form-inline pt-1 w-50">
-              <input
-                id="searchInputGeneric"
-                class="form-control rounded-pill"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button class="btn btn-primary d-none" type="submit">Submit</button>
-            </form>
+      <!-- Search bar -->
+      <form id="searchGeneric" class="form-inline pt-1 w-50">
+        <input
+          id="searchInputGeneric"
+          class="form-control rounded-pill"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button class="btn btn-primary d-none" type="submit">Submit</button>
+      </form>
 
-            <div class="col-3 align-content-center">
-              <!-- Top right menu -->
-              <div class="d-inline-flex float-end">
-                <a
-                  class="mx-3 text-white text-center align-self-center d-blockp-2 hide"
-                  href="createpost.html"
-                >
-                  <i
-                    class="fa fa-leaf fs-3"
-                    data-bs-toggle="tooltip"
-                    data-bs-title="Ceate a Post"
-                    data-bs-placement="bottom"
-                    aria-hidden="true"
-                  ></i>
-                </a>
-                <a class="mx-3 align-self-center" href="#">
-                  <i
-                    class="fa fa-bell text-white fs-3"
-                    data-bs-toggle="tooltip"
-                    data-bs-title="Notifications"
-                    data-bs-placement="bottom"
-                    aria-hidden="true"
-                  ></i>
-                </a>
-                <a class="mx-3 align-self-center" href="#">
-                  <img
-                    src="images/profile_photo_placeholder.jpg"
-                    alt="Profile Photo"
-                    class="min-profile-dimension rounded-circle border border-white border-1"
-                    data-bs-toggle="tooltip"
-                    data-bs-title="View Profile"
-                    data-bs-placement="bottom"
-                  />
-                </a>
-              </div>
-            </div>
+      <div class="col-3 align-content-center">
+        
+        <!-- Top right menu -->
+        <div class="d-inline-flex float-end">
+          <a
+            class="mx-3 text-white text-center align-self-center d-blockp-2 hide"
+            href="createpost.html"
+          >
+            <i
+              class="fa fa-leaf fs-3"
+              data-bs-toggle="tooltip"
+              data-bs-title="Create a Post"
+              data-bs-placement="bottom"
+              aria-hidden="true"
+            ></i>
+          </a>
+
+          <!-- Notification -->
+          <div class="position-relative">
+            <a class="mx-3 align-self-center" href="#" id="notificationBell" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa fa-bell text-white fs-3"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end mt-2" aria-labelledby="notificationBell">
+              <li><a class="dropdown-item" href="#">New comment on your post</a></li>
+              <li><a class="dropdown-item" href="#">New follower</a></li>
+              <li><a class="dropdown-item" href="#">Someone liked your post</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-center fw-bold noti-view" href="notifications.html">View All Notifications</a></li>
+            </ul>
           </div>
+          
+        
+
+          <a class="mx-3 align-self-center" href="#">
+            <img
+              src="images/profile_photo_placeholder.jpg"
+              alt="Profile Photo"
+              class="min-profile-dimension rounded-circle border border-white border-1"
+              data-bs-toggle="tooltip"
+              data-bs-title="View Profile"
+              data-bs-placement="bottom"
+            />
+          </a>
         </div>
-      </nav>
+      </div>
+    </div>
+  </div>
+</nav>
+
 
       <div class="container-fluid">
         <div class="row" id="push-contents-up">
