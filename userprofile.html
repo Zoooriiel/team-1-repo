@@ -172,70 +172,51 @@
           </ul>
 
 
-          <!-- Start of main content -->
-          <div class="col-md-9 main-content p-4 main-content-color">
-            <div class="profile-header text-center mb-4">
-                <img src="images/profile_photo_placeholder.jpg" alt="Profile Photo" class="profile-photo rounded-circle border border-white border-2 mb-3"/>
-                <h3>Jojo</h3>
-                <p class="text-muted">@JOJO</p>
-                <p class="bio">I love plants</p>
-                <button class="btn btn-outline-light btn-sm">Edit Profile</button>
-            </div>
-        
-            <div class="d-flex justify-content-center mb-4">
-                <p class="me-4"><strong>120</strong> Posts</p>
-                <p class="me-4"><strong>2.5K</strong> Followers</p>
-                <p><strong>300</strong> Following</p>
-            </div>
-        
-            <ul class="nav nav-tabs mt-4" id="profileTabs">
-                <li class="nav-item">
-                    <a class="nav-link active" id="posts-tab" data-bs-toggle="tab" href="#posts">Posts</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="saved-tab" data-bs-toggle="tab" href="#saved">Saved</a>
-                </li>
-            </ul>
-        
-            <div class="tab-content mt-3">
-                <!-- User Posts -->
-                <div class="tab-pane fade show active" id="posts">
-                    <div class="row">
-                        <div class="col-md-4 mb-3">
-                            <div class="card card-hover">
-                                <img src="" class="card-img-top" alt="Plant Post">
-                                <div class="card-body">
-                                    <p class="card-text">My plants are NOT dead</p>
-                                </div>
-                                <div class="card-footer d-flex justify-content-between">
-                                    <span><i class="fa fa-heart"></i> 250</span>
-                                    <span><i class="fa fa-comment"></i> 45</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        
-                <!-- Saved Posts -->
-                <div class="tab-pane fade" id="saved">
-                    <div class="row">
-                        <div class="col-md-4 mb-3">
-                            <div class="card card-hover">
-                                <img src="" class="card-img-top" alt="Saved Post">
-                                <div class="card-body">
-                                    <p class="card-text">Jojo saved my plant!</p>
-                                </div>
-                                <div class="card-footer d-flex justify-content-between">
-                                    <span><i class="fa fa-heart"></i> 1.2K</span>
-                                    <span><i class="fa fa-comment"></i> 78</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<!-- Start of main content -->
+<div class="col-md-9 main-content p-4 main-content-color">
+    <div class="profile-header text-center mb-4">
+        <img id="profile-photo" src="" alt="Profile Photo" class="profile-photo rounded-circle border border-white border-2 mb-3"/>
+        <h3 id="profile-name">Profile name not found</h3>
+        <p id="profile-username" class="text-muted">Username not found</p>
+        <p id="profile-bio" class="bio">No bio</p>
+        <!-- TODO Have edit profile button??? Since it's user profile, if logged in then show if not then no -->
+        <!--<button class="btn btn-outline-light btn-sm" id="edit-profile-btn">Edit Profile</button> -->
+    </div>
+  
+    <div class="d-flex justify-content-center mb-4">
+        <p id="posts-count" class="me-4"><strong>0</strong> Posts</p>
+        <p id="followers-count" class="me-4"><strong>0</strong> Followers</p>
+        <p id="following-count"><strong>0</strong> Following</p>
+    </div>
+  
+    <ul class="nav nav-tabs mt-4" id="profileTabs">
+        <li class="nav-item">
+            <a class="nav-link active" id="posts-tab" data-bs-toggle="tab" href="#posts">Posts</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="saved-tab" data-bs-toggle="tab" href="#saved">Saved</a>
+        </li>
+    </ul>
+  
+    <div class="tab-content mt-3">
+        <!-- User Posts -->
+        <div class="tab-pane fade show active" id="posts">
+            <div id="posts-container" class="row">
+                <!-- Dynamic posts will go here -->
             </div>
         </div>
-        <!-- End of main content -->
+  
+        <!-- Saved Posts -->
+        <div class="tab-pane fade" id="saved">
+            <div id="saved-container" class="row">
+                <!-- TODO Wishlisted -->
+                <!-- Dynamic saved posts will go here -->
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- End of main content -->
+  
         
 
 
@@ -250,6 +231,7 @@
     <script src="script/Components/Spinner.js"></script>
     
     <script src="script/listposts.js"></script>
+    <script src="script/userprofile.js"></script>
 
   </body>
 </html>
