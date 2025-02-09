@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Lato', sans-serif; 
-    background-image: url('/images/katie-burkhart-REk6cxrceoQ-unsplash.jpg');
+    background-image: url('/images/background.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -18,7 +18,7 @@ body {
 }
 
 .signin-container {
-    background-color: rgba(255, 255, 255, 0.8); 
+    background-color: rgb(218, 218, 203); 
     backdrop-filter: blur(10px); 
     border-radius: 10px;
     padding: 30px;

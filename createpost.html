@@ -23,47 +23,72 @@
 <body>
 
     <div class="container-lg">
-        <!-- Top Navbar -->
-        <nav class="top-navbar-color px-2 py-2">
-            <div class="container-fluid">
-                <div class="d-flex align-self-center justify-content-evenly">
-                    
-                    <!-- Logo -->
-                    <a class="float-start" href="#">
-                        <img class="min-logo-dimension rounded-circle " src="images/root_squad_logo.jpg" alt="Logo">
-                    </a>                 
-                
-                    <!-- Search bar -->
-                    <form
-                        id ="searchGeneric" 
-                        class="form-inline pt-1 w-50">
-                    <input 
-                        id="searchInputGeneric"
-                        class="form-control rounded-pill" 
-                        type="search" 
-                        placeholder="Search" 
-                        aria-label="Search"
-                    />
-                    <button class="btn btn-primary d-none" type="submit">Submit</button>
-                    </form>
-                                
-                    <!-- Top right menu -->
-                    <div class="d-inline-flex float-end">
-                        <a class="nav-top-icon-post mx-3 text-white text-center align-self-center d-blockp-2" href="#">
-                            <i class="fa fa-leaf fs-3" data-bs-toggle="tooltip" data-bs-title="Ceate a Post" data-bs-placement="bottom" aria-hidden="true"></i>
-                        </a>
-                        <a class="mx-3 align-self-center" href="#">
-                            <i class="fa fa-bell text-white fs-3" data-bs-toggle="tooltip" data-bs-title="Notifications" data-bs-placement="bottom" aria-hidden="true"></i>
-                        </a>
-                        <a id="profile-link" class="nav-top-icon-profile mx-3 align-self-center" href="#">
-                        <img src="images/profile_photo_placeholder.jpg" alt="Profile Photo" 
-                            class="min-profile-dimension rounded-circle border border-white border-1" 
-                            data-bs-toggle="tooltip" data-bs-title="View Profile" data-bs-placement="bottom">
-                        </a>
-                    </div>
-                </div>
+             <!-- Top Navbar -->
+      <nav class="top-navbar-color px-2 py-2">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-3 align-content-center">
+              <!-- Logo -->
+              <a class="" href="#">
+                <img
+                  class="min-logo-dimension rounded-circle"
+                  src="images/root_squad_logo.jpg"
+                  alt="Logo"
+                />
+              </a>
             </div>
-        </nav>
+
+            <div class="col-6 align-content-center">
+              <!-- Drop-down Search bar -->
+              <form class="form-inline">
+                <input
+                  class="form-control rounded-pill"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+              </form>
+            </div>
+
+            <div class="col-3 align-content-center">
+              <!-- Top right menu -->
+              <div class="d-inline-flex float-end">
+                <a
+                  class="mx-3 text-white text-center align-self-center d-blockp-2"
+                  href="createpost.html"
+                >
+                  <i
+                    class="fa fa-leaf fs-3"
+                    data-bs-toggle="tooltip"
+                    data-bs-title="Ceate a Post"
+                    data-bs-placement="bottom"
+                    aria-hidden="true"
+                  ></i>
+                </a>
+                <a class="mx-3 align-self-center" href="#">
+                  <i
+                    class="fa fa-bell text-white fs-3"
+                    data-bs-toggle="tooltip"
+                    data-bs-title="Notifications"
+                    data-bs-placement="bottom"
+                    aria-hidden="true"
+                  ></i>
+                </a>
+                <a class="mx-3 align-self-center" href="#">
+                  <img
+                    src="images/profile_photo_placeholder.jpg"
+                    alt="Profile Photo"
+                    class="min-profile-dimension rounded-circle border border-white border-1"
+                    data-bs-toggle="tooltip"
+                    data-bs-title="View Profile"
+                    data-bs-placement="bottom"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
 
         <div class="container-fluid">
             <div class="row" id="push-contents-up">

@@ -64,8 +64,13 @@ a {
   background-color: #626c56;
 }
 
-.topic-category-color {
-  background-color: #c8ddef;
+.topic-category-color,
+.category-color {
+    background-color: #74a402b3;
+    font-size: 0.85rem; 
+    padding: 0.25rem 0.75rem; 
+    border-radius: 1.25rem; 
+    margin-right: 0.5rem; 
 }
 
 .card img {
