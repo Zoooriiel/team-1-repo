@@ -143,11 +143,12 @@ i{
 */
 
 @media only screen and (max-width: 640px) {
-  /* Remove container in mobile */
   
   .main-content{
     height: 100vh;
   }
+
+
 
   #push-contents-up{
     padding-bottom: 3.125rem;
@@ -166,6 +167,24 @@ i{
     display: block;
   }
 
+  /* hide leaf in mobile */
+  .hide{
+    display: none;
+  }
+
+  .top-navbar-color .d-inline-flex.float-end {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .mx-3 {
+    margin-left: 10px !important;
+    margin-right: 0 !important;
+  }
+
 }
 
-/* End Mobile Section */
+
+
+
+
