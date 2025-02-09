@@ -26,7 +26,7 @@
   <body>
     <div class="container-lg">
       <!-- Top Navbar -->
-      <nav class="top-navbar-color px-2 py-2 top-navbar-hide">
+      <nav class="top-navbar-color px-2 py-2">
         <div class="container-fluid">
           <div class="row">
             <div class="col-3 align-content-center">
@@ -57,7 +57,7 @@
               <!-- Top right menu -->
               <div class="d-inline-flex float-end">
                 <a
-                  class="mx-3 text-white text-center align-self-center d-blockp-2"
+                  class="mx-3 text-white text-center align-self-center d-blockp-2 hide"
                   href="#"
                 >
                   <i
@@ -191,7 +191,9 @@
                   <select class="form-select" id="topicDropdown" aria-label="Disabled select example">
                     <!-- TODO Change this to a dynamic dropdown -->
                     <option selected>Topics</option>
-                   
+                    <!-- <option value="1">Tips</option>
+                    <option value="2">Plant Exchange</option>
+                    <option value="3">Giveaway</option> -->
                   </select>
 
                   <span class="badge text-dark w-25 black-border  fs-6 bytopic-tag" id="byTopicSearchBtn">By Topic</span>
@@ -211,7 +213,9 @@
                   <select class="form-select" id="categoryDropdown" aria-label="Disabled select example">
                     <!-- TODO Change this to a dynamic dropdown -->
                     <option selected>Category</option>
-                   
+                    <!-- <option value="1">Succulent</option>
+                    <option value="2">Leafy Plants</option>
+                    <option value="3">Creepers</option> -->
                   </select>
 
                   <span class="badge text-dark w-25 black-border fs-6 bycategory-tag" id="byCategorySearchBtn">By Category</span>
@@ -228,23 +232,23 @@
               <h5 class="fw-bold">Refine your search:</h5>
               <div class="d-flex align-items-center mb-2 gap-2">
                 <input
-                  class="form-control rounded-pill black-border"
+                  class="form-control black-border"
                   type="search"
                   placeholder="Search"
                   aria-label="Search"
                   id="searchInput"
                 />
-                <span class="badge text-dark w-25 black-border rounded-pill bytag-tag">By Tags</span>
+                <span class="badge text-dark w-25 black-border bytopic-tag">By Tags</span>
               </div>
               
               <div class="d-flex align-items-center gap-2">
                 <input
-                  class="form-control rounded-pill black-border"
+                  class="form-control black-border"
                   type="search"
                   placeholder="Search"
                   aria-label="Search"
                 />
-                <span class="badge text-dark w-25 black-border rounded-pill bycategory-tag">By Category</span>
+                <span class="badge text-dark w-25 black-border bycategory-tag">By Category</span>
               </div>
             </div>
           </div>
