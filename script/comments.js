@@ -80,6 +80,7 @@ function addComment(comment) {
     // timestamp
     const timestamp = document.createElement("span");
     timestamp.className = "card-top-font-color-mobile ms-1";
+    timestamp.innerText = new Date(comment.dateTimeUpdate).toLocaleString()
     commentInfo.append(timestamp);
 
     // comments body

@@ -83,12 +83,7 @@ async function addPost(post) {
     // adding in timestamp
     const postDateTime = document.createElement("span");
     postDateTime.className = "card-top-font-color-mobile ms-1";
-    const resultDateTime = post.dateTimeCreation;
-    const dateTimeArray = resultDateTime.split("T")
-    const dateTimeArray2 = dateTimeArray[1].split(".")
-    const date = dateTimeArray[0];
-    const time = dateTimeArray2[0];
-    postDateTime.innerText = `${date}  ${time}`;
+    postDateTime.innerText = new Date(post.dateTimeUpdate).toLocaleString();
     postDetailsContainer.append(postDateTime);
 
     // adding post topic
