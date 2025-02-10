@@ -110,6 +110,11 @@ a {
   height: fit-content
 }
 
+.post-image-container {
+  
+  width: 100%;
+}
+
 /* Styling view post and comments section */
 .view-comments {
   display: flex;
