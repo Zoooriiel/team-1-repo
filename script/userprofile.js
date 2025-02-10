@@ -21,7 +21,7 @@ async function fetchUserProfile() {
         
         if (response.ok) {
             const userData = await response.json();
-            updateProfile(userData);
+            getProfile(userData);
             userId = userData.id;  
             fetchUserPosts(userId); 
         } else {
@@ -32,8 +32,8 @@ async function fetchUserProfile() {
     }
 }
 
-// Update profile section
-function updateProfile(userData) {
+// Get profile section
+function getProfile(userData) {
 
     const profilePhoto = userData.userProfileImage || 'placeholderimagelol.jpg';
     document.getElementById('profile-photo').src = profilePhoto;
