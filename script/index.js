@@ -17,18 +17,17 @@ function listPosts(posts) {
                 "shadow",
                 "mb-4",
                 "card-body-color",
-                "col-md-10",
+                "col-md-8",
                 "mx-auto",
-                "border"
+                "border",
+                "d-flex",
+                "justify-content-center",
+                "align-items-center"
             );
         
             postElement.innerHTML = `
-            <div class="post-container shadow mb-4 card-body-color col-md-10 mx-auto border">
-                <div class="d-flex">
-                
-
-                <div class="flex-grow-1 d-flex flex-column align-content-center ps-4">
-                    <div class="d-flex justify-content-between align-items-center mb-1 pt-3">
+            <div class="flex-grow-1 d-flex flex-column align-content-center w-100 mx-auto px-2">
+                <div class="d-flex justify-content-between align-items-center pt-1">
                     <div>
                         <span class="me-1">
                         <img src="path_to_user_image/${
@@ -36,50 +35,51 @@ function listPosts(posts) {
                         }" alt="User logo" class="rounded-circle">
                         </span>
                         <span class="username fw-bold">${post.user.userName}</span>
-                        <span class="text-muted fs-6 ms-2">${new Date(
+                        <span class="text-muted fs-10 ms-2">${new Date(
                         post.dateTimeCreation
                         ).toLocaleString()}</span>
                     </div>
 
                     <div class="settings-menu">
-                        <span class="dots">⋮</span>
+                        <span class="dots fs-5">⋮</span>
                     </div>
 
                     </div>
 
                     <div class="mb-1">
-                    <span class="fs-5 fw-bold">${post.title}</span>
+                        <span class="fs-5 fw-bold">${post.title}</span>
                     </div>
 
-                    <div class="mb-3">
-                    <span class="text-muted">${post.description}</span>
+                    <div class="mb-2">
+                        <span class="text-muted">${post.description}</span>
                     </div>
 
-                    <div class="d-flex mb-3">
-                    <span class="badge text-dark me-2 rounded-pill category-color">${
-                        post.category.name
-                    }</span>
+                    <div class="d-flex">
+                        <div class="d-flex mb-1">
+                            <span class="badge text-dark me-2 rounded-pill category-color">${
+                                post.category.name
+                            }</span>
+                        </div>
+
+                        <div class="d-flex mb-1">
+                            <span class="badge text-dark me-2 rounded-pill topic-category-color">${
+                                post.topic.name
+                            }</span>
+                        </div>
                     </div>
 
-                    <div class="d-flex mb-3">
-                    <span class="badge text-dark me-2 rounded-pill topic-category-color">${
-                        post.topic.name
-                    }</span>
-                    </div>
-                    
                     <div class="post-thumbnail-container">
-                    <img src="${
-                        post.imageUrl
-                    }" alt="Post image" class="post-thumbnail">
+                        <img src="${
+                            _SITE_ENDPOINT + post.imageUrl
+                        }" alt="Post image" class="py-2 w-100 object-fit post-thumbnail">
                     </div>
 
-                    <div class="d-flex justify-content-start pb-3">
-                    <span class="me-3"><img src="icons/like_icon.svg" alt="Like Icon"> ${
-                        post.likes
-                    } Like</span>
-                    <span><img src="icons/comment_icon.svg" alt="Comments"> 0 Comments</span>
+                    <div class="d-flex justify-content-start pb-1">
+                        <span class="me-3"><img src="icons/like_icon.svg" alt="Like Icon"> ${
+                            post.likes
+                        } Like</span>
+                        <span><img src="icons/comment_icon.svg" alt="Comments"> 0 Comments</span>
                     </div>
-                </div>
                 </div>
             </div>
             `;
