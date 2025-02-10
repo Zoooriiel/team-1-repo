@@ -1,4 +1,5 @@
 const postContainer = document.querySelector(".view-post-container");
+const postImageContainer = document.querySelector(".post-image-container");
 const postColumn = document.querySelector(".view-post-column");
 const postDetailsContainer = document.getElementById("post-details-container");
 const topicCategoryContainer = document.getElementById("topic-category-container");
@@ -41,17 +42,35 @@ async function fetchPost(postID) {
     postColumn.removeChild(postSpinnerContainer);
 }
 
-function addPost(post) {
+
+async function addPost(post) {
+    // adding in image
+    const postPic = document.createElement("img")
+    postPic.setAttribute("id", "post-pic")
+    postPic.className = "img-fluid"
+    const postPicUrl = _SITE_ENDPOINT + post.imageUrl
+    postPic.src = postPicUrl;
+    postPic.alt = "post image";
+    postImageContainer.append(postPic);
+    postPic.style.width = "100%"
+
     // adding in user profile pic
     const userPic = document.createElement("img");
     userPic.setAttribute("id", "post-user-pic");
     userPic.className = "rounded-circle me-2";
-    userPic.src = "images/profile_photo_placeholder.jpg";
+    const userPicUrl = post.user.userProfileImage
+    let fullUserPicUrl = ""
+
+    if (!userPicUrl) 
+        fullUserPicUrl = "images/plantprofilepic.jpg";
+    else
+        fullUserPicUrl = _SITE_ENDPOINT + userPicUrl;
+
+    userPic.src = fullUserPicUrl;
     userPic.alt = "profile picture";
     postDetailsContainer.append(userPic);
-    userPic.style.maxWidth = "3rem";
-    userPic.style.maxHeight = "3rem";
-
+    userPic.style.width = "3rem";
+    userPic.style.height = "3rem";
 
     // adding in username
     const username = document.createElement("span");

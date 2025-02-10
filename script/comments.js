@@ -53,13 +53,21 @@ function addComment(comment) {
     commentCard.append(commentInfo);
 
     // profile pic
-    const profilePic = document.createElement("img");
-    profilePic.className = "rounded-circle me-2";
-    profilePic.src = "images/profile_photo_placeholder.jpg";
-    profilePic.alt = "User profile picture";
-    commentInfo.append(profilePic);
-    profilePic.style.maxHeight = "2rem"
-    profilePic.style.maxWidth = "2rem"
+    const commentUserPic = document.createElement("img");
+    commentUserPic.className = "rounded-circle me-2";
+    const commentUserPicUrl = comment.user.userProfileImage;
+    let fullCommentUserPicUrl = ""
+
+    if (!commentUserPicUrl) 
+        fullCommentUserPicUrl = "images/plantprofilepic.jpg";
+    else
+        fullCommentUserPicUrl = _SITE_ENDPOINT + commentUserPicUrl;
+
+    commentUserPic.src = fullCommentUserPicUrl;
+    commentUserPic.alt = "User profile picture";
+    commentInfo.append(commentUserPic);
+    commentUserPic.style.height = "2rem"
+    commentUserPic.style.width = "2rem"
 
     // username
     const username = document.createElement("span");

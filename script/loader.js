@@ -32,15 +32,16 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     const user = await response.json();
 
     // changing profile pic on navbar according to profile pic url of user
-    const profilePic = document.getElementById("profile-pic")
-    let profilePicUrl = user.userProfileImage;
+    const profilePic = document.getElementById("profile-pic");
+    const profilePicUrl = user.userProfileImage;
+    let fullProfilePicUrl = "";
 
-    if (!profilePicUrl) {
-        profilePicUrl = "images/plantprofilepic.jpg"
-    }
+    if (!profilePicUrl) 
+        fullProfilePicUrl = "images/plantprofilepic.jpg";
+    else
+        fullProfilePicUrl = _SITE_ENDPOINT + profilePicUrl;
 
-    profilePic.src = profilePicUrl;
-
+    profilePic.src = fullProfilePicUrl;
 
     // section used for createpost.html
     if (atCreatePostPageExists) {
@@ -52,7 +53,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
         postUsername.append(strongPostUsername);
 
         const postProfilePic = document.getElementById("post-profile-pic");
-        postProfilePic.src = profilePicUrl;
+        postProfilePic.src = fullProfilePicUrl;
     }
 
 });
