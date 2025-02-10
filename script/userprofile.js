@@ -83,10 +83,9 @@ function displayUserPosts(posts) {
             const postElement = document.createElement('div');
             postElement.classList.add('col-md-4', 'mb-4');
             
-            // TODO Replace placeholder image with ${post.imageUrl} after testing
             postElement.innerHTML = `
     <div class="card">
-        <img src="images/plant_placeholder.jpg" class="card-img-top" alt="Post Image">
+        <img src=${post.imageUrl} class="card-img-top" alt="Post Image">
         
         <div class="card-body">
             <h5 class="card-title">${post.title}</h5>
@@ -95,7 +94,6 @@ function displayUserPosts(posts) {
                 <small class="text-muted">${new Date(post.dateTimeCreation).toLocaleString()}</small>
             </div>
 
-            //TODO Need to make category and topic clickable in post
             <div>
                  <span class="badge rounded-pill plant-tag">${post.category ? post.category.name : 'Category'}</span>
                 <span class="badge rounded-pill topic-category">${post.topic ? post.topic.name : 'Topic'}</span>
@@ -103,7 +101,6 @@ function displayUserPosts(posts) {
             
             <p class="card-text">${post.description}</p>
             
-            // TODO Show comments or?
             <div class="d-flex justify-content-between">
                 <span><i class="far fa-heart"></i> ${post.likes || 0} Likes</span>
                 <span><i class="far fa-comment"></i> ${post.commentList.length || 0} Comments</span>
