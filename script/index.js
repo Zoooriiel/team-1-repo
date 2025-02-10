@@ -10,6 +10,16 @@ function listHomePosts(posts) {
                 console.error("Invalid post data:", post);
                 return;
             } */
+
+            const indexUserPicUrl = post.user.userProfileImage;
+            let fullIndexUserPicUrl = "";
+        
+                if(!indexUserPicUrl) 
+                fullIndexUserPicUrl = "images/plantprofilepic.jpg"
+                else
+                fullIndexUserPicUrl = _SITE_ENDPOINT + indexUserPicUrl;
+        
+            const indexPostUrl = _VIEWPOST_URL + "?post_id=" + post.id;
                 
             const postElement = document.createElement("div");
             postElement.classList.add(
@@ -30,9 +40,9 @@ function listHomePosts(posts) {
                 <div class="d-flex justify-content-between align-items-center pt-1">
                     <div>
                         <span class="me-1">
-                        <img src="path_to_user_image/${
-                            post.user.id
-                        }" alt="User logo" class="rounded-circle">
+                        <img src="${
+                            fullIndexUserPicUrl
+                        }" alt="User logo" class="rounded-circle" style="height:3rem;width:3rem">
                         </span>
                         <span class="username fw-bold">${post.user.userName}</span>
                         <span class="text-muted fs-10 ms-2">${new Date(
@@ -47,7 +57,7 @@ function listHomePosts(posts) {
                     </div>
 
                     <div class="mb-1">
-                        <span class="fs-5 fw-bold">${post.title}</span>
+                        <a href=${indexPostUrl}><span class="fs-5 fw-bold">${post.title}</span></a>
                     </div>
 
                     <div class="mb-2">
@@ -69,16 +79,18 @@ function listHomePosts(posts) {
                     </div>
 
                     <div class="post-thumbnail-container">
-                        <img src="${
-                            _SITE_ENDPOINT + post.imageUrl
-                        }" alt="Post image" class="py-2 w-100 object-fit post-thumbnail">
+                        <a href=${indexPostUrl}>
+                            <img src="${
+                                _SITE_ENDPOINT + post.imageUrl
+                            }" alt="Post image" class="py-2 w-100 object-fit post-thumbnail">
+                        </a>
                     </div>
 
                     <div class="d-flex justify-content-start pb-1">
-                        <span class="me-3"><img src="icons/like_icon.svg" alt="Like Icon"> ${
+                        <span class="me-3"><img src="icons/like_icon.svg" class="me-1" alt="Like Icon"> ${
                             post.likes
                         } Like</span>
-                        <span><img src="icons/comment_icon.svg" alt="Comments"> 0 Comments</span>
+                        <span><img src="icons/comment_icon.svg" class="me-1" alt="Comments">${post.commentList.length} Comments</span>
                     </div>
                 </div>
             </div>
