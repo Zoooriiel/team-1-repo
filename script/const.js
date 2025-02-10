@@ -20,7 +20,9 @@ const _EXPLORE_URL = "refinesearchpage.html";
 const _SAVED_URL = "saved.html";
 const _LOGIN_URL = "signin.html";
 const _LOGOUT_URL = "logout.html";
-const _SIGNUP_URL = "signup.html"
+const _SIGNUP_URL = "signup.html";
+const _VIEWPOST_URL = "viewpost.html";
+const _SEARCH_URL = "search.html";
 
 
 // site pages' icon (FONT AWESOME CLASS)
@@ -44,3 +46,4 @@ const _PUBLIC_ENDPOINT_CATEGORY = 'http://localhost:8080/public/api/category'
 const _PUBLIC_ENDPOINT_SIGNUP = 'http://localhost:8080/public/api/user/signup';
 const _PUBLIC_ENDPOINT_LOGIN = "http://localhost:8080/public/api/user/signin";
 const _ENDPOINT_CREATE_COMMENT = "http://localhost:8080/public/api/comment/post/"
+const _SITE_ENDPOINT = "http://localhost:8080/"
