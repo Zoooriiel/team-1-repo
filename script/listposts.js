@@ -38,7 +38,7 @@ function listPosts(posts, typeOfPost, query="") {
           <div class="d-flex">
             <div class="post-thumbnail-container">
               <img src="${
-                post.imageUrl
+                _SITE_ENDPOINT + post.imageUrl
               }" alt="Post image" class="post-thumbnail">
             </div>
 
@@ -102,7 +102,7 @@ function listPosts(posts, typeOfPost, query="") {
           <div class="d-flex">
             <div class="post-thumbnail-container">
               <img src="${
-                post.imageUrl
+                _SITE_ENDPOINT + post.imageUrl
               }" alt="Post image" class="post-thumbnail">
             </div>
 
@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (categoryId) {
 
         if(!query)
-          apiUrl = `http://localhost:8080/public/api/post/search/category/${parseInt(topicId)}`;
+          apiUrl = `http://localhost:8080/public/api/post/search/category/${parseInt(categoryId)}`;
         else
           apiUrl = `http://localhost:8080/public/api/post/search/category/${parseInt(categoryId)}/term?query=${encodeURIComponent(query)}`;
         
