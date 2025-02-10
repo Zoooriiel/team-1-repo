@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     const atLoginPageExists = window.location.pathname.includes(_LOGIN_URL);          // If _PROFILE_URL exists
     const atSignUpPageExists = window.location.pathname.includes(_SIGNUP_URL);
     const atCreatePostPageExists = window.location.pathname.includes(_CREATEAPOST_URL);
-    const atViewPostPageExists = window.location.pathname.includes("viewpost.html");
+    const atViewPostPageExists = window.location.pathname.includes(_VIEWPOST_URL);
 
     if(!token && !atLoginPageExists && !atSignUpPageExists)                                                  
         window.location = _LOGIN_URL;

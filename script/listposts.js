@@ -155,7 +155,7 @@ function listPosts(posts, typeOfPost, query="") {
         <div class="d-flex">
           <div class="post-thumbnail-container">
             <img src="${
-              post.imageUrl
+              _SITE_ENDPOINT + post.imageUrl
             }" alt="Post image" class="post-thumbnail">
           </div>
 
@@ -232,7 +232,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         
         typeOfPost = "topic";
         
-      } else if (!categoryId && !topicId){
+      } else if (!categoryId && !topicId && query){
+        // TODO: To fix search.html call
         apiUrl = `http://localhost:8080/public/api/post/search/term?query=${encodeURIComponent(query)}`
 
       } else {
