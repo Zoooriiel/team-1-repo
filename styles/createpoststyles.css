@@ -102,8 +102,8 @@ a {
 
 /* styling profile pic and name on top of post card */
 #post-profile-pic {
-  max-height: 3rem;
-  max-width: 3rem;
+  height: 3rem;
+  width: 3rem;
 }
 
 #post-username {

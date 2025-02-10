@@ -15,26 +15,45 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     const token = isAuthenticated();                                                  // Redirect the user to index.html if token does not exist
     const atLoginPageExists = window.location.pathname.includes(_LOGIN_URL);          // If _PROFILE_URL exists
     const atSignUpPageExists = window.location.pathname.includes(_SIGNUP_URL);
-    if(!token && !atLoginPageExists && !atSignUpPageExists)                                                  // Otherwise, set up and display authenticated user in the profile page
+    const atCreatePostPageExists = window.location.pathname.includes(_CREATEAPOST_URL);
+    const atViewPostPageExists = window.location.pathname.includes(_VIEWPOST_URL);
+
+    if(!token && !atLoginPageExists && !atSignUpPageExists)                                                  
         window.location = _LOGIN_URL;
 
+    if (atViewPostPageExists  && !window.location.search.includes("post_id")) {
+        window.location = _HOME_URL;
+    }
+    
     const userToken = decodeUser(token);
     const userEmail = userToken.email;
 
-    const profileLink = document.getElementById("profile-link");
-
-    // TODO remove when done
-    profileLink.setAttribute("href", userEmail);
-
-    // section used for createpost.html
     const response = await fetch("http://localhost:8080/public/api/user/email?email=" + userEmail);
     const user = await response.json();
 
-    const userName = user.userName;
+    // changing profile pic on navbar according to profile pic url of user
+    const profilePic = document.getElementById("profile-pic");
+    const profilePicUrl = user.userProfileImage;
+    let fullProfilePicUrl = "";
 
-    const postUsername = document.getElementById("post-username");
-    const strongPostUsername = document.createElement("strong");
-    strongPostUsername.innerText = userName;
-    postUsername.append(strongPostUsername);
+    if (!profilePicUrl) 
+        fullProfilePicUrl = "images/plantprofilepic.jpg";
+    else
+        fullProfilePicUrl = _SITE_ENDPOINT + profilePicUrl;
+
+    profilePic.src = fullProfilePicUrl;
+
+    // section used for createpost.html
+    if (atCreatePostPageExists) {
+        const userName = user.userName;
+
+        const postUsername = document.getElementById("post-username");
+        const strongPostUsername = document.createElement("strong");
+        strongPostUsername.innerText = userName;
+        postUsername.append(strongPostUsername);
+
+        const postProfilePic = document.getElementById("post-profile-pic");
+        postProfilePic.src = fullProfilePicUrl;
+    }
 
 });

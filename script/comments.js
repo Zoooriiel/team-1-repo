@@ -16,21 +16,14 @@ async function fetchComments(postID = null) {
     commentsSpinner.displaySpinner(true);
     
     try {
-        console.log("ID retrieved " + postID);
-        // TODO fetch from fetchcomments(post_id)
-        // TODO api call for comments here (springboot)
         const response = await fetch (`http://localhost:8080/public/api/comment/post/${postID}`)
-        /* const response = await fetch('https://dummyjson.com/comments'); */
         if (!response.ok) {
             commentsSpinner.displaySpinner(false);
             commentsContainer.removeChild(commentsSpinnerContainer);
             return;
         }
         const commentsList = await response.json();
-        console.log(commentsList);
 
-        /* const commentsList = result.comments; */
-        
         for (let index = 0; index < commentsList.length; index++) {
             addComment(commentsList[index]);
         }
@@ -60,13 +53,21 @@ function addComment(comment) {
     commentCard.append(commentInfo);
 
     // profile pic
-    const profilePic = document.createElement("img");
-    profilePic.className = "rounded-circle me-2";
-    profilePic.src = "images/profile_photo_placeholder.jpg";
-    profilePic.alt = "User profile picture";
-    commentInfo.append(profilePic);
-    profilePic.style.maxHeight = "2rem"
-    profilePic.style.maxWidth = "2rem"
+    const commentUserPic = document.createElement("img");
+    commentUserPic.className = "rounded-circle me-2";
+    const commentUserPicUrl = comment.user.userProfileImage;
+    let fullCommentUserPicUrl = ""
+
+    if (!commentUserPicUrl) 
+        fullCommentUserPicUrl = "images/plantprofilepic.jpg";
+    else
+        fullCommentUserPicUrl = _SITE_ENDPOINT + commentUserPicUrl;
+
+    commentUserPic.src = fullCommentUserPicUrl;
+    commentUserPic.alt = "User profile picture";
+    commentInfo.append(commentUserPic);
+    commentUserPic.style.height = "2rem"
+    commentUserPic.style.width = "2rem"
 
     // username
     const username = document.createElement("span");
@@ -93,17 +94,13 @@ function addComment(comment) {
 const commentsQueryString = window.location.search;
 const commentsUrlParams = new URLSearchParams(commentsQueryString);
 
-
-
 let commentsPostID = parseInt(commentsUrlParams.get('post_id'));
-
 
 document.addEventListener("DOMContentLoaded", (event) => {                                                     
     event.preventDefault();
-    fetchComments(commentsPostID);
-    /* if(commentsPostID) 
+    if(commentsPostID) 
         fetchComments(commentsPostID);
     else
-        return;     */                                                                                
+        return;                                                                                    
 });
 

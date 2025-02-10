@@ -28,7 +28,7 @@
   <body>
     <div class="container-lg">
       <!-- Top Navbar -->
-      <nav class="top-navbar-color px-2 py-2 top-navbar-hide">
+      <nav class="top-navbar-color px-2 py-2">
         <div class="container-fluid">
           <div class="row">
             <div class="col-3 align-content-center">
@@ -42,24 +42,25 @@
               </a>
             </div>
 
-            <div class="col-6 align-content-center">
-              <!-- Drop-down Search bar -->
-              <form class="form-inline">
-                <input
-                  class="form-control rounded-pill"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-              </form>
-            </div>
+            <!-- Search bar -->
+            <form id ="searchGeneric" 
+              class="form-inline pt-1 w-50">
+              <input
+                id="searchInputGeneric"
+                class="form-control rounded-pill"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-primary d-none" type="submit">Submit</button>
+            </form>
 
             <div class="col-3 align-content-center">
               <!-- Top right menu -->
               <div class="d-inline-flex float-end">
                 <a
                   class="mx-3 text-white text-center align-self-center d-blockp-2"
-                  href="#"
+                  href="createpost.html"
                 >
                   <i
                     class="fa fa-leaf fs-3"
@@ -80,7 +81,8 @@
                 </a>
                 <a class="mx-3 align-self-center" href="#">
                   <img
-                    src="images/profile_photo_placeholder.jpg"
+                    id="profile-pic"
+                    src="images/plantprofilepic.jpg"
                     alt="Profile Photo"
                     class="min-profile-dimension rounded-circle border border-white border-1"
                     data-bs-toggle="tooltip"
@@ -216,6 +218,7 @@
     <script src="script/auth.js"></script>
     <script src="script/loader.js"></script>
     <script src="script/Components/NavController.js"></script>
+    <script src="script/genericsearch.js"></script>
     <script src="script/Components/Spinner.js"></script>
     
     <script src="script/listposts.js"></script>

@@ -22,8 +22,11 @@ nav.navbar {
 .top-navbar-color {
   background-color: #273b22;
 }
+.min-profile-dimension {
+  width: 3rem;
+  height: 3rem;
+}
 
-.min-profile-dimension,
 .min-logo-dimension {
   max-width: 3rem;
   height: auto;

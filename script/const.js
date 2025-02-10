@@ -20,7 +20,9 @@ const _EXPLORE_URL = "refinesearchpage.html";
 const _SAVED_URL = "saved.html";
 const _LOGIN_URL = "signin.html";
 const _LOGOUT_URL = "logout.html";
-const _SIGNUP_URL = "signup.html"
+const _SIGNUP_URL = "signup.html";
+const _VIEWPOST_URL = "viewpost.html";
+const _SEARCH_URL = "search.html";
 
 
 // site pages' icon (FONT AWESOME CLASS)

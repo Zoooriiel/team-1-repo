@@ -4,11 +4,12 @@ async function post(formData = {}) {
             method: "POST",
             body: formData
         });
+        if(response.ok)
+            return response;
 
         return response;
 
     } catch(error) {
         console.log("Exception error gotten is: " + error.message);
-
     }
 }
