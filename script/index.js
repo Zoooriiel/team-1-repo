@@ -1,4 +1,4 @@
-function listPosts(posts) {
+function listHomePosts(posts) {
     try{
         const postContainerWrapper = document.querySelector(
         ".post-container-wrapper"
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
         const posts = await response.json();
-        listPosts(posts);
+        listHomePosts(posts);
 
     } catch (error) {
     console.error("Error fetching posts:", error);
