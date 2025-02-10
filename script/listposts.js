@@ -33,6 +33,13 @@ function listPosts(posts, typeOfPost, query="") {
           elementTagQuery.textContent = categoryStr;
         }
 
+        const searchUserPicUrl = post.user.userProfileImage;
+        let fullSearchUserPicUrl = "";
+
+        if(!searchUserPicUrl) 
+          fullSearchUserPicUrl = "images/plantprofilepic.jpg"
+        else
+          fullSearchUserPicUrl = _SITE_ENDPOINT + searchUserPicUrl;
 
         postElement.innerHTML = `
           <div class="d-flex">
@@ -46,9 +53,9 @@ function listPosts(posts, typeOfPost, query="") {
               <div class="d-flex justify-content-between align-items-center mb-1 pt-3">
                 <div>
                   <span class="me-1">
-                    <img src="path_to_user_image/${
-                      post.user.id
-                    }" alt="User logo" class="rounded-circle">
+                    <img src="${
+                      fullSearchUserPicUrl
+                    }" alt="User logo" class="rounded-circle" style="height:2.5rem;width:2.5rem">
                   </span>
                   <span class="username fw-bold">${post.user.userName}</span>
                   <span class="text-muted fs-6 ms-2">${new Date(
@@ -77,10 +84,10 @@ function listPosts(posts, typeOfPost, query="") {
               </div>
               
               <div class="d-flex justify-content-start pb-3">
-                <span class="me-3"><img src="icons/like_icon.svg" alt="Like Icon"> ${
+                <span class="me-3"><img src="icons/like_icon.svg" class="me-1" alt="Like Icon"> ${
                   post.likes
                 } Like</span>
-                <span><img src="icons/comment_icon.svg" alt="Comments"> 0 Comments</span>
+                <span><img src="icons/comment_icon.svg" class="me-1" alt="Comments">${post.commentList.length} Comments</span>
               </div>
             </div>
           </div>
@@ -98,6 +105,14 @@ function listPosts(posts, typeOfPost, query="") {
           elementTagQuery.textContent = topicStr;
         }
 
+        const searchUserPicUrl = post.user.userProfileImage;
+        let fullSearchUserPicUrl = "";
+
+        if(!searchUserPicUrl) 
+          fullSearchUserPicUrl = "images/plantprofilepic.jpg"
+        else
+          fullSearchUserPicUrl = _SITE_ENDPOINT + searchUserPicUrl;
+
         postElement.innerHTML = `
           <div class="d-flex">
             <div class="post-thumbnail-container">
@@ -110,9 +125,9 @@ function listPosts(posts, typeOfPost, query="") {
               <div class="d-flex justify-content-between align-items-center mb-1 pt-3">
                 <div>
                   <span class="me-1">
-                    <img src="path_to_user_image/${
-                      post.user.id
-                    }" alt="User logo" class="rounded-circle">
+                    <img src="${
+                      fullSearchUserPicUrl
+                    }" alt="User logo" class="rounded-circle" style="height:2.5rem;width:2.5rem">
                   </span>
                   <span class="username fw-bold">${post.user.userName}</span>
                   <span class="text-muted fs-6 ms-2">${new Date(
@@ -141,16 +156,24 @@ function listPosts(posts, typeOfPost, query="") {
               </div>
               
               <div class="d-flex justify-content-start pb-3">
-                <span class="me-3"><img src="icons/like_icon.svg" alt="Like Icon"> ${
+                <span class="me-3"><img src="icons/like_icon.svg" class="me-1" alt="Like Icon"> ${
                   post.likes
                 } Like</span>
-                <span><img src="icons/comment_icon.svg" alt="Comments"> 0 Comments</span>
+                <span><img src="icons/comment_icon.svg" class="me-1" alt="Comments">${post.commentList.length} Comments</span>
               </div>
             </div>
           </div>
         `;
     } else {
-      
+
+      const searchUserPicUrl = post.user.userProfileImage;
+        let fullSearchUserPicUrl = "";
+
+        if(!searchUserPicUrl) 
+          fullSearchUserPicUrl = "images/plantprofilepic.jpg"
+        else
+          fullSearchUserPicUrl = _SITE_ENDPOINT + searchUserPicUrl;
+
       postElement.innerHTML = `
         <div class="d-flex">
           <div class="post-thumbnail-container">
@@ -163,9 +186,9 @@ function listPosts(posts, typeOfPost, query="") {
             <div class="d-flex justify-content-between align-items-center mb-1 pt-3">
               <div>
                 <span class="me-1">
-                  <img src="path_to_user_image/${
-                    post.user.id
-                  }" alt="User logo" class="rounded-circle">
+                  <img src="${
+                    fullSearchUserPicUrl
+                  }" alt="User logo" class="rounded-circle" style="height:2.5rem;width:2.5rem">
                 </span>
                 <span class="username fw-bold">${post.user.userName}</span>
                 <span class="text-muted fs-6 ms-2">${new Date(
@@ -188,11 +211,11 @@ function listPosts(posts, typeOfPost, query="") {
             </div>
             
             <div class="d-flex justify-content-start pb-3">
-              <span class="me-3"><img src="icons/like_icon.svg" alt="Like Icon"> ${
-                post.likes
-              } Like</span>
-              <span><img src="icons/comment_icon.svg" alt="Comments"> 0 Comments</span>
-            </div>
+                <span class="me-3"><img src="icons/like_icon.svg" class="me-1" alt="Like Icon"> ${
+                  post.likes
+                } Like</span>
+                <span><img src="icons/comment_icon.svg" class="me-1" alt="Comments">${post.commentList.length} Comments</span>
+              </div>
           </div>
         </div>
       `;
