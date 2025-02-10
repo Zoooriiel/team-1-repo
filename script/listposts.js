@@ -205,6 +205,7 @@ function listPosts(posts, typeOfPost, query="") {
 document.addEventListener("DOMContentLoaded", async () => {
   const postQueryString = window.location.search;
   const postUrlParams = new URLSearchParams(postQueryString);
+  const queryExists = window.location.search.includes("&query=")
 
   let categoryId = postUrlParams.get("category_id");
   let topicId = postUrlParams.get("topic_id");
@@ -232,7 +233,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         
         typeOfPost = "topic";
         
-      } else if (!categoryId && !topicId && query){
+      } else if (!categoryId && !topicId && queryExists){
         // TODO: To fix search.html call
         apiUrl = `http://localhost:8080/public/api/post/search/term?query=${encodeURIComponent(query)}`
 
