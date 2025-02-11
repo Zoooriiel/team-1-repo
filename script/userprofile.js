@@ -95,7 +95,7 @@ function displayUserPosts(posts) {
             postElement.innerHTML = `
     <div class="card">
         <a href=${postUrl}>
-            <img src="${_SITE_ENDPOINT + post.imageUrl}" class="card-img-top" alt="Post Image">
+            <img id="post-image" src="${_SITE_ENDPOINT + post.imageUrl}" class="card-img-top" alt="Post Image">
         </a>
         
         <div class="card-body">
