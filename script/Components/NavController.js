@@ -139,7 +139,7 @@ class NavController {
     }
   }
 
-  displayNavProfile(item) {
+  /* displayNavProfile(item) {
     const navList = document.createElement("li"); // Append menu item as list item
     this.navUL.appendChild(navList);
     navList.className = "nav-item text-nowrap";
@@ -157,7 +157,7 @@ class NavController {
 
     const tooltipProifleLink = navLink; // Set a new instance of the tooltip for the profile
     const tooltipProfile = new bootstrap.Tooltip(tooltipProifleLink);
-  }
+  } */
 
   displayCategoryList(ulElement, item) {
     const categoryList = document.createElement("li");

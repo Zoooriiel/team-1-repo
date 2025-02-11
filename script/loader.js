@@ -42,6 +42,10 @@ document.addEventListener("DOMContentLoaded", async (event) => {
         fullProfilePicUrl = _SITE_ENDPOINT + profilePicUrl;
 
     profilePic.src = fullProfilePicUrl;
+    const tooltipProfileName = user.userName;
+    profilePic.setAttribute("data-bs-toggle", "tooltip");
+    profilePic.setAttribute("data-bs-title", tooltipProfileName);
+    const toolTipProfile = new bootstrap.Tooltip(profilePic);
 
     // section used for createpost.html
     if (atCreatePostPageExists) {

@@ -86,37 +86,42 @@ i{
 }
 
 .bycategory-tag {
-    background-color: #c8ddef;
-    padding: 12px 0;
-  }
+  background-color: #c8ddef;
+  padding: 12px 0;
+}
 
-  .black-border{
-    border: 1px solid rgba(0, 0, 0, 0.337);
-  }
+.black-border{
+  border: 1px solid rgba(0, 0, 0, 0.337);
+}
 
-  #searchInputTopic, #searchInputCategory{
-    width: 65%;
-  }
+#searchInputTopic, #searchInputCategory{
+  width: 65%;
+}
 
-  .fixed-width-btn {
-    width: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    padding-right: 30px;
-  }
-  
-  .fixed-width-btn::after {
-    content: "";
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    border: 5px solid transparent;
-    border-top-color: #000000;
-    pointer-events: none;
-  }
+.fixed-width-btn {
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding-right: 30px;
+}
+
+.fixed-width-btn::after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-top-color: #000000;
+  pointer-events: none;
+}
+
+#profile-pic {
+  height: 3rem;
+  width: 3rem;
+}
 /*
  * When in Desktop Version and hiding Mobile elements 
  */
@@ -136,10 +141,10 @@ i{
   display: none;
 }
 
-  /* Hide refine search container in desktop */
-  .refine-search-container-mobile{
-    display: none;
-  }
+/* Hide refine search container in desktop */
+.refine-search-container-mobile{
+  display: none;
+}
 
 /* 
 *Mobile Section

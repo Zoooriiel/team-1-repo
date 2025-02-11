@@ -15,7 +15,7 @@ const _LOGOUT_TITLE = "logout";
 // corresponding site pages' links
 const _HOME_URL = "index.html";             
 const _CREATEAPOST_URL = "createpost.html";
-const _PROFILE_URL = "profile.html";
+const _PROFILE_URL = "userprofile.html";
 const _EXPLORE_URL = "refinesearchpage.html";
 const _SAVED_URL = "saved.html";
 const _LOGIN_URL = "signin.html";
