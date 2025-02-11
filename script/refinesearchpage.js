@@ -42,12 +42,13 @@ function performSearch(inputTypeId = null){
     let searchMethod = 1;
     let resultsPage = "";
 
-    if(inputTypeId === "byCategorySearchBtn")
+    if(inputTypeId === "byCategorySearchBtn") {
         resultsPage = "plantposts.html"
-    if(inputTypeId === "byTopicSearchBtn")
+    } else if (inputTypeId === "byTopicSearchBtn") {
         resultsPage = "topicposts.html"
-    if(inputTypeId === "byGenericSearch")
+    } else {
         resultsPage = "search.html"
+    }
 
     console.log("I will navigate to" + resultsPage);
 
