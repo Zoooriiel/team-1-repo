@@ -88,6 +88,7 @@ function displayUserPosts(posts) {
     
     if (posts && posts.length > 0) {
         posts.forEach(post => {
+            const postUrl = _VIEWPOST_URL + "?post_id=" + post.id;
             const postElement = document.createElement('div');
             postElement.classList.add('col-md-4', 'mb-4');
             
