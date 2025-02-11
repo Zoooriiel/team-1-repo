@@ -35,7 +35,14 @@ async function fetchUserProfile() {
 // Get profile section
 function getProfile(userData) {
 
-    const profilePhoto = userData.userProfileImage || 'placeholderimagelol.jpg';
+    const profilePhotoPath = userData.userProfileImage;
+    let profilePhoto = ""
+
+    if(!profilePhotoPath) 
+        profilePhoto = "images/plantprofilepic.jpg"
+    else
+        profilePhoto = _SITE_ENDPOINT + profilePhotoPath
+
     document.getElementById('profile-photo').src = profilePhoto;
 
     const profileName = userData.userName;
@@ -85,7 +92,7 @@ function displayUserPosts(posts) {
             
             postElement.innerHTML = `
     <div class="card">
-        <img src=${post.imageUrl} class="card-img-top" alt="Post Image">
+        <img src=${_SITE_ENDPOINT + post.imageUrl} class="card-img-top" alt="Post Image">
         
         <div class="card-body">
             <h5 class="card-title">${post.title}</h5>
