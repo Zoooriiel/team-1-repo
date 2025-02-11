@@ -48,10 +48,6 @@ function getProfile(userData) {
     const profileName = userData.userName;
     document.getElementById('profile-name').innerText = profileName;
 
-    // TODO Should there be a @username instead of email?
-    const profileUsername = userData.username;
-    document.getElementById('profile-username').innerText = `@${profileUsername}`;
-
     const profileBio = userData.userBio || 'No bio';
     document.getElementById('profile-bio').innerText = profileBio;
 
@@ -82,6 +78,7 @@ async function fetchUserPosts(userId) {
 
 // Display user posts dynamically
 function displayUserPosts(posts) {
+    const postUrl = _VIEWPOST_URL + "?post_id=" + posts.id;
     const postsContainer = document.getElementById('posts-container');
     postsContainer.innerHTML = '';  
     
