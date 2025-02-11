@@ -169,53 +169,6 @@
               <div class="d-flex justify-content-start align-items-center mb-4">
                 <h4>Explore</h4>
               </div>
-
-              <div class="refine-search-container-desktop">
-                <h5 class="fw-bold">Refine your search:</h5>
-                <!-- Search By Topic -->
-                <div class="d-flex align-items-center mb-2 gap-2">
-                  <input
-                    class="form-control black-border"
-                    type="search"
-                    placeholder="Search"
-                    aria-label="Search"
-                    id="searchInputTopic"
-                  />
-
-                  <!-- Using HTML select topicDropdown -->
-                  <select class="form-select" id="topicDropdown" aria-label="Disabled select example">
-                    <!-- TODO Change this to a dynamic dropdown -->
-                    <option selected>Topics</option>
-                    <!-- <option value="1">Tips</option>
-                    <option value="2">Plant Exchange</option>
-                    <option value="3">Giveaway</option> -->
-                  </select>
-
-                  <span class="badge text-dark w-25 black-border  fs-6 bytopic-tag" id="byTopicSearchBtn">By Topic</span>
-                </div>
-
-                <!-- Search By Category -->
-                <div class="d-flex align-items-center gap-2">
-                  <input
-                    class="form-control black-border"
-                    type="search"
-                    placeholder="Search"
-                    aria-label="Search"
-                    id="searchInputCategory"
-                  />
-
-                  <!-- Using HTML select for categoryDropdown -->
-                  <select class="form-select" id="categoryDropdown" aria-label="Disabled select example">
-                    <!-- TODO Change this to a dynamic dropdown -->
-                    <option selected>Category</option>
-                    <!-- <option value="1">Succulent</option>
-                    <option value="2">Leafy Plants</option>
-                    <option value="3">Creepers</option> -->
-                  </select>
-
-                  <span class="badge text-dark w-25 black-border fs-6 bycategory-tag" id="byCategorySearchBtn">By Category</span>
-                </div>
-              </div>
             </div>
 
             <!-- Breadcrumbs (Mobile)-->
@@ -223,28 +176,46 @@
               <h4>Explore</h4>
             </div>
 
-            <div class="refine-search-container-mobile">
+            <div class="refine-search-container-desktop">
               <h5 class="fw-bold">Refine your search:</h5>
+              <!-- Search By Topic -->
               <div class="d-flex align-items-center mb-2 gap-2">
                 <input
                   class="form-control black-border"
                   type="search"
                   placeholder="Search"
                   aria-label="Search"
-                  id="searchInput"
+                  id="searchInputTopic"
                 />
-                <span class="badge text-dark w-25 black-border bytopic-tag">By Tags</span>
+
+                <!-- Using HTML select topicDropdown -->
+                <select class="form-select" id="topicDropdown" aria-label="Disabled select example">
+                  <option selected>Topics</option>
+                  
+                </select>
+
+                <span class="badge text-dark w-25 black-border  fs-6 bytopic-tag" id="byTopicSearchBtn">By Topic</span>
               </div>
-              
+
+              <!-- Search By Category -->
               <div class="d-flex align-items-center gap-2">
                 <input
                   class="form-control black-border"
                   type="search"
                   placeholder="Search"
                   aria-label="Search"
+                  id="searchInputCategory"
                 />
-                <span class="badge text-dark w-25 black-border bycategory-tag">By Category</span>
+
+                <!-- Using HTML select for categoryDropdown -->
+                <select class="form-select" id="categoryDropdown" aria-label="Disabled select example">
+                  <option selected>Category</option>
+                </select>
+
+                <span class="badge text-dark w-25 black-border fs-6 bycategory-tag" id="byCategorySearchBtn">By Category</span>
               </div>
+            </div>
+          </div>
             </div>
           </div>
         </div>

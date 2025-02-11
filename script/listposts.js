@@ -18,6 +18,8 @@ function listPosts(posts, typeOfPost, query="") {
 
     const elementTagQuery = document.getElementById("tagQuery");
     const elementTagType = document.getElementById("tagType");
+    const mobileElementTagQuery = document.getElementById("mobileTagQuery")
+    const mobileElementTagType = document.getElementById("mobileTagType")
 
     const searchUserPicUrl = post.user.userProfileImage;
     let fullSearchUserPicUrl = "";
@@ -34,13 +36,16 @@ function listPosts(posts, typeOfPost, query="") {
 
         // the search is for category aka plant
         elementTagType.textContent = post.category.name;
+        mobileElementTagType.textContent = post.category.name;
 
         // if no query, hide the tag along the title
         if(!query){
           elementTagQuery.style.display = "none";
+          mobileElementTagQuery.style.display = "none;"
         }else{
           const categoryStr = query.length >= 50 ? String(query).substring(0,50) + "..." : query;
           elementTagQuery.textContent = categoryStr;
+          mobileElementTagQuery.textContent = categoryStr;
         }
 
         postElement.innerHTML = `
@@ -50,7 +55,7 @@ function listPosts(posts, typeOfPost, query="") {
                 <img src="${
                   _SITE_ENDPOINT + post.imageUrl
                 }" alt="Post image" class="post-thumbnail">
-              
+              </a>
             </div>
 
             <div class="flex-grow-1 d-flex flex-column align-content-center ps-4">
@@ -100,13 +105,16 @@ function listPosts(posts, typeOfPost, query="") {
         
         // the search is for topic
         elementTagType.textContent = post.topic.name;
+        mobileElementTagType.textContent = post.topic.name;
 
         // if no query, hide the tag along the title
         if(!query){
           elementTagQuery.style.display = "none";
+          mobileElementTagQuery.style.display = "none";
         }else{
           const topicStr = query.length >= 50 ? String(query).substring(0,50) + "..." : query;
           elementTagQuery.textContent = topicStr;
+          mobileElementTagQuery.textContent = topicStr;
         }
 
         postElement.innerHTML = `

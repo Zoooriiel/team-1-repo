@@ -93,13 +93,6 @@ class NavController {
       this.displayCategoryList(this.plantCategoryUL, item);
     });
 
-    // TODO TOKEN
-    if (token) {
-      const user = decodeUser(token);
-      const userItem = { title: user.email, url: _PROFILE_URL };
-      this.displayNavProfile(userItem);
-    }
-
     return;
   }
 

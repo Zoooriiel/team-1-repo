@@ -170,11 +170,6 @@ i{
     min-width: 120px;
   }
 
-  /* Show refine search container in mobile */
-  .refine-search-container-mobile{
-    display: block;
-  }
-
   /* hide leaf in mobile */
   .hide{
     display: none;
