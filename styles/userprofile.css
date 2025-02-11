@@ -97,4 +97,13 @@
   .nav-tabs {
     justify-content: center;
   }
+
+  /* Prevent scrolling behind bottom navbar */
+  #posts-container {
+    padding-bottom: 5rem;
+  }
+
+  #saved-container {
+    padding-bottom: 5rem;
+  }
 }

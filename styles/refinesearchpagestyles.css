@@ -190,5 +190,10 @@ i{
     margin-right: 0 !important;
   }
 
+  /* Prevent scrolling behind bottom navbar */
+  .post-container-wrapper {
+    padding-bottom: 5rem;
+  }
+
 }
 

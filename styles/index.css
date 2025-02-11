@@ -152,19 +152,18 @@ a {
 
 @media only screen and (max-width: 640px) {
   /* view post */
-  .post-image-container {
-    margin-bottom: 1rem;
-  }
-
-  #view-post-card {
-    margin-bottom: 5rem;
-  }
 
   .post-thumbnail{
     width: 100%;
     height: 16rem;
     object-fit: cover;
   }
+
+  #bottom_navbar {
+    display: flex;
+    position: fixed;
+  }
+
 }
 
 /* End Mobile Section */
