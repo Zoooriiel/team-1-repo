@@ -82,7 +82,6 @@ async function fetchUserPosts(userId) {
 
 // Display user posts dynamically
 function displayUserPosts(posts) {
-    const postUrl = _VIEWPOST_URL + "?post_id=" + posts.id;
     const postsContainer = document.getElementById('posts-container');
     postsContainer.innerHTML = '';  
     
