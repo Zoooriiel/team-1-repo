@@ -46,7 +46,7 @@ function performSearch(inputTypeId = null){
         resultsPage = "plantposts.html"
     if(inputTypeId === "byTopicSearchBtn")
         resultsPage = "topicposts.html"
-    else
+    if(inputTypeId === "byGenericSearch")
         resultsPage = "search.html"
 
     console.log("I will navigate to" + resultsPage);
