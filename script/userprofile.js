@@ -82,6 +82,7 @@ async function fetchUserPosts(userId) {
 
 // Display user posts dynamically
 function displayUserPosts(posts) {
+    const postUrl = _VIEWPOST_URL + "?post_id=" + posts.id;
     const postsContainer = document.getElementById('posts-container');
     postsContainer.innerHTML = '';  
     
@@ -92,10 +93,12 @@ function displayUserPosts(posts) {
             
             postElement.innerHTML = `
     <div class="card">
-        <img src=${_SITE_ENDPOINT + post.imageUrl} class="card-img-top" alt="Post Image">
+        <a href=${postUrl}>
+            <img src="${_SITE_ENDPOINT + post.imageUrl}" class="card-img-top" alt="Post Image">
+        </a>
         
         <div class="card-body">
-            <h5 class="card-title">${post.title}</h5>
+            <a href=${postUrl}><h5 class="card-title">${post.title}</h5></a>
 
             <div class="mt-2">
                 <small class="text-muted">${new Date(post.dateTimeCreation).toLocaleString()}</small>
@@ -106,14 +109,12 @@ function displayUserPosts(posts) {
                 <span class="badge rounded-pill topic-category">${post.topic ? post.topic.name : 'Topic'}</span>
             </div>
             
-            <p class="card-text">${post.description}</p>
+            <p class="card-text">${post.description.length < 50 ? post.description : String(post.description).substring(0,50) + "..."}</p>
             
             <div class="d-flex justify-content-between">
                 <span><i class="far fa-heart"></i> ${post.likes || 0} Likes</span>
                 <span><i class="far fa-comment"></i> ${post.commentList.length || 0} Comments</span>
             </div>
-
-                    
         </div>
     </div>
 `;

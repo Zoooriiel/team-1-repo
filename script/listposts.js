@@ -50,7 +50,7 @@ function listPosts(posts, typeOfPost, query="") {
                 <img src="${
                   _SITE_ENDPOINT + post.imageUrl
                 }" alt="Post image" class="post-thumbnail">
-              </a>
+              
             </div>
 
             <div class="flex-grow-1 d-flex flex-column align-content-center ps-4">
