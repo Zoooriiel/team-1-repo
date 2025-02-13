@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>User Profile</title>
 
     <!-- Bootstrap CSS -->
     <link
@@ -20,9 +20,12 @@
       referrerpolicy="no-referrer"
     />
 
-    <link rel="stylesheet" href="styles/refinesearchpagestyles.css" />
-    <link rel="stylesheet" href="styles/mobilestyles.css" />
-    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" href="styles/topicposts.css" />
+    <link rel="stylesheet" href="styles/refinesearchpagestyles.css">
+    <link rel="stylesheet" href="styles/mobilestyles.css">
+    <link rel="stylesheet" href="styles/userprofile.css">
+
+    
   </head>
   <body>
     <div class="container-lg">
@@ -41,8 +44,9 @@
               </a>
             </div>
 
-            <!-- Search bar -->
-            <form id="searchGeneric" class="form-inline pt-1 w-50">
+            <!-- Drop-down Search bar -->
+            <form id ="searchGeneric" 
+            class="form-inline pt-1 w-50">
               <input
                 id="searchInputGeneric"
                 class="form-control rounded-pill"
@@ -50,9 +54,7 @@
                 placeholder="Search"
                 aria-label="Search"
               />
-              <button class="btn btn-primary d-none" type="submit">
-                Submit
-              </button>
+              <button class="btn btn-primary d-none" type="submit">Submit</button>
             </form>
 
             <div class="col-3 align-content-center">
@@ -82,7 +84,7 @@
                 <a id="profile-pic-link" class="mx-3 align-self-center" href="userprofile.html">
                   <img
                     id="profile-pic"
-                    src="images/plantprofilepic.jpg"
+                    src="images/profile_photo_placeholder.jpg"
                     alt="Profile Photo"
                     class="min-profile-dimension rounded-circle border border-white border-1"
                     data-bs-placement="bottom"
@@ -94,33 +96,37 @@
         </div>
       </nav>
 
-      <div class="container-fluid">
+      <div class="container-fluid" >
         <div class="row" id="push-contents-up">
+
           <!-- Sidenavbar -->
-          <div
-            class="col-md-3 min-vh-100 sidebar side-navbar-color side-navbar-hide"
-          >
-            <!-- Desktop menu -->
-            <div class="d-flex" id="navbarNav">
+          <div class="col-md-3 min-vh-100 sidebar side-navbar-color side-navbar-hide">
+              <!-- Desktop menu -->
+              <div class="d-flex" id="navbarNav">
               <!-- dynamic menu here -->
-            </div>
+              
+              </div>
 
-            <!-- Topic category tag -->
-            <div class="mt-4">
+              <!-- Topic category tag -->
+              <div class="mt-4">
               <h6 class="text-muted">TOPIC CATEGORIES</h6>
-              <ul class="list-unstyled" id="topicCategoryUL"></ul>
-            </div>
+              <ul class="list-unstyled" id="topicCategoryUL">
 
-            <!-- Botany tag -->
-            <div class="mt-4">
+              </ul>
+              </div>
+
+              <!-- Botany tag -->
+              <div class="mt-4">
               <h6 class="text-muted">PLANT CATEGORIES</h6>
-              <ul class="list-unstyled" id="plantCategoryUL"></ul>
-            </div>
+              <ul class="list-unstyled" id="plantCategoryUL">
 
-            <footer class="py-2 small">
+              </ul>
+              </div>
+
+              <footer class="py-2 small">
               <a id="about-us-link" href="about.html"><p>About Us</p></a>
               <p>Root Squad &copy; 2024</p>
-            </footer>
+              </footer>
           </div>
           <!-- End of Sidenavbar -->
 
@@ -162,48 +168,67 @@
             </li>
           </ul>
 
-          <!-- Main Content -->
 
-          <!-- Breadcrumbs (Desktop) -->
-          <div class="col-md-9 main-content p-4 main-content-color">
-            <!-- Main Content Header -->
-            <div class="breadcrumbs-container">
-              <div class="d-flex justify-content-start align-items-center mb-4">
-                <h4>Home Page</h4>
-              </div>
-            </div>
-
-            <!-- Breadcrumbs (Mobile)-->
-            <div class="breadcrumbs-mobile mb-4">
-              <h4>Home Page</h4>
-            </div>
-            <!-- End of view post card -->
-            <!-- Post Container -->
-            <div class="post-container-wrapper">
-                        
-            </div>
-            <!-- End of Post Container -->
-            
-          </div>
-          <!-- End of main content -->
-
-          
-           
-        </div>
-      </div>
+<!-- Start of main content -->
+<div class="col-md-9 main-content p-4 main-content-color">
+    <div class="profile-header text-center mb-4">
+        <img id="profile-photo" src="" alt="Profile Photo" class="profile-photo rounded-circle border border-white border-2 mb-3"/>
+        <h3 id="profile-name">Profile name not found</h3>
+        <p id="profile-bio" class="bio">No bio</p>
+        <!-- TODO Have edit profile button??? Since it's user profile, if logged in then show if not then no -->
+        <!--<button class="btn btn-outline-light btn-sm" id="edit-profile-btn">Edit Profile</button> -->
     </div>
+  
+    <div class="d-flex justify-content-center mb-4">
+        <p id="posts-count" class="me-4"><strong>0</strong> Posts</p>
+        <p id="followers-count" class="me-4"><strong>0</strong> Followers</p>
+        <p id="following-count"><strong>0</strong> Following</p>
+    </div>
+  
+    <ul class="nav nav-tabs mt-4" id="profileTabs">
+        <li class="nav-item">
+            <a class="nav-link active" id="posts-tab" data-bs-toggle="tab" href="#posts">Posts</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="saved-tab" data-bs-toggle="tab" href="#saved">Saved</a>
+        </li>
+    </ul>
+  
+    <div class="tab-content mt-3">
+        <!-- User Posts -->
+        <div class="tab-pane fade show active" id="posts">
+            <div id="posts-container" class="row">
+                <!-- Dynamic posts will go here -->
+            </div>
+        </div>
+  
+        <!-- Saved Posts -->
+        <div class="tab-pane fade" id="saved">
+            <div id="saved-container" class="row">
+                <!-- TODO Wishlisted -->
+                <!-- Dynamic saved posts will go here -->
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- End of main content -->
+  
+        
+
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script/toolitp.js"></script>
     <script src="script/const.js"></script>
-
+    
     <script src="script/auth.js"></script>
     <script src="script/loader.js"></script>
     <script src="script/Components/NavController.js"></script>
     <script src="script/genericsearch.js"></script>
     <script src="script/Components/Spinner.js"></script>
+    
+    <script src="script/listposts.js"></script>
+    <script src="script/userprofile.js"></script>
 
-    <script src="script/index.js"></script>
   </body>
 </html>

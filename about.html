@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Root Squad</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Import fonts awesome stylesheet -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles/refinesearchpagestyles.css">
+    <link rel="stylesheet" href="styles/about.css">
+</head>
+<body>
+
+    <div class="container-lg">
+        <!-- Top Navbar -->
+        <!-- Top Navbar -->
+        <nav class="top-navbar-color px-2 py-2">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-3 align-content-center">
+                        <!-- Logo -->
+                        <a class="" href="index.html">
+                            <img
+                            class="min-logo-dimension rounded-circle"
+                            src="images/root_squad_logo.jpg"
+                            alt="Logo"
+                            />
+                        </a>
+                    </div>
+
+                    <!-- Search bar -->
+                    <form id ="searchGeneric" 
+                    class="form-inline pt-1 w-50">
+                    <input
+                        id="searchInputGeneric"
+                        class="form-control rounded-pill"
+                        type="search"
+                        placeholder="Search"
+                        aria-label="Search"
+                    />
+                    <button class="btn btn-primary d-none" type="submit">Submit</button>
+                    </form>
+
+                    <div class="col-3 align-content-center">
+                    <!-- Top right menu -->
+                        <div class="d-inline-flex float-end">
+                            <a
+                            class="mx-3 text-white text-center align-self-center d-blockp-2"
+                            href="createpost.html"
+                            >
+                            <i
+                                class="fa fa-leaf fs-3"
+                                data-bs-toggle="tooltip"
+                                data-bs-title="Create a Post"
+                                data-bs-placement="bottom"
+                                aria-hidden="true"
+                            ></i>
+                            </a>
+                            <a class="mx-3 align-self-center" href="#">
+                            <i
+                                class="fa fa-bell text-white fs-3"
+                                data-bs-toggle="tooltip"
+                                data-bs-title="Notifications"
+                                data-bs-placement="bottom"
+                                aria-hidden="true"
+                            ></i>
+                            </a>
+                            <a id="profile-pic-link" class="mx-3 align-self-center" href="userprofile.html">
+                            <img
+                                id="profile-pic"
+                                src="images/plantprofilepic.jpg"
+                                alt="Profile Photo"
+                                class="min-profile-dimension rounded-circle border border-white border-1"
+                                data-bs-placement="bottom"
+                            />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- End of Top Navbar -->
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- Sidenavbar -->
+            <div class="col-md-3 min-vh-100 sidebar side-navbar-color side-navbar-hide">
+                <!-- Desktop menu --> 
+                <div class="d-flex flex-column" id="navbarNav">  
+                <!-- dynamic menu here -->
+                    
+                </div>  
+
+                <!-- Topic category tag -->
+                <div class="mt-4">
+                    <h6 class="text-muted">TOPIC CATEGORIES</h6>
+                    <ul class="list-unstyled" id="topicCategoryUL">
+                        
+                    </ul>
+                </div>
+                
+                <!-- Plant category tag -->
+                <div class="mt-4">
+                    <h6 class="text-muted">PLANT CATEGORIES</h6>
+                    <ul class="list-unstyled" id="plantCategoryUL">
+                    
+                    </ul>
+                </div>
+                
+                <footer class="py-2 small">
+                    <a id="about-us-link" href="about.html"><p>About Us</p></a>
+                    <p>Root Squad &copy; 2024</p>
+                </footer>
+            </div>
+            <!-- End of Sidenavbar -->
+
+            <!-- Start of Bottomnavbar (Mobile) -->
+            <ul id="bottom_navbar" class="nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html">
+                        <i class="fa fa-home text-light fs-5" aria-hidden="true"></i>
+                        <span class="icon-text-color">Home</span>
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="RefineSearchPage.html">
+                        <i class="fa fa-search text-light fs-5" aria-hidden="true"></i>
+                        <span class="icon-text-color">Explore</span>
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="createpost.html">
+                        <i class="fa fa-leaf text-light fs-5" aria-hidden="true"></i>
+                        <span class="icon-text-color">Post</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-bookmark text-light fs-5" aria-hidden="true"></i>
+                        <span class="icon-text-color">Saved</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="userprofile.html">
+                        <i class="fa fa-user text-light fs-5" aria-hidden="true"></i>
+                        <span class="icon-text-color">Profile</span>
+                    </a>
+                </li>                   
+              
+        </ul>    
+
+            <!-- About Us Content -->
+            <div class="col-md-9 main-content pt-3 main-content-color">
+                <div class="d-flex justify-content-center align-items-center mb-4">
+                        <!-- parent card -->
+                        <div class="card p-1 col-md-12 shadow card-body-color about-us-cards-mobile"> 
+                            <div class="about-heading d-flex flex-column justify-content-center align-items-center">
+                                <h4 class="pt-3 mt-2" style="font-weight: bold">About Root Squad</h4>
+                                <p class="p-1 m-1">Welcome to Root Squad, the cozy corner for house plant lovers! Whether you're a seasoned plant parent or just starting your green journey, Root Squad is the perfect place to connect with fellow plant enthusiasts. Our app brings together people who share a passion for house plants, allowing you to swap tips, share your plant stories, and discover new leafy friends. With features like plant care advice and a lively community forum, Root Squad is all about growing together. Join us and be part of a warm, welcoming community that celebrates the joy of house plants!</p>
+                            </div>
+
+                            <div class="container mt-4 ">
+                            <!-- section outside cards -->
+                                <div class="row row row-cols-2"> 
+                                <!-- cards section -->
+                                    
+                                    <!-- Card 1 -->
+                                    <div class="col-md-3 mb-4">
+                                        <div class="card shadow card-body-color p-3">
+                                            <div class="d-flex justify-content-center align-items-center">
+                                                <img src="images/gina.jpg" alt="pic-of-gina" width="80" height="90">
+                                            </div>
+                                            <div class="about-text fs-6 text-center mt-2">
+                                                <a>Gina</a><br>
+                                                <a class="about-link" href="https://github.com/Zoooriiel" target="_blank" style="font-weight: bold;">
+                                                    Junior Full-Stack developer
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                            
+                                    <!-- Card 2 -->
+                                    <div class="col-md-3 mb-4">
+                                        <div class="card shadow card-body-color p-3">
+                                            <div class="d-flex justify-content-center align-items-center">
+                                                <img src="images/jiaen.jpg" alt="pic-of-jiaen" width="80" height="90">
+                                            </div>
+                                            <div class="about-text fs-6 text-center mt-2">
+                                                <a>Jia En</a><br>
+                                                <a class="about-link" href="https://github.com/ChanJESG" target="_blank" style="font-weight: bold;">
+                                                    Junior Full-Stack developer
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                            
+                                    <!-- Card 3 -->
+                                    <div class="col-md-3 mb-4">
+                                        <div class="card shadow card-body-color p-3">
+                                            <div class="d-flex justify-content-center align-items-center">
+                                                <img src="images/jinying.JPG" alt="pic-of-jin" width="80" height="90">
+                                            </div>
+                                            <div class="about-text fs-6 text-center mt-2">
+                                                <a>Jin Ying</a><br>
+                                                <a class="about-link" href="https://github.com/jinygoh" target="_blank" style="font-weight: bold;">
+                                                    Junior Full-Stack developer
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                            
+                                    <!-- Card 4 -->
+                                    <div class="col-md-3 mb-4">
+                                        <div class="card shadow card-body-color p-3">
+                                            <div class="d-flex justify-content-center align-items-center">
+                                                <img src="images/shazana.jpg" alt="pic-of-shaz" width="80" height="90">
+                                            </div>
+                                            <div class="about-text fs-6 text-center mt-2">
+                                                <a>Shazana</a><br>
+                                                <a class="about-link" href="https://github.com/Breakaway7429" target="_blank" style="font-weight: bold;">
+                                                    Junior Full-Stack developer
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                            
+                                </div>
+                            </div>
+                            
+
+                        </div>
+                </div>
+
+                <div class="container d-flex justify-content-center align-items-center mb-4 w-75 gap-5 social-contact">
+        
+                    <!-- Social Media Section -->
+                    <div class="socials mb-3 text-center">
+                        <p class="mt-3">You can also follow us on social media:</p>
+                        <div class="social-icons d-flex justify-content-center gap-1">
+                            <img src="icons/socials_instagram_icon.svg " alt="Instagram" width="30" height="30">
+                            <img src="icons/socials_facebook_icon.svg" alt="Facebook" width="30" height="30">
+                            <img src="icons/socials_x_icon.svg" alt="X" width="30" height="30">
+                            <img src="icons/socials_tiktok_icon.svg" alt="TikTok" width="30" height="30">
+                        </div>
+                    </div>
+
+                    <!-- Contact Section -->
+                    <div class="contact text-center mt-2">
+                        <h5>Contact</h5>
+                        <p class="mb-1">Email: contact@rootsquad.com</p>
+                        <p class="mb-1">Phone: +65 6543 1234</p>
+                        <p class="mb-1">Address: 123 Main Street, Singapore 123456</p>
+                    </div>
+
+                </div>
+
+            </div>        
+
+    </div>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script/toolitp.js"></script>
+    <script src="script/const.js"></script>
+
+    <script src="script/auth.js"></script>
+    <script src="script/loader.js"></script>
+    <script src="script/Components/NavController.js"></script>
+    <script src="script/genericsearch.js"></script>
+    <script src="script/Components/Spinner.js"></script>
+</body>
+</html>

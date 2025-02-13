@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    /* border: dotted 1px black; */
+}
+
+body {
+    font-family: 'Lato', sans-serif; 
+}
+
+/* Top Navbar */
+nav.navbar{
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+    z-index: 5;
+}
+
+.top-navbar-color{
+    background-color: #273B22;
+}
+
+.navbar-brand {
+    margin-left: 2rem;
+}
+
+.search-bar-color{
+    background-color: #384C46;
+}
+
+.min-profile-dimension,
+.min-logo-dimension {
+  max-width: 3rem;
+  height: auto;
+}
+
+/* Side Navbar */
+.sidebar {
+    min-height: 100vh;
+}
+
+.side-navbar-color{
+    background: rgba(78, 78, 29, 0.41);;
+}
+
+#side-nav-icons-flex{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.sidebar .nav-link {
+    color: #000;
+}
+
+.sidebar .nav-link img {
+    width: 30px;
+    height: 30px;
+}
+
+.side-nav-icons{
+    color: black;
+}
+
+/* About Us Content */
+
+.about-heading{
+    text-align: center;
+}
+
+.main-content-color{
+    background-color: #fff4ed;
+}
+
+/* Card */
+
+.card img {
+    object-fit: cover;
+}
+
+.card-body-color{
+    background-color: #ffffff
+}
+
+.about-link{
+  color: #0d805e;
+} 
+
+ /* Social Media Section */
+
+/*
+ * When in Desktop Version and hiding Mobile elements 
+ */
+
+/* Hide mobile notification bell in desktop */
+
+.mobile-bell {
+    display: none;
+  }
+  
+  /* Hide Bottom Navbar in desktop */
+  #bottom_navbar {
+    display: none;
+  } 
+
+  .breadcrumbs-mobile {
+    display: none;
+  }
+
+  /* 
+*Mobile Section
+*/
+
+@media only screen and (max-width: 640px) {
+    /* Remove container in mobile */
+    div.container-lg {
+      width: 100%;
+      padding: 0 0 4rem 0;
+    }
+  
+    /* Breadcrumbs mobile */
+    .breadcrumbs-container {
+      display: none;
+    }
+  
+    .breadcrumbs-mobile {
+      display: block;
+    }
+  
+    /* Hide desktop top nav bar elements */
+    .nav-top-icon-profile, .nav-top-icon-post {
+      display: none;
+    }
+  
+    /* Unhide notification bell in mobile view */
+    .mobile-bell {
+      display: block;
+      background-color: #ffffed;
+      padding-bottom: 0;
+      font-size: 24px;
+      display: flex;
+      justify-content: end;
+      padding: 15px 20px 0px 0px;
+    }
+  
+    /* Hide side navbar */
+    .side-navbar-hide {
+      display: none;
+    } 
+
+    .social-contact{
+        flex-direction: column-reverse;
+    }
+  
+    /* 
+    * Mobile card 
+    */ 
+  
+    /* Card top color change in mobile view*/
+    .card-top-color-mobile {
+      padding-bottom: 0;
+    }
+  
+    /* Bottom-navbar */
+    #bottom_navbar {
+      display: block;
+      position: fixed;
+      bottom: 0;
+      overflow: hidden;
+      z-index: 5;
+      display: flex;
+      justify-content: space-evenly;
+      align-content: center;
+      background-color: #273b22;
+      height: 4.5rem;
+    }
+  
+    .icon-text-color {
+      color: white;
+      font-size: 14px;
+    }
+  
+    a.nav-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+  }
+  
+  /* End Mobile Section */

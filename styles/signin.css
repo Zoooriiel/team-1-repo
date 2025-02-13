@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* border: dotted 1px black; */
+}
+
+body {
+    font-family: 'Lato', sans-serif; 
+    background-image: url('/images/background.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.signin-container {
+    background-color: rgb(218, 218, 203); 
+    backdrop-filter: blur(10px); 
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.btn-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.divider {
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+}
+.divider::before,
+.divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background-color: #ccc;
+}
+.divider::before {
+    left: 0;
+}
+.divider::after {
+    right: 0;
+}
+.divider span {
+    padding: 0 10px;
+    color: #666;
+}
+.text-link {
+    color: #007bff;
+    text-decoration: none;
+}
+.text-link:hover {
+    text-decoration: underline;
+}
+/*
+ * When in Desktop Version and hiding Mobile elements 
+*/
+
+.small-mobile-logos {
+    display: none; /* hide on desktop */
+}
+
+/* 
+*Mobile Section
+*/
+
+@media only screen and (max-width: 640px) {
+/* Hide desktop elements */
+  .desktop-socials {
+    display: none;
+  }
+
+  /* Unhide  in mobile view */
+  .small-mobile-logos {
+    display: block;
+    width: 50px;
+    height: 50px;
+  }
+  
+}

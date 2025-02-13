@@ -1,0 +1,195 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  
+}
+
+body {
+  background: #e0e1de;
+  font-family: "Lato", sans-serif;
+}
+
+/* Top Navbar */
+nav.navbar {
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.top-navbar-color {
+  background-color: #273b22;
+}
+.min-profile-dimension {
+  width: 3rem;
+  height: 3rem;
+}
+
+.min-logo-dimension {
+  max-width: 3rem;
+  height: auto;
+}
+
+/* Side Navbar */
+
+.side-navbar-color {
+  background: #bbbbab;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.sidebar .nav-link {
+  color: #000;
+}
+
+.side-nav-icons {
+  color: black;
+}
+
+/* Main content */
+.main-content .topic-tag {
+  padding-left: 1rem;
+  font-size: 0.8rem;
+}
+
+.main-content-color {
+  background-color: #ffffed;
+  font-size: 0.8rem;
+}
+
+/* Icon for JS <i> </i> Nav controller */
+i{
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+
+
+
+/* Refine search body */
+
+#byTopicSearchBtn, #byCategorySearchBtn{
+  width: 150px; 
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+}
+
+.bytopic-tag {
+  background-color: #b8a589;
+  padding: 12px 0;
+}
+
+.bycategory-tag {
+  background-color: #c8ddef;
+  padding: 12px 0;
+}
+
+.black-border{
+  border: 1px solid rgba(0, 0, 0, 0.337);
+}
+
+#searchInputTopic, #searchInputCategory{
+  width: 65%;
+}
+
+.fixed-width-btn {
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding-right: 30px;
+}
+
+.fixed-width-btn::after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-top-color: #000000;
+  pointer-events: none;
+}
+
+#profile-pic {
+  height: 3rem;
+  width: 3rem;
+}
+
+/*
+ * When in Desktop Version and hiding Mobile elements 
+ */
+
+/* Hide mobile notification bell in desktop */
+
+.mobile-bell {
+  display: none;
+}
+
+/* Hide Bottom Navbar in desktop */
+#bottom_navbar {
+  display: none;
+}
+
+.breadcrumbs-mobile {
+  display: none;
+}
+
+/* Hide refine search container in desktop */
+.refine-search-container-mobile{
+  display: none;
+}
+
+/* 
+*Mobile Section
+*/
+
+@media only screen and (max-width: 640px) {
+  
+  .main-content{
+    height: 100vh;
+  }
+
+
+
+  #push-contents-up{
+    padding-bottom: 3.125rem;
+  }
+
+  /* Font-size in mobile */
+  .bytopic-tag,
+  .bycategory-tag {
+    font-size: 0.8rem;
+    padding: 10px 15px;
+    min-width: 120px;
+  }
+
+  /* hide leaf in mobile */
+  .hide{
+    display: none;
+  }
+
+  .top-navbar-color .d-inline-flex.float-end {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .mx-3 {
+    margin-left: 10px !important;
+    margin-right: 0 !important;
+  }
+
+  /* Prevent scrolling behind bottom navbar */
+  .post-container-wrapper {
+    padding-bottom: 5rem;
+  }
+
+}
+

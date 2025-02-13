@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>Refine Search</title>
 
     <!-- Bootstrap CSS -->
     <link
@@ -21,8 +21,7 @@
     />
 
     <link rel="stylesheet" href="styles/refinesearchpagestyles.css" />
-    <link rel="stylesheet" href="styles/mobilestyles.css" />
-    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" href="styles/mobilestyles.css">
   </head>
   <body>
     <div class="container-lg">
@@ -42,7 +41,8 @@
             </div>
 
             <!-- Search bar -->
-            <form id="searchGeneric" class="form-inline pt-1 w-50">
+            <form id ="searchGeneric" 
+              class="form-inline pt-1 w-50">
               <input
                 id="searchInputGeneric"
                 class="form-control rounded-pill"
@@ -50,16 +50,14 @@
                 placeholder="Search"
                 aria-label="Search"
               />
-              <button class="btn btn-primary d-none" type="submit">
-                Submit
-              </button>
+              <button class="btn btn-primary d-none" type="submit">Submit</button>
             </form>
 
             <div class="col-3 align-content-center">
               <!-- Top right menu -->
               <div class="d-inline-flex float-end">
                 <a
-                  class="mx-3 text-white text-center align-self-center d-blockp-2"
+                  class="mx-3 text-white text-center align-self-center d-blockp-2 hide"
                   href="createpost.html"
                 >
                   <i
@@ -97,24 +95,27 @@
       <div class="container-fluid">
         <div class="row" id="push-contents-up">
           <!-- Sidenavbar -->
-          <div
-            class="col-md-3 min-vh-100 sidebar side-navbar-color side-navbar-hide"
-          >
+          <div class="col-md-3 min-vh-100 sidebar side-navbar-color side-navbar-hide">
             <!-- Desktop menu -->
             <div class="d-flex" id="navbarNav">
               <!-- dynamic menu here -->
+              
             </div>
 
             <!-- Topic category tag -->
             <div class="mt-4">
               <h6 class="text-muted">TOPIC CATEGORIES</h6>
-              <ul class="list-unstyled" id="topicCategoryUL"></ul>
+              <ul class="list-unstyled" id="topicCategoryUL">
+
+              </ul>
             </div>
 
             <!-- Botany tag -->
             <div class="mt-4">
               <h6 class="text-muted">PLANT CATEGORIES</h6>
-              <ul class="list-unstyled" id="plantCategoryUL"></ul>
+              <ul class="list-unstyled" id="plantCategoryUL">
+
+              </ul>
             </div>
 
             <footer class="py-2 small">
@@ -163,32 +164,61 @@
           </ul>
 
           <!-- Main Content -->
-
-          <!-- Breadcrumbs (Desktop) -->
           <div class="col-md-9 main-content p-4 main-content-color">
-            <!-- Main Content Header -->
-            <div class="breadcrumbs-container">
+            <!-- Breadcrumbs (Desktop) -->
+            <div class="breadcrumbs-container d-none d-md-block">
               <div class="d-flex justify-content-start align-items-center mb-4">
-                <h4>Home Page</h4>
+                <h4>Explore</h4>
               </div>
             </div>
 
             <!-- Breadcrumbs (Mobile)-->
-            <div class="breadcrumbs-mobile mb-4">
-              <h4>Home Page</h4>
+            <div class="breadcrumbs-mobile mb-4 d-block d-md-none">
+              <h4>Explore</h4>
             </div>
-            <!-- End of view post card -->
-            <!-- Post Container -->
-            <div class="post-container-wrapper">
-                        
-            </div>
-            <!-- End of Post Container -->
-            
-          </div>
-          <!-- End of main content -->
 
-          
-           
+            <div class="refine-search-container-desktop">
+              <h5 class="fw-bold">Refine your search:</h5>
+              <!-- Search By Topic -->
+              <div class="d-flex align-items-center mb-2 gap-2">
+                <input
+                  class="form-control black-border"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                  id="searchInputTopic"
+                />
+
+                <!-- Using HTML select topicDropdown -->
+                <select class="form-select" id="topicDropdown" aria-label="Disabled select example">
+                  <option selected disabled value="">Topics</option>
+                  
+                </select>
+
+                <span class="badge text-dark w-25 black-border fs-6 bytopic-tag" id="byTopicSearchBtn">By Topic</span>
+              </div>
+
+              <!-- Search By Category -->
+              <div class="d-flex align-items-center gap-2">
+                <input
+                  class="form-control black-border"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                  id="searchInputCategory"
+                />
+
+                <!-- Using HTML select for categoryDropdown -->
+                <select class="form-select" id="categoryDropdown" aria-label="Disabled select example">
+                  <option selected disabled value="">Category</option>
+                </select>
+
+                <span class="badge text-dark w-25 black-border fs-6 bycategory-tag" id="byCategorySearchBtn">By Category</span>
+              </div>
+            </div>
+          </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -196,14 +226,14 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script/toolitp.js"></script>
-    <script src="script/const.js"></script>
-
-    <script src="script/auth.js"></script>
-    <script src="script/loader.js"></script>
+    
     <script src="script/Components/NavController.js"></script>
-    <script src="script/genericsearch.js"></script>
     <script src="script/Components/Spinner.js"></script>
+    <script src="script/loader.js"></script>
+    <script src="script/const.js"></script>
+    <script src="script/auth.js"></script>
 
-    <script src="script/index.js"></script>
+    <script src="script/refinesearchpage.js"></script>
+
   </body>
 </html>
